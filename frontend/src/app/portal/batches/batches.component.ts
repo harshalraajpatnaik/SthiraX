@@ -324,7 +324,74 @@ import { ProductionBatch, Plant, Product } from '../../core/models';
       </div>
 
     </div>
-  `
+  `,
+  styles: [`
+    .batches-portal-page {
+      padding: 0.5rem 0 3rem;
+    }
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .telemetry-drawer {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .sub-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.85rem;
+      padding: 1.15rem;
+    }
+    .sensor-bar-bg {
+      width: 100%;
+      background-color: #E2E8F0;
+      border-radius: 9999px;
+      height: 6px;
+      overflow: hidden;
+    }
+    .sensor-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+    }
+    .table-container {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+    .table-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      max-width: 580px;
+      width: 100%;
+      padding: 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 1px solid #E2E8F0;
+    }
+  `]
 })
 export class BatchesComponent implements OnInit {
   batches: ProductionBatch[] = [];

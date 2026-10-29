@@ -224,7 +224,59 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
       </div>
 
     </div>
-  `
+  `,
+  styles: [`
+    .carbon-offtake-portal-page {
+      padding: 0.5rem 0 3rem;
+    }
+    .disclaimer-banner {
+      background: rgba(236, 253, 245, 0.8);
+      border: 1px solid #A7F3D0;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+    }
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .pipeline-table-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+    .checklist-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      max-width: 520px;
+      width: 100%;
+      padding: 1.75rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 1px solid #E2E8F0;
+    }
+  `]
 })
 export class CarbonOfftakeComponent implements OnInit {
   opportunities: CarbonOfftakeOpportunity[] = [];

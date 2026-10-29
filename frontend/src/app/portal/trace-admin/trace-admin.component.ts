@@ -228,7 +228,39 @@ import { ProductPassport } from '../../core/models';
       </div>
 
     </div>
-  `
+  `,
+  styles: [`
+    .trace-admin-portal-page {
+      padding: 0.5rem 0 3rem;
+    }
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .drawer-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .qr-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+    }
+    .table-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+  `]
 })
 export class TraceAdminComponent implements OnInit {
   passports: ProductPassport[] = [];

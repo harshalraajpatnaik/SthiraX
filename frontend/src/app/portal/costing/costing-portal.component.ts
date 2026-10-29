@@ -224,7 +224,48 @@ import { ApiService } from '../../core/services/api.service';
       </div>
 
     </div>
-  `
+  `,
+  styles: [`
+    .costing-portal-page {
+      padding: 0.5rem 0 3rem;
+    }
+    .simulator-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .waterfall-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+    .progress-bar-wrap {
+      width: 100%;
+      background-color: #F1F5F9;
+      border-radius: 0.5rem;
+      height: 12px;
+      overflow: hidden;
+      display: flex;
+    }
+    .matrix-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+  `]
 })
 export class CostingPortalComponent implements OnInit {
   co2DeliveredCost = 8000;

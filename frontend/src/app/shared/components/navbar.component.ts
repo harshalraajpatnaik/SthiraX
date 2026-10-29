@@ -282,7 +282,7 @@ import { AuthService } from '../../core/services/auth.service';
 
     .dropdown-menu {
       position: absolute;
-      top: calc(100% + 8px);
+      top: calc(100% + 6px);
       left: 50%;
       transform: translateX(-50%);
       width: 320px;
@@ -296,6 +296,15 @@ import { AuthService } from '../../core/services/auth.service';
       gap: 0.25rem;
       z-index: 100;
       animation: dropdownFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Invisible hover bridge to prevent menu from closing when moving cursor */
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
     }
     @keyframes dropdownFadeIn {
       from {

@@ -1191,25 +1191,75 @@ import { RouterModule } from '@angular/router';
     .arch-card {
       background: #ffffff;
       border: 1px solid #E2E8F0;
-      border-radius: 0.85rem;
-      padding: 1.5rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      border-radius: 1rem;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.02);
+      transition: all 0.2s ease;
+    }
+    .arch-card:hover {
+      border-color: #CBD5E1;
+      box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.06);
     }
     .arch-tier-pill {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.375rem;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 0.4rem;
     }
     .tech-tag {
-      font-family: monospace;
-      font-size: 0.7rem;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.725rem;
       background: #F1F5F9;
-      color: #475569;
+      color: #334155;
       border: 1px solid #CBD5E1;
-      padding: 0.15rem 0.45rem;
-      border-radius: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.35rem;
+      font-weight: 500;
+    }
+
+    /* Science & Math Cards */
+    .science-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .math-terminal {
+      background-color: #020617;
+      color: #34D399;
+      font-family: var(--font-mono, monospace);
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+      border: 1px solid #1E293B;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* FAQ Cards */
+    .faq-item-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.15rem;
+      padding: 1.75rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      transition: border-color 0.15s ease;
+    }
+    .faq-item-card:hover {
+      border-color: #CBD5E1;
+    }
+    .faq-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 0.375rem;
+      display: inline-block;
+      margin-bottom: 0.6rem;
     }
 
     /* Bottom CTA Card */
