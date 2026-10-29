@@ -16,7 +16,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
         <div>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 mb-2">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            Carbon Finance & Standards (Non-Guaranteed Upside)
+            Carbon Offtake & Registry Governance
           </span>
           <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             Carbon Offtake & Removal Registry Workspace
@@ -140,7 +140,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
                 <span class="font-bold text-slate-900 text-sm">1. Permanence & Durability</span>
               </div>
               <p class="text-slate-600 leading-relaxed">
-                CO₂ is reacted into thermodynamically stable calcium carbonates ($CaCO_3$). Risk of reversal is near zero under ambient conditions below 800&deg;C. Exceeds the 1,000-year durability threshold required by durable CDR standards.
+                CO₂ is reacted into thermodynamically stable calcium carbonate (CaCO₃). Risk of reversal is near zero under ambient conditions below 800&deg;C. Exceeds the 1,000-year durability threshold required by durable CDR standards.
               </p>
             </div>
             <span class="text-[11px] font-mono text-emerald-700 mt-2 block">Standard: Puro.earth &bull; &gt;1000y</span>
@@ -175,11 +175,60 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
         </div>
       </div>
 
+      <!-- Detail Modal Dialog -->
+      <div *ngIf="selectedOpportunity" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-5">
+          <div class="flex justify-between items-center pb-3 border-b border-slate-100">
+            <div>
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                OFFTAKE LEAD #{{ selectedOpportunity.id }}
+              </span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">{{ selectedOpportunity.buyerName }}</h3>
+            </div>
+            <button class="text-slate-400 hover:text-slate-600 text-2xl" (click)="selectedOpportunity = null">&times;</button>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-2">
+              <div class="flex justify-between py-1 border-b border-slate-200/60">
+                <span class="text-slate-500">Registry Standard:</span>
+                <span class="font-semibold text-slate-800">{{ selectedOpportunity.registryStandard }}</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-200/60">
+                <span class="text-slate-500">Contract Volume:</span>
+                <span class="font-mono font-bold text-slate-900">{{ selectedOpportunity.volumeTonnes | number }} tonnes CO₂e</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-200/60">
+                <span class="text-slate-500">Indicative Price:</span>
+                <span class="font-mono font-bold text-emerald-700">\${{ selectedOpportunity.pricePerTonneUsd }} / t CO₂</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-slate-500">Pipeline Status:</span>
+                <span class="px-2 py-0.5 rounded font-mono font-bold text-[11px]" [ngClass]="getStatusBadge(selectedOpportunity.status)">
+                  {{ selectedOpportunity.status }}
+                </span>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-slate-500 leading-relaxed">
+              * Prospective counterparty terms require physical confirmation of batch-level mineralization via SthiraX Trace™ Coriolis mass-balance telemetry before issuance.
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex justify-end">
+            <button (click)="selectedOpportunity = null" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-xl transition-colors">
+              Close Inspection
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   `
 })
 export class CarbonOfftakeComponent implements OnInit {
   opportunities: CarbonOfftakeOpportunity[] = [];
+  selectedOpportunity: CarbonOfftakeOpportunity | null = null;
 
   constructor(private api: ApiService) {}
 
@@ -210,6 +259,6 @@ export class CarbonOfftakeComponent implements OnInit {
   }
 
   viewDetails(o: CarbonOfftakeOpportunity): void {
-    alert(`Opportunity #${o.id} Details:\nBuyer: ${o.buyerName}\nStandard: ${o.registryStandard}\nVolume: ${o.volumeTonnes} tonnes\nIndicative Price: $${o.pricePerTonneUsd}/t`);
+    this.selectedOpportunity = o;
   }
 }

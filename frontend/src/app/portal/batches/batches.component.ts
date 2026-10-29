@@ -11,6 +11,15 @@ import { ProductionBatch, Plant, Product } from '../../core/models';
   template: `
     <div class="batches-portal-page space-y-8">
       
+      <!-- In-app Action Notification Banner -->
+      <div *ngIf="toastMessage" class="bg-emerald-500 text-white px-5 py-3 rounded-xl flex items-center justify-between shadow-md animate-fade">
+        <div class="flex items-center gap-2.5 text-xs font-semibold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>{{ toastMessage }}</span>
+        </div>
+        <button (click)="toastMessage = null" class="text-white/80 hover:text-white text-lg font-bold leading-none">&times;</button>
+      </div>
+
       <!-- Page Header -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
@@ -398,9 +407,12 @@ export class BatchesComponent implements OnInit {
     }
   }
 
+  toastMessage: string | null = null;
+
   sendToQa(b: ProductionBatch): void {
     b.status = 'QA_PENDING';
-    alert(`Batch ${b.batchNumber} has been submitted for NABL Quality & Mechanical QA Review.`);
+    this.toastMessage = `Batch ${b.batchNumber} has been submitted for NABL Quality & Mechanical QA Review.`;
+    setTimeout(() => { if (this.toastMessage) this.toastMessage = null; }, 5000);
   }
 
   submitNewBatch(): void {

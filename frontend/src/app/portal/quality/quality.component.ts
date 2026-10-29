@@ -11,6 +11,15 @@ import { QualityReview } from '../../core/models';
   template: `
     <div class="quality-portal-page space-y-8">
       
+      <!-- In-app Action Notification Banner -->
+      <div *ngIf="toastMessage" class="bg-emerald-500 text-white px-5 py-3 rounded-xl flex items-center justify-between shadow-md animate-fade">
+        <div class="flex items-center gap-2.5 text-xs font-semibold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>{{ toastMessage }}</span>
+        </div>
+        <button (click)="toastMessage = null" class="text-white/80 hover:text-white text-lg font-bold leading-none">&times;</button>
+      </div>
+
       <!-- Page Header -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
@@ -206,6 +215,7 @@ import { QualityReview } from '../../core/models';
 export class QualityComponent implements OnInit {
   reviews: QualityReview[] = [];
   selectedReview: QualityReview | null = null;
+  toastMessage: string | null = null;
 
   constructor(private api: ApiService) {}
 
@@ -232,13 +242,15 @@ export class QualityComponent implements OnInit {
     if (!this.selectedReview) return;
     this.selectedReview.approved = true;
     this.selectedReview.notes += ' [Approved by QA Lead. Certificate issued.]';
-    alert(`Batch ${this.selectedReview.batchId} approved! Digital passport is now unlocked for verification.`);
+    this.toastMessage = `Batch ${this.selectedReview.batchId} approved! Digital Product Passport is now unlocked for verification.`;
+    setTimeout(() => { if (this.toastMessage) this.toastMessage = null; }, 5000);
   }
 
   rejectSelected(): void {
     if (!this.selectedReview) return;
     this.selectedReview.approved = false;
     this.selectedReview.notes += ' [REJECTED: Compression break failure. Re-test requested.]';
-    alert(`Batch ${this.selectedReview.batchId} rejected. Production manager notified.`);
+    this.toastMessage = `Batch ${this.selectedReview.batchId} rejected. Production manager notified.`;
+    setTimeout(() => { if (this.toastMessage) this.toastMessage = null; }, 5000);
   }
 }

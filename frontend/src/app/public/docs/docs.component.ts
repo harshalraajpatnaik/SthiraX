@@ -18,11 +18,11 @@ import { RouterModule } from '@angular/router';
           </div>
 
           <h1 class="hero-title">
-            How SthiraX Works: <span class="gradient-text">Architecture, Flows & Science</span>
+            Industrial Decarbonization: <span class="gradient-text">Science, Systems & Proof</span>
           </h1>
 
           <p class="hero-lead">
-            A comprehensive, transparent guide for infrastructure buyers, precast plant owners, and sustainability auditors. Discover how captured industrial CO₂ emissions are permanently mineralized into certified high-strength precast concrete.
+            An executive and technical reference for infrastructure developers, precast manufacturers, and sustainability auditors. Discover how industrial CO₂ emissions are permanently mineralized into certified high-strength building products.
           </p>
 
           <!-- Interactive Nav Tabs / Segmented Control -->
@@ -33,7 +33,7 @@ import { RouterModule } from '@angular/router';
               [class.active]="activeTab === 'simple'"
               class="tab-btn">
               <span class="tab-icon">💡</span>
-              <span class="tab-text">60-Second Beginner Guide</span>
+              <span class="tab-text">Executive Overview</span>
             </button>
 
             <button 
@@ -51,7 +51,7 @@ import { RouterModule } from '@angular/router';
               [class.active]="activeTab === 'system'"
               class="tab-btn">
               <span class="tab-icon">🏗️</span>
-              <span class="tab-text">Software & IoT Architecture</span>
+              <span class="tab-text">Software & IoT Stack</span>
             </button>
 
             <button 
@@ -88,19 +88,58 @@ import { RouterModule } from '@angular/router';
       <main class="container-wide py-12">
         
         <!-- ========================================== -->
-        <!-- TAB 1: 60-SECOND GUIDE FOR AMATEURS        -->
+        <!-- TAB 1: EXECUTIVE OVERVIEW                  -->
         <!-- ========================================== -->
         <section *ngIf="activeTab === 'simple'" class="tab-pane animate-fade">
           
           <!-- Key Callout Card -->
           <div class="overview-banner mb-10">
-            <div class="banner-badge">Simple Analogy</div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3 tracking-tight">
-              Think of it like turning fizzy soda gas into natural granite stone.
+            <div class="flex items-center gap-2 mb-3">
+              <span class="banner-badge">Core Principle</span>
+              <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Permanent Geochemical Mineralization</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">
+              Permanently binding captured CO₂ into synthetic limestone rock inside precast concrete.
             </h2>
-            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-4xl">
-              Normally, precast concrete requires vast amounts of energy and water curing over 28 days to gain strength. SthiraX injects captured industrial CO₂ directly into curing chambers containing fresh blocks made with industrial waste slag and fly ash. Within 24 hours, the gas turns into solid rock inside the block, making it <strong>stronger, faster to cure, and permanently climate-positive</strong>.
-            </p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-slate-700 leading-relaxed mb-6">
+              <div class="bg-white/80 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                <span class="font-bold text-slate-900 block text-xs uppercase tracking-wider text-rose-700">The Conventional Challenge</span>
+                <p>
+                  Traditional concrete relies on virgin Portland cement clinker—a material generating ~800 kg CO₂ per tonne and responsible for roughly 8% of global greenhouse emissions. Conventional curing requires up to <strong>28 days of water curing</strong>, tying up plant pallets, working capital, and factory floor space.
+                </p>
+              </div>
+              <div class="bg-emerald-50/60 p-4 rounded-xl border border-emerald-200/80 space-y-2">
+                <span class="font-bold text-emerald-950 block text-xs uppercase tracking-wider text-emerald-800">The SthiraX Breakthrough</span>
+                <p>
+                  We inject captured industrial CO₂ gas into sealed curing chambers filled with fresh green concrete blended with 20% to 50% recycled steel slag and fly ash. Within <strong>18 to 24 hours</strong>, CO₂ reacts exothermically with free calcium ions to precipitate microscopic calcium carbonate (CaCO₃) rock crystals. Compressive strength surges by +22% while permanently locking away CO₂ forever.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-200/80">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">24-Hour Strength Curing</strong>
+                  <span class="text-xs text-slate-600">Reaches full 28-day commercial load capacity in under 24 hours, tripling plant pallet turnaround.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cyan-100 text-cyan-800 flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">20% Virgin Cement Cut</strong>
+                  <span class="text-xs text-slate-600">Replaced with secondary GGBS slag, thermal power fly ash, and processed C&D fines.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">Tamper-Evident MRV</strong>
+                  <span class="text-xs text-slate-600">Batch-level digital product passport with Coriolis sensor telemetry & SHA-256 seal.</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- 3 Visual Steps Grid -->
@@ -108,29 +147,38 @@ import { RouterModule } from '@angular/router';
             
             <div class="step-card">
               <div class="step-num">01</div>
-              <div class="step-badge text-cyan-800 bg-cyan-100 border-cyan-300">The Capture</div>
-              <h3 class="step-title">Biogenic Industrial CO₂</h3>
+              <div class="step-badge text-cyan-800 bg-cyan-100 border-cyan-300">Phase 1 &bull; Source Offtake</div>
+              <h3 class="step-title">Biogenic CO₂ Capture</h3>
               <p class="step-desc">
-                We take captured CO₂ from ethanol distilleries and industrial chimneys that would otherwise be released into the atmosphere, liquefy it, and transport it to partner precast factories.
+                High-purity CO₂ (&gt;98.5% Vol) is captured directly from distillery fermentation flues, liquefied at &minus;20&deg;C, and delivered via cryogenic road tankers to partner precast facilities within an 80–120 km radius.
               </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-mono text-cyan-700 font-semibold">
+                Purity: &gt;98.5% Vol &bull; Cryo Tanker Delivery
+              </div>
             </div>
 
             <div class="step-card">
               <div class="step-num">02</div>
-              <div class="step-badge text-emerald-800 bg-emerald-100 border-emerald-300">The Reaction</div>
-              <h3 class="step-title">Mineralization Curing</h3>
+              <div class="step-badge text-emerald-800 bg-emerald-100 border-emerald-300">Phase 2 &bull; Mineralization</div>
+              <h3 class="step-title">Accelerated Curing Skid</h3>
               <p class="step-desc">
-                Inside a sealed curing chamber, CO₂ gas reacts chemically with calcium compounds in fresh concrete, precipitating calcium carbonate ($CaCO_3$) crystals that lock the gas away forever.
+                CO₂ gas is vaporized and metered under positive pressure (1.25 bar) into sealed curing enclosures. The gas diffuses through concrete capillary pores, precipitating stable calcium carbonate (CaCO₃) rock crystals.
               </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-mono text-emerald-700 font-semibold">
+                Reaction: Exothermic &bull; 1.25 bar Pressure
+              </div>
             </div>
 
             <div class="step-card">
               <div class="step-num">03</div>
-              <div class="step-badge text-emerald-800 bg-emerald-100 border-emerald-300">The Result</div>
-              <h3 class="step-title">Stronger, Greener Blocks</h3>
+              <div class="step-badge text-purple-800 bg-purple-100 border-purple-300">Phase 3 &bull; Quality Verification</div>
+              <h3 class="step-title">Certified Material Passports</h3>
               <p class="step-desc">
-                The resulting pavers achieve 45+ MPa compressive strength (20% higher than standard), reduce virgin cement by 25%, and lock up 28–34 kg CO₂ per m² with verifiable digital passports.
+                Every cured pallet is tested under IS 15658 / IS 2185 in NABL-accredited civil laboratories. Upon QA sign-off, a public Digital Product Passport with an immutable QR code is affixed to every shipping pallet.
               </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-mono text-purple-700 font-semibold">
+                Compliance: IS 15658 M40 &bull; SHA-256 Proof
+              </div>
             </div>
 
           </div>
@@ -140,10 +188,10 @@ import { RouterModule } from '@angular/router';
             <div class="benchmark-header mb-6">
               <span class="text-xs font-mono font-bold tracking-wider uppercase text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300 inline-block mb-2">Empirical Material Benchmark</span>
               <h3 class="text-2xl font-bold text-slate-900 tracking-tight">
-                Ordinary Precast Concrete vs. SthiraX Carbon-Cured Precast
+                Traditional Precast Concrete vs. SthiraX Carbon-Cured Precast
               </h3>
               <p class="text-slate-600 text-sm max-w-3xl mt-1">
-                Side-by-side technical performance matrix across carbon balance, mechanical compressive load, recycled secondary binder uptake, and proof verification.
+                Direct side-by-side comparison across embodied emissions, mechanical load tolerance, secondary waste utilization, and audit verifiability.
               </p>
             </div>
 
@@ -158,7 +206,7 @@ import { RouterModule } from '@angular/router';
                     </div>
                     <div>
                       <h4 class="font-bold text-slate-900 text-base">Carbon Balance & Embodied GHG</h4>
-                      <span class="text-xs text-slate-500">Gate-to-gate lifecycle emissions footprint</span>
+                      <span class="text-xs text-slate-500">Gate-to-gate lifecycle carbon footprint</span>
                     </div>
                   </div>
                 </div>
@@ -167,17 +215,17 @@ import { RouterModule } from '@angular/router';
                   <div class="split-col standard">
                     <span class="split-label">Traditional Precast</span>
                     <div class="split-value text-rose-600 font-mono font-bold">+350 to +450 kg</div>
-                    <p class="split-desc">CO₂e emitted per tonne due to intensive virgin clinker calcination.</p>
+                    <p class="split-desc">CO₂e emitted per tonne due to intensive virgin limestone clinker calcination.</p>
                   </div>
                   <div class="split-col sthirax">
                     <span class="split-label">SthiraX Carbonation</span>
                     <div class="split-value text-emerald-700 font-mono font-bold">Permanently Sequestered</div>
-                    <p class="split-desc">Exothermic mineralization locks up to 34 kg CO₂ per m² into stable rock.</p>
+                    <p class="split-desc">Exothermic mineralization locks up to 34 kg CO₂ per m² into stable mineral rock.</p>
                   </div>
                 </div>
 
                 <div class="benchmark-footer mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span class="text-slate-500">Why It Matters:</span>
+                  <span class="text-slate-500">Regulatory Impact:</span>
                   <span class="font-semibold text-slate-700">Scope 3 ESG Compliance & Net-Zero Mandates</span>
                 </div>
               </div>
@@ -190,7 +238,7 @@ import { RouterModule } from '@angular/router';
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                     </div>
                     <div>
-                      <h4 class="font-bold text-slate-900 text-base">28-Day Compressive Strength</h4>
+                      <h4 class="font-bold text-slate-900 text-base">Compressive Strength & Durability</h4>
                       <span class="text-xs text-slate-500">Mechanical load tolerance under IS 15658 / IS 2185</span>
                     </div>
                   </div>
@@ -199,13 +247,13 @@ import { RouterModule } from '@angular/router';
                 <div class="benchmark-split mt-4">
                   <div class="split-col standard">
                     <span class="split-label">Traditional Precast</span>
-                    <div class="split-value text-slate-700 font-mono font-bold">35 – 40 MPa</div>
-                    <p class="split-desc">Requires 28 days of wet curing; susceptible to internal pore voids.</p>
+                    <div class="split-value text-slate-700 font-mono font-bold">35.0 – 40.0 MPa</div>
+                    <p class="split-desc">Requires 28 days of water curing; remains vulnerable to internal capillary voids.</p>
                   </div>
                   <div class="split-col sthirax">
                     <span class="split-label">SthiraX Carbonation</span>
                     <div class="split-value text-emerald-700 font-mono font-bold">46.2 – 48.5 MPa</div>
-                    <p class="split-desc">+22% gain over M40 spec achieved within 24 hours via micro-pore sealing.</p>
+                    <p class="split-desc">+22% gain over M40 spec achieved within 24 hours via micro-pore crystal sealing.</p>
                   </div>
                 </div>
 
@@ -224,7 +272,7 @@ import { RouterModule } from '@angular/router';
                     </div>
                     <div>
                       <h4 class="font-bold text-slate-900 text-base">Circular Industrial Feedstocks</h4>
-                      <span class="text-xs text-slate-500">Secondary binders, slag, fly ash & C&D waste uptake</span>
+                      <span class="text-xs text-slate-500">Secondary binders, slag, fly ash & C&D fines uptake</span>
                     </div>
                   </div>
                 </div>
@@ -232,7 +280,7 @@ import { RouterModule } from '@angular/router';
                 <div class="benchmark-split mt-4">
                   <div class="split-col standard">
                     <span class="split-label">Traditional Precast</span>
-                    <div class="split-value text-slate-700 font-mono font-bold">10% – 15% Max</div>
+                    <div class="split-value text-slate-700 font-mono font-bold">10% – 15% Maximum</div>
                     <p class="split-desc">Higher supplementary binder content causes delayed early-stage setting.</p>
                   </div>
                   <div class="split-col sthirax">
@@ -257,7 +305,7 @@ import { RouterModule } from '@angular/router';
                     </div>
                     <div>
                       <h4 class="font-bold text-slate-900 text-base">Digital Provenance & MRV Verification</h4>
-                      <span class="text-xs text-slate-500">Batch-level traceability and sensor telemetry proof</span>
+                      <span class="text-xs text-slate-500">Batch-level traceability and physical telemetry proof</span>
                     </div>
                   </div>
                 </div>
@@ -296,7 +344,7 @@ import { RouterModule } from '@angular/router';
               End-to-End Industrial Value Chain Flow
             </h2>
             <p class="text-slate-600 text-base max-w-3xl mt-1">
-              How captured gas journeys from ethanol distilleries to finished footpath pavers in 5 transparent, verifiable stages:
+              How captured industrial CO₂ travels from biogenic fermentation chimneys to certified municipal infrastructure across 5 verifiable, transparent stages:
             </p>
           </div>
 
@@ -307,15 +355,15 @@ import { RouterModule } from '@angular/router';
             <div class="timeline-row">
               <div class="timeline-marker">1</div>
               <div class="timeline-card">
-                <div class="timeline-tag">STAGE 01 &bull; SOURCE OFFTAKE</div>
+                <div class="timeline-tag">STAGE 01 &bull; SOURCE OFFTAKE & CRYOGENICS</div>
                 <h3 class="timeline-title">Biogenic CO₂ Capture & Cryogenic Liquefaction</h3>
                 <p class="timeline-body">
-                  High-purity CO₂ (>98.5%) is captured from industrial fermentation (e.g., Deccan Distilleries, Belagavi). The gas is scrubbed, compressed, and liquefied at -20°C / 20 bar, then loaded into 18-tonne vacuum-insulated cryogenic road tankers.
+                  High-purity CO₂ (&gt;98.5% Vol) is captured directly from agricultural fermentation chimneys (such as regional ethanol distilleries in Karnataka/Maharashtra). The gas stream is scrubbed, compressed, and liquefied at &minus;20&deg;C / 20 bar, then dispatched in vacuum-insulated 18-tonne cryogenic road tankers to partner precast yards.
                 </p>
                 <div class="timeline-metrics">
-                  <span class="metric-pill">Feedstock: Biogenic Ethanol Flue</span>
-                  <span class="metric-pill">Purity: >98.5% Vol</span>
-                  <span class="metric-pill">Logistics: Cryo Tankers (80–120 km)</span>
+                  <span class="metric-pill">Feedstock: Biogenic Grain Ethanol Flue</span>
+                  <span class="metric-pill">Gas Purity: &gt;98.5% Vol Chromatography</span>
+                  <span class="metric-pill">Transit Radius: 80–120 km Regional Cluster</span>
                 </div>
               </div>
             </div>
@@ -324,15 +372,15 @@ import { RouterModule } from '@angular/router';
             <div class="timeline-row">
               <div class="timeline-marker">2</div>
               <div class="timeline-card">
-                <div class="timeline-tag">STAGE 02 &bull; PLANT RETROFIT</div>
-                <h3 class="timeline-title">Modular Precast Kiln Skid & Controlled Injection</h3>
+                <div class="timeline-tag">STAGE 02 &bull; FACTORY RETROFIT & SKID INTEGRATION</div>
+                <h3 class="timeline-title">Modular Vaporization Skid & Chamber Sealing</h3>
                 <p class="timeline-body">
-                  Existing partner precast sheds (e.g. Hosur Pilot Facility) are upgraded with airtight silicone door gaskets, vaporization manifolds, and Coriolis mass-flow meters. Liquefied CO₂ is vaporized and metered into curing enclosures at 1.2 – 1.4 bar.
+                  Existing partner precast sheds (e.g., Hosur Facility) are upgraded with modular skid-mounted vaporizers, airtight silicone perimeter seals, and Coriolis mass-flow meters. Liquefied CO₂ is vaporized on demand and injected through positive-displacement distribution manifolds at 1.2 to 1.4 bar positive pressure.
                 </p>
                 <div class="timeline-metrics">
-                  <span class="metric-pill">Retrofit CapEx: ~₹18.0 Lakhs</span>
-                  <span class="metric-pill">Install Time: 3 Weeks</span>
-                  <span class="metric-pill">Pressure: 1.25 bar Controlled</span>
+                  <span class="metric-pill">Retrofit CapEx: ~₹18–25 Lakhs per Bay</span>
+                  <span class="metric-pill">Installation Time: Under 3 Weeks</span>
+                  <span class="metric-pill">Chamber Pressure: 1.25 bar Positive</span>
                 </div>
               </div>
             </div>
@@ -341,15 +389,15 @@ import { RouterModule } from '@angular/router';
             <div class="timeline-row">
               <div class="timeline-marker">3</div>
               <div class="timeline-card">
-                <div class="timeline-tag">STAGE 03 &bull; THERMOCHEMICAL REACTION</div>
+                <div class="timeline-tag">STAGE 03 &bull; THERMOCHEMICAL CARBONATION REACTION</div>
                 <h3 class="timeline-title">Accelerated Carbonation Curing (18–24 Hours)</h3>
                 <p class="timeline-body">
-                  CO₂ gas diffuses into porous fresh concrete, reacting exothermically with free calcium hydroxide (Portlandite) to form microscopic calcite crystals ($CaCO_3$). This seals micro-capillaries, delivering 28-day target strength in just 24 hours.
+                  CO₂ gas diffuses rapidly into capillary pores of freshly compacted green concrete, reacting exothermically with free calcium hydroxide (Portlandite) to precipitate microscopic calcite crystals (CaCO₃). This micro-pore refinement permanently fills internal voids, delivering full 28-day target compressive strength in under 24 hours.
                 </p>
                 <div class="timeline-metrics">
                   <span class="metric-pill">Curing Cycle: 18 – 24 Hours</span>
-                  <span class="metric-pill">Reaction Yield: 85% – 89%</span>
-                  <span class="metric-pill">Chamber Temp: 45°C Controlled</span>
+                  <span class="metric-pill">Uptake Efficiency: 88% – 92%</span>
+                  <span class="metric-pill">Chamber Temp: 42°C – 46°C Self-Sustaining</span>
                 </div>
               </div>
             </div>
@@ -358,15 +406,15 @@ import { RouterModule } from '@angular/router';
             <div class="timeline-row">
               <div class="timeline-marker">4</div>
               <div class="timeline-card">
-                <div class="timeline-tag">STAGE 04 &bull; QUALITY AUDIT</div>
+                <div class="timeline-tag">STAGE 04 &bull; MECHANICAL AUDIT & LAB APPROVAL</div>
                 <h3 class="timeline-title">NABL Laboratory Compressive Strength Break Tests</h3>
                 <p class="timeline-body">
-                  Core sample specimens from every batch run are crushed in calibrated compressive testing machines. Independent NABL-accredited test reports verify M40 / M50 strength compliance under Indian Standards (IS 15658 / IS 2185).
+                  Specimen test blocks from every production run are crushed in calibrated compressive testing machines. Independent NABL-accredited test reports verify M-40 / M-50 strength compliance, water absorption (&le;4.9% vs &le;6.0% code limit), and dimensional stability under Indian Standards (IS 15658:2006 / IS 2185).
                 </p>
                 <div class="timeline-metrics">
-                  <span class="metric-pill">Target: 40.0 MPa (Achieved: 46.2 – 48.5 MPa)</span>
-                  <span class="metric-pill">Standard: IS 15658:2006</span>
-                  <span class="metric-pill">Carbonation Depth: Verified by Phenolphthalein</span>
+                  <span class="metric-pill">Spec Target: 40.0 MPa (Tested: 46.2 – 48.5 MPa)</span>
+                  <span class="metric-pill">Accreditation: CivilAid NABL Bangalore</span>
+                  <span class="metric-pill">Depth: Phenolphthalein Verified</span>
                 </div>
               </div>
             </div>
@@ -375,15 +423,15 @@ import { RouterModule } from '@angular/router';
             <div class="timeline-row">
               <div class="timeline-marker">5</div>
               <div class="timeline-card">
-                <div class="timeline-tag">STAGE 05 &bull; DIGITAL PASSPORT</div>
-                <h3 class="timeline-title">Cryptographic Digital Product Passport & Site Delivery</h3>
+                <div class="timeline-tag">STAGE 05 &bull; CRYPTOGRAPHIC PASSPORT & DISPATCH</div>
+                <h3 class="timeline-title">Digital Product Passport & Jobsite Pallet QR Codes</h3>
                 <p class="timeline-body">
-                  Approved batches generate an immutable Digital Product Passport. A tamper-evident QR code is affixed to every shipping pallet. Site engineers and sustainability auditors scan the code to inspect gas injection logs, NABL lab certificates, and net carbon balances.
+                  Upon QA sign-off, a public Digital Product Passport is minted with an immutable SHA-256 seal. A weather-resistant QR code is affixed to every shipping pallet. Municipal site engineers, structural consultants, and green building certifiers scan the code to inspect gas mass-balance telemetry, break reports, and net carbon metrics.
                 </p>
                 <div class="timeline-metrics">
-                  <span class="metric-pill">Cryptographic Proof: SHA-256 Hash</span>
-                  <span class="metric-pill">Passport Status: Publicly Verifiable</span>
-                  <span class="metric-pill">Audit Trail: PostgreSQL Timestamped</span>
+                  <span class="metric-pill">Integrity Seal: SHA-256 Hash</span>
+                  <span class="metric-pill">Access: Public Smartphone Scan</span>
+                  <span class="metric-pill">Ledger: PostgreSQL Timestamped</span>
                 </div>
               </div>
             </div>
@@ -399,10 +447,10 @@ import { RouterModule } from '@angular/router';
           
           <div class="section-intro mb-8">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Software & Industrial Hardware Architecture
+              Software & Industrial IoT Architecture
             </h2>
             <p class="text-slate-600 text-base max-w-3xl mt-1">
-              Engineered as a high-reliability, modular monolith designed for industrial telemetry ingestion, zero data loss, and seamless operational audits:
+              A high-reliability, modular enterprise platform bridging physical industrial curing hardware, relational persistence, and public verification explorers:
             </p>
           </div>
 
@@ -412,36 +460,38 @@ import { RouterModule } from '@angular/router';
             <!-- Tier 1: Client Layer -->
             <div class="arch-card border-l-4 border-l-cyan-500">
               <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
-                <span class="arch-tier-pill text-cyan-800 bg-cyan-100">CLIENT & AUDITOR INTERFACE</span>
+                <span class="arch-tier-pill text-cyan-800 bg-cyan-100">TIER 1 &bull; CLIENT INTERFACE</span>
                 <span class="font-mono text-xs text-slate-500">Port 4200 &bull; Single-Page App</span>
               </div>
-              <h3 class="text-lg font-bold text-slate-900 mb-1">Angular 17 Standalone Architecture</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-3">
-                Reactive, modern TypeScript frontend featuring standalone components, Tailwind CSS styling, responsive layout controls, and client-side economic calculators. Integrates role-based route guards for Operations Managers, Plant Operators, and QA Reviewers.
+              <h3 class="text-lg font-bold text-slate-900 mb-1">Angular 17 Reactive Frontend</h3>
+              <p class="text-sm text-slate-700 leading-relaxed mb-3">
+                High-performance, standalone component architecture styled with Tailwind CSS. Incorporates real-time economic simulators and role-based route guards (RBAC) separating public Zero-Knowledge DPP explorers from authenticated plant operators, NABL lab certifiers, and corporate auditors.
               </p>
               <div class="flex flex-wrap gap-2 text-xs">
                 <span class="tech-tag">Angular 17</span>
                 <span class="tech-tag">Tailwind CSS</span>
                 <span class="tech-tag">Reactive Forms</span>
-                <span class="tech-tag">Standalone Components</span>
+                <span class="tech-tag">Standalone Architecture</span>
+                <span class="tech-tag">Zero-Knowledge Views</span>
               </div>
             </div>
 
             <!-- Tier 2: Application Layer -->
             <div class="arch-card border-l-4 border-l-emerald-500">
               <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
-                <span class="arch-tier-pill text-emerald-800 bg-emerald-100">CORE APPLICATION ENGINE</span>
+                <span class="arch-tier-pill text-emerald-800 bg-emerald-100">TIER 2 &bull; APPLICATION SERVICES</span>
                 <span class="font-mono text-xs text-slate-500">Port 8088 &bull; REST API</span>
               </div>
-              <h3 class="text-lg font-bold text-slate-900 mb-1">Spring Boot 2.6 Modular Monolith (Java 17)</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-3">
-                High-throughput, stateless Spring Boot service housing the Carbon Accounting Service (Gate-to-Gate mass balance engine), Retrofit Economics Engine, and Tamper-Evident Audit Logger. Exposes full OpenAPI 3.0 documentation via interactive Swagger UI.
+              <h3 class="text-lg font-bold text-slate-900 mb-1">Spring Boot 2.6 Domain Core (Java 17)</h3>
+              <p class="text-sm text-slate-700 leading-relaxed mb-3">
+                Stateless, transactional backend running core business domains: ISO 14064-2 gate-to-gate carbon abatement engine, plant retrofit financial models, and SHA-256 cryptographic passport minting. Fully documented via OpenAPI 3.0 / Swagger UI.
               </p>
               <div class="flex flex-wrap gap-2 text-xs">
                 <span class="tech-tag">Java 17</span>
                 <span class="tech-tag">Spring Security RBAC</span>
-                <span class="tech-tag">Springdoc OpenAPI 3.0</span>
+                <span class="tech-tag">OpenAPI 3.0 / Swagger</span>
                 <span class="tech-tag">HikariCP Pool</span>
+                <span class="tech-tag">ISO 14064-2 Engine</span>
               </div>
             </div>
 
@@ -450,33 +500,35 @@ import { RouterModule } from '@angular/router';
               
               <div class="arch-card border-l-4 border-l-purple-500">
                 <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="arch-tier-pill text-purple-800 bg-purple-100">PERSISTENCE TIER</span>
+                  <span class="arch-tier-pill text-purple-800 bg-purple-100">TIER 3A &bull; PERSISTENCE</span>
                   <span class="font-mono text-xs text-slate-500">Port 5432</span>
                 </div>
-                <h4 class="text-base font-bold text-slate-900 mb-1">PostgreSQL 15 (Dockerized)</h4>
-                <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                  Persistent Docker container volume storage. Houses 9 relational tables: plants, suppliers, batches, curing telemetry, product passports, enquiries, and immutable audit logs.
+                <h4 class="text-base font-bold text-slate-900 mb-1">PostgreSQL 15 (Docker Volume)</h4>
+                <p class="text-xs text-slate-700 leading-relaxed mb-3">
+                  Docker container volume storage with 9 relational tables: partner manufacturing plants, CO₂ suppliers, batch runs, chamber sensor telemetry, product passports, and immutable audit logs.
                 </p>
                 <div class="flex flex-wrap gap-1.5 text-xs">
                   <span class="tech-tag">Docker Compose</span>
-                  <span class="tech-tag">Health Checks</span>
-                  <span class="tech-tag">Persistent Volumes</span>
+                  <span class="tech-tag">Postgres 15</span>
+                  <span class="tech-tag">Foreign Key Enforced</span>
+                  <span class="tech-tag">Append-Only Logs</span>
                 </div>
               </div>
 
               <div class="arch-card border-l-4 border-l-amber-500">
                 <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="arch-tier-pill text-amber-800 bg-amber-100">IOT HARDWARE INGESTION</span>
+                  <span class="arch-tier-pill text-amber-800 bg-amber-100">TIER 3B &bull; IOT SENSORS</span>
                   <span class="font-mono text-xs text-slate-500">Modbus TCP</span>
                 </div>
-                <h4 class="text-base font-bold text-slate-900 mb-1">Coriolis Mass Flow Ingestion</h4>
-                <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                  Direct physical sensor integration with Endress+Hauser Promass Coriolis meters, chamber thermocouple arrays, and pressure transducers to record tamper-proof mass balance data.
+                <h4 class="text-base font-bold text-slate-900 mb-1">Coriolis Mass-Flow Ingestion</h4>
+                <p class="text-xs text-slate-700 leading-relaxed mb-3">
+                  Physical industrial fieldbus integration connecting Endress+Hauser Promass / Emerson CMF025 Coriolis mass-flow meters, 4–20 mA pressure transmitters, and PT100 thermal probes.
                 </p>
                 <div class="flex flex-wrap gap-1.5 text-xs">
-                  <span class="tech-tag">Coriolis Flow Sensors</span>
+                  <span class="tech-tag">Emerson CMF025</span>
+                  <span class="tech-tag">Modbus TCP</span>
                   <span class="tech-tag">PT100 Probes</span>
-                  <span class="tech-tag">Differential Pressure</span>
+                  <span class="tech-tag">Differential Bar</span>
                 </div>
               </div>
 
@@ -490,7 +542,7 @@ import { RouterModule } from '@angular/router';
               <div class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-1">Developer & Integration Access</div>
               <h3 class="text-xl font-bold text-white">Interactive Swagger OpenAPI Explorer</h3>
               <p class="text-sm text-slate-300 mt-1 max-w-xl">
-                Inspect REST endpoints, test live batch submissions, and review JSON schema contracts directly in your browser.
+                Inspect live REST endpoints, test batch submissions, and review JSON schema contracts directly in your browser.
               </p>
             </div>
             <a href="http://localhost:8088/swagger-ui/index.html" target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm flex items-center gap-2 transition-all shrink-0 shadow-md">
@@ -508,10 +560,10 @@ import { RouterModule } from '@angular/router';
           
           <div class="section-intro mb-8">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Carbon Accounting & Reaction Chemistry
+              Carbon Accounting & Reaction Stoichiometry
             </h2>
             <p class="text-slate-600 text-base max-w-3xl mt-1">
-              Rigorous boundary definitions distinguishing gross mineralized carbon, gate-to-gate net removal, and avoided Scope 3 emissions:
+              Transparent, scientific boundary definitions separating gross mineralized carbon, gate-to-gate net physical removal, and avoided Scope 3 emissions:
             </p>
           </div>
 
@@ -521,22 +573,25 @@ import { RouterModule } from '@angular/router';
             <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <span class="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase">Thermodynamic Stoichiometry</span>
-                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Exothermic Mineralization Equation</h3>
+                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Exothermic Mineralization Reaction</h3>
                 
-                <div class="bg-slate-950 text-emerald-300 font-mono text-sm p-4 rounded-xl my-3 border border-slate-800">
-                  <div class="text-xs text-slate-500 mb-1 font-sans">Primary Curing Hydrate Reaction:</div>
-                  <div class="font-bold">Ca(OH)₂ + CO₂ &rarr; CaCO₃ + H₂O</div>
-                  <div class="text-xs text-emerald-400 mt-1">&Delta;H = &minus;74.4 kJ / mol (Exothermic)</div>
+                <div class="bg-slate-950 text-emerald-300 font-mono text-sm p-4 rounded-xl my-3 border border-slate-800 space-y-1.5">
+                  <div class="text-xs text-slate-400 font-sans">Primary Calcium Carbonation Equation:</div>
+                  <div class="font-bold text-base text-white">Ca(OH)₂ + CO₂ &rarr; CaCO₃ + H₂O</div>
+                  <div class="text-xs text-emerald-400">&Delta;H = &minus;74.4 kJ / mol (Spontaneous & Exothermic)</div>
+                  <div class="text-[11px] text-slate-400 border-t border-slate-800 pt-1 mt-1 font-sans">
+                    Molar Ratio: 74.1 g Ca(OH)₂ + 44.0 g CO₂ &rarr; 100.1 g CaCO₃ + 18.0 g H₂O
+                  </div>
                 </div>
 
-                <p class="text-sm text-slate-600 leading-relaxed mt-3">
-                  Free calcium hydroxide (Portlandite, 74 g/mol) present in hydrating cement binds with dissolved aqueous CO₂ (44 g/mol) to precipitate synthetic calcium carbonate (calcite, 100 g/mol). Every 1 tonne of calcium oxide can theoretically sequester up to 785 kg of gaseous CO₂.
+                <p class="text-sm text-slate-700 leading-relaxed mt-3">
+                  Hydrated Portland cement and secondary pozzolans release soluble calcium hydroxide (Portlandite). Injected CO₂ dissolves rapidly into aqueous pore solution, precipitating stable microscopic calcium carbonate (calcite, CaCO₃) within the capillary void network.
                 </p>
               </div>
 
               <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                 <span>Permanence Horizon:</span>
-                <span class="font-bold text-emerald-700">&gt; 1,000 Years (Stable below 800&deg;C)</span>
+                <span class="font-bold text-emerald-700">&gt; 1,000 Years (Irreversible below 800&deg;C)</span>
               </div>
             </div>
 
@@ -545,14 +600,17 @@ import { RouterModule } from '@angular/router';
                 <span class="text-xs font-mono font-bold text-cyan-800 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full uppercase">Gate-to-Gate Life Cycle Boundary</span>
                 <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Net Physical Removal Equation</h3>
                 
-                <div class="bg-slate-950 text-cyan-300 font-mono text-sm p-4 rounded-xl my-3 border border-slate-800">
-                  <div class="text-xs text-slate-500 mb-1 font-sans">ISO 14064-2 Net Quantified Mass:</div>
-                  <div class="font-bold">Net_Removal = CO₂_Mineralized &minus; (E_process + E_transport)</div>
-                  <div class="text-xs text-cyan-400 mt-1">E_process = 0.04 kg CO₂/kWh &bull; E_transport = 0.082 kg/t-km</div>
+                <div class="bg-slate-950 text-cyan-300 font-mono text-sm p-4 rounded-xl my-3 border border-slate-800 space-y-1.5">
+                  <div class="text-xs text-slate-400 font-sans">ISO 14064-2 Net Quantified Mass:</div>
+                  <div class="font-bold text-base text-white">Net Removal = CO₂ Mineralized &minus; (E_process + E_transport)</div>
+                  <div class="text-xs text-cyan-400">E_process = 0.040 kg CO₂e / kWh &bull; E_transport = 0.082 kg CO₂e / t-km</div>
+                  <div class="text-[11px] text-slate-400 border-t border-slate-800 pt-1 mt-1 font-sans">
+                    Deductions: Cryogenic tanker fuel, skid vaporizer heater, and chamber blowers
+                  </div>
                 </div>
 
-                <p class="text-sm text-slate-600 leading-relaxed mt-3">
-                  Gross injected gas is <strong>never equated to net certified removal</strong>. SthiraX explicitly measures and subtracts parasitic blower power, vaporization heat, and cryogenic road tanker diesel before issuing any carbon removal claim.
+                <p class="text-sm text-slate-700 leading-relaxed mt-3">
+                  Gross injected gas is <strong>never equated to net certified removal</strong>. SthiraX explicitly measures and subtracts all parasitic energy—cryogenic road freight, electric vaporization, and chamber fan circulation—before issuing any carbon removal claim.
                 </p>
               </div>
 
@@ -573,25 +631,25 @@ import { RouterModule } from '@angular/router';
               <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <span class="text-xs font-mono font-bold uppercase text-slate-500 block mb-1">Tier 1 &bull; Physical Feedstock</span>
                 <div class="font-bold text-slate-900 text-sm">Gross Injected CO₂ Mass</div>
-                <p class="text-xs text-slate-600 mt-1">Total mass of vaporized gas metered into the curing autoclave via Emerson Coriolis flow meters. Typically 32.0 kg per m².</p>
+                <p class="text-xs text-slate-700 mt-1">Total mass of vaporized gas metered into the curing chamber via Emerson Coriolis flow meters. Typically 32.0 kg per m².</p>
               </div>
 
               <div class="p-4 bg-emerald-50/70 rounded-xl border border-emerald-200">
                 <span class="text-xs font-mono font-bold uppercase text-emerald-800 block mb-1">Tier 2 &bull; Chemical Fixation</span>
-                <div class="font-bold text-emerald-950 text-sm">Gross Mineralized Calcite ($CaCO_3$)</div>
-                <p class="text-xs text-emerald-800 mt-1">Gas chemically locked into mineral rock, verified via Thermal Gravimetric Analysis (TGA) & differential mass balance. Typically 28.5 kg/m².</p>
+                <div class="font-bold text-emerald-950 text-sm">Gross Mineralized Calcite (CaCO₃)</div>
+                <p class="text-xs text-emerald-900 mt-1">Gas chemically locked into synthetic mineral rock, verified via Thermal Gravimetric Analysis (TGA) & differential mass balance. Typically 28.5 kg/m².</p>
               </div>
 
               <div class="p-4 bg-cyan-50/70 rounded-xl border border-cyan-200">
                 <span class="text-xs font-mono font-bold uppercase text-cyan-800 block mb-1">Tier 3 &bull; Certified Carbon Removal</span>
                 <div class="font-bold text-cyan-950 text-sm">Net Gate-to-Gate Removal (ISO 14064-2)</div>
-                <p class="text-xs text-cyan-800 mt-1">Gross mineralized carbon minus all process parasitic emissions (cryogenic trucking, vaporization energy, blowers). Typically 25.1 kg/m².</p>
+                <p class="text-xs text-cyan-900 mt-1">Gross mineralized carbon minus all process parasitic emissions (cryogenic trucking, vaporization energy, blowers). Typically 25.1 kg/m².</p>
               </div>
 
               <div class="p-4 bg-amber-50/70 rounded-xl border border-amber-200">
                 <span class="text-xs font-mono font-bold uppercase text-amber-800 block mb-1">Tier 4 &bull; Baseline Displacement</span>
                 <div class="font-bold text-amber-950 text-sm">Scope 3 Avoided Clinker Emissions</div>
-                <p class="text-xs text-amber-800 mt-1">Emissions avoided by replacing 25% virgin Portland cement with secondary GGBS slag and fly ash pozzolans. Kept strictly separate from net removals.</p>
+                <p class="text-xs text-amber-900 mt-1">Emissions avoided by replacing 20% to 25% virgin Portland cement with secondary GGBS slag and fly ash pozzolans. Kept strictly separate from net removals.</p>
               </div>
 
             </div>
@@ -606,7 +664,7 @@ import { RouterModule } from '@angular/router';
           
           <div class="section-intro mb-8">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              SthiraX Trace™ Digital Product Passport Architecture
+              SthiraX Trace™ Digital Product Passport (DPP)
             </h2>
             <p class="text-slate-600 text-base max-w-3xl mt-1">
               How physical Coriolis mass-flow logs, plant batch mix sheets, and NABL crush tests are cryptographically sealed into tamper-evident public passports:
@@ -629,34 +687,34 @@ import { RouterModule } from '@angular/router';
                 <div>
                   <span class="font-mono font-bold text-emerald-600 text-xs block mb-1">STEP 1</span>
                   <strong class="text-slate-900 text-sm block">Sensor Ingestion</strong>
-                  <p class="text-slate-600 mt-1">Emerson Coriolis flow meter logs kg CO₂; weighbridge logs secondary slag and fly ash percentages.</p>
+                  <p class="text-slate-700 mt-1">Emerson Coriolis flow meter logs kg CO₂; batching weighbridge logs secondary slag and fly ash percentages.</p>
                 </div>
-                <span class="font-mono text-[10px] text-slate-400 mt-3 pt-2 border-t border-slate-200">Modbus TCP &bull; Port 5432</span>
+                <span class="font-mono text-[10px] text-slate-500 mt-3 pt-2 border-t border-slate-200">Modbus TCP &bull; 1-Sec Telemetry</span>
               </div>
 
               <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
                 <div>
                   <span class="font-mono font-bold text-emerald-600 text-xs block mb-1">STEP 2</span>
                   <strong class="text-slate-900 text-sm block">NABL Break Testing</strong>
-                  <p class="text-slate-600 mt-1">Specimen cores tested at 7d and 28d under IS 15658 / IS 2185. Calibrated break report attached.</p>
+                  <p class="text-slate-700 mt-1">Specimen cores crushed at 7d and 28d under IS 15658 / IS 2185. Calibrated break report digitally attached.</p>
                 </div>
-                <span class="font-mono text-[10px] text-slate-400 mt-3 pt-2 border-t border-slate-200">CivilAid NABL &bull; M40+</span>
+                <span class="font-mono text-[10px] text-slate-500 mt-3 pt-2 border-t border-slate-200">CivilAid NABL &bull; M40+ Spec</span>
               </div>
 
               <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
                 <div>
                   <span class="font-mono font-bold text-emerald-600 text-xs block mb-1">STEP 3</span>
                   <strong class="text-slate-900 text-sm block">QA Lead Sign-off</strong>
-                  <p class="text-slate-600 mt-1">Certified quality reviewer audits sensor mass balance and laboratory cert before batch release.</p>
+                  <p class="text-slate-700 mt-1">Certified quality reviewer audits sensor mass balance and laboratory cert before batch release.</p>
                 </div>
-                <span class="font-mono text-[10px] text-slate-400 mt-3 pt-2 border-t border-slate-200">Role-Based &bull; Dual Review</span>
+                <span class="font-mono text-[10px] text-slate-500 mt-3 pt-2 border-t border-slate-200">Role-Based &bull; Dual Verification</span>
               </div>
 
               <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-300 flex flex-col justify-between">
                 <div>
                   <span class="font-mono font-bold text-emerald-800 text-xs block mb-1">STEP 4</span>
                   <strong class="text-emerald-950 text-sm block">Pallet QR Passport</strong>
-                  <p class="text-emerald-800 mt-1">Unique SHA-256 hash issued. Scannable QR code affixed to shipping pallets for jobsite inspection.</p>
+                  <p class="text-emerald-900 mt-1">Unique SHA-256 hash issued. Scannable QR code affixed to shipping pallets for jobsite inspection.</p>
                 </div>
                 <span class="font-mono text-[10px] text-emerald-700 mt-3 pt-2 border-t border-emerald-200">Public &bull; Zero-Knowledge</span>
               </div>
@@ -713,25 +771,25 @@ import { RouterModule } from '@angular/router';
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 Does SthiraX precast concrete satisfy Bureau of Indian Standards (BIS) specifications?
               </h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+              <p class="text-sm text-slate-700 leading-relaxed mb-3">
                 Yes. All materials are engineered and laboratory-tested to satisfy or exceed Indian national codes:
               </p>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans">
                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <strong class="text-slate-900 block font-mono">IS 15658:2006</strong>
-                  <span class="text-slate-600">Precast Concrete Blocks for Paving (M35 – M50 commercial grades).</span>
+                  <span class="text-slate-700">Precast Concrete Blocks for Paving (M35 – M50 commercial grades).</span>
                 </div>
                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <strong class="text-slate-900 block font-mono">IS 2185 Part 1:2005</strong>
-                  <span class="text-slate-600">Concrete Masonry Blocks (Solid load-bearing structural units).</span>
+                  <span class="text-slate-700">Concrete Masonry Blocks (Solid load-bearing structural units).</span>
                 </div>
                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <strong class="text-slate-900 block font-mono">IRC:SP:63</strong>
-                  <span class="text-slate-600">Interlocking Concrete Block Pavement for heavy municipal highways.</span>
+                  <span class="text-slate-700">Interlocking Concrete Block Pavement for heavy municipal highways.</span>
                 </div>
                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <strong class="text-slate-900 block font-mono">CPCB C&D Rules 2025</strong>
-                  <span class="text-slate-600">Mandated 20% to 50% recycled construction fines uptake.</span>
+                  <span class="text-slate-700">Mandated 20% to 50% recycled construction fines uptake.</span>
                 </div>
               </div>
             </div>
@@ -744,7 +802,7 @@ import { RouterModule } from '@angular/router';
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 What modifications are required at an existing partner precast plant?
               </h3>
-              <p class="text-sm text-slate-600 leading-relaxed">
+              <p class="text-sm text-slate-700 leading-relaxed">
                 No civil construction or new building works are needed. SthiraX delivers a modular, skid-mounted vaporization manifold, installs airtight silicone perimeter seals onto existing curing rooms, and connects Emerson Coriolis gas meters and telemetry probes. Retrofit downtime is typically under 3 weeks.
               </p>
             </div>
@@ -757,8 +815,8 @@ import { RouterModule } from '@angular/router';
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 What is the estimated capital payback period for a precast plant retrofit?
               </h3>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                At an average annual volume of 12,000 tonnes and retrofit CapEx of ₹18 to ₹25 Lakhs, cement binder savings (replacing 20% OPC with fly ash/slag) combined with modest green procurement premiums deliver full capital payback within <strong>1.4 to 1.8 years</strong> without any carbon credit subsidy.
+              <p class="text-sm text-slate-700 leading-relaxed">
+                At an average annual volume of 12,000 tonnes and retrofit CapEx of ₹18 to ₹25 Lakhs, cement binder savings (replacing 20% OPC with fly ash/slag) combined with modest green procurement premiums deliver full capital payback within <strong>14 to 18 months</strong> without any carbon credit subsidy.
               </p>
             </div>
 
@@ -770,7 +828,7 @@ import { RouterModule } from '@angular/router';
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 Does the business require carbon removal credit sales to remain profitable?
               </h3>
-              <p class="text-sm text-slate-600 leading-relaxed">
+              <p class="text-sm text-slate-700 leading-relaxed">
                 <strong>No.</strong> SthiraX operates profitably strictly from material sales of certified precast concrete products. Carbon credits (such as Puro.earth or India's Carbon Credit Trading Scheme) are treated strictly as non-guaranteed financial upside.
               </p>
             </div>
@@ -923,7 +981,6 @@ import { RouterModule } from '@angular/router';
       border: 1px solid #A7F3D0;
       padding: 0.2rem 0.5rem;
       border-radius: 0.375rem;
-      margin-bottom: 0.75rem;
     }
 
     /* Step Cards */
@@ -966,8 +1023,8 @@ import { RouterModule } from '@angular/router';
       line-height: 1.3;
     }
     .step-desc {
-      font-size: 0.85rem;
-      color: #64748B;
+      font-size: 0.875rem;
+      color: #475569;
       line-height: 1.55;
     }
 

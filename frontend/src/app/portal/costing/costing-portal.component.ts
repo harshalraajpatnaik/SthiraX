@@ -21,7 +21,7 @@ import { ApiService } from '../../core/services/api.service';
             Unit Economics & Margin Architecture
           </h1>
           <p class="text-slate-500 text-sm mt-1 max-w-2xl">
-            Precast batch cost waterfall, modular autoclave retrofit CapEx payback, and sensitivity under bulk cryogenic CO₂ delivery tariffs.
+            Interactive financial waterfall analyzing precast unit economics, modular curing retrofit CapEx recovery, and EBITDA sensitivity across delivered CO₂ tariffs.
           </p>
         </div>
       </div>

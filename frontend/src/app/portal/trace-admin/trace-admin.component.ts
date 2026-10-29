@@ -11,6 +11,15 @@ import { ProductPassport } from '../../core/models';
   template: `
     <div class="trace-admin-portal-page space-y-8">
       
+      <!-- In-app Action Notification Banner -->
+      <div *ngIf="toastMessage" class="bg-emerald-500 text-white px-5 py-3 rounded-xl flex items-center justify-between shadow-md animate-fade">
+        <div class="flex items-center gap-2.5 text-xs font-semibold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>{{ toastMessage }}</span>
+        </div>
+        <button (click)="toastMessage = null" class="text-white/80 hover:text-white text-lg font-bold leading-none">&times;</button>
+      </div>
+
       <!-- Page Header -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
@@ -224,6 +233,7 @@ import { ProductPassport } from '../../core/models';
 export class TraceAdminComponent implements OnInit {
   passports: ProductPassport[] = [];
   selectedPassport: ProductPassport | null = null;
+  toastMessage: string | null = null;
 
   constructor(private api: ApiService) {}
 
@@ -249,6 +259,7 @@ export class TraceAdminComponent implements OnInit {
   togglePublic(): void {
     if (!this.selectedPassport) return;
     this.selectedPassport.publiclyScannable = !this.selectedPassport.publiclyScannable;
-    alert(`Passport ${this.selectedPassport.passportId} public status set to: ${this.selectedPassport.publiclyScannable ? 'PUBLIC' : 'PRIVATE'}`);
+    this.toastMessage = `Passport ${this.selectedPassport.passportId} public status set to: ${this.selectedPassport.publiclyScannable ? 'PUBLIC' : 'PRIVATE'}`;
+    setTimeout(() => { if (this.toastMessage) this.toastMessage = null; }, 5000);
   }
 }
