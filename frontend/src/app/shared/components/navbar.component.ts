@@ -67,6 +67,7 @@ import { AuthService } from '../../core/services/auth.service';
           </div>
 
           <a routerLink="/trace" routerLinkActive="active" (click)="mobileMenuOpen = false">SthiraX Trace</a>
+          <a routerLink="/docs" routerLinkActive="active" (click)="mobileMenuOpen = false">Docs & Flows</a>
           <a routerLink="/tools" routerLinkActive="active" (click)="mobileMenuOpen = false">Tools & Calculators</a>
           <a routerLink="/roadmap" routerLinkActive="active" (click)="mobileMenuOpen = false">Roadmap</a>
           <a routerLink="/regulatory" routerLinkActive="active" (click)="mobileMenuOpen = false">Regulatory</a>

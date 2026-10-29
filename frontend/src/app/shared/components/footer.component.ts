@@ -54,6 +54,7 @@ import { RouterModule } from '@angular/router';
 
           <div class="link-column">
             <h4>Traceability & Tools</h4>
+            <a routerLink="/docs">Knowledge Base & Architecture Flows</a>
             <a routerLink="/trace">SthiraX Trace Digital Passports</a>
             <a routerLink="/passports/pass-7f9a2b4c">Demonstration Batch Passport</a>
             <a routerLink="/tools">Retrofit Profitability Calculator</a>

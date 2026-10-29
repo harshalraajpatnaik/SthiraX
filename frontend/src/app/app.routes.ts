@@ -17,6 +17,7 @@ import { ToolsComponent } from './public/tools/tools.component';
 import { RoadmapComponent } from './public/roadmap/roadmap.component';
 import { AboutComponent } from './public/about/about.component';
 import { TeamComponent } from './public/team/team.component';
+import { DocsComponent } from './public/docs/docs.component';
 import { RegulatoryComponent } from './public/regulatory/regulatory.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { PilotComponent } from './public/contact/pilot.component';
@@ -57,6 +58,10 @@ export const routes: Routes = [
   { path: 'roadmap', component: RoadmapComponent, title: 'Technology & Industrial Scale-up Roadmap | SthiraX' },
   { path: 'about', component: AboutComponent, title: 'About SthiraX | Mission & Governance' },
   { path: 'team', component: TeamComponent, title: 'Leadership & Engineering Team | SthiraX' },
+  { path: 'docs', component: DocsComponent, title: 'Knowledge Base, Architecture & Flows | SthiraX' },
+  { path: 'architecture', redirectTo: 'docs', pathMatch: 'full' },
+  { path: 'knowledge', redirectTo: 'docs', pathMatch: 'full' },
+  { path: 'flows', redirectTo: 'docs', pathMatch: 'full' },
   { path: 'regulatory', component: RegulatoryComponent, title: 'Regulatory Compliance & Indian Standards | SthiraX' },
   { path: 'contact', component: ContactComponent, title: 'Commercial Enquiries & Offtake | SthiraX' },
   { path: 'pilot', component: PilotComponent, title: 'Hosur Pilot Validation Facility | SthiraX' },

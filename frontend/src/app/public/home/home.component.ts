@@ -79,6 +79,22 @@ import { Product } from '../../core/models/models';
         </div>
       </section>
 
+      <!-- Interactive Architecture & Amateur Guide Callout Banner -->
+      <section class="bg-slate-900 border-y border-slate-800 py-6 px-4">
+        <div class="container-wide flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl shrink-0">💡</span>
+            <div>
+              <h3 class="text-base font-bold text-white">Curious how captured factory CO₂ turns into solid precast stone?</h3>
+              <p class="text-xs text-slate-400">Explore our interactive architecture diagrams, 60-second beginner guide, and industrial value-chain flows.</p>
+            </div>
+          </div>
+          <a routerLink="/docs" class="btn btn-primary btn-sm shrink-0 whitespace-nowrap">
+            View Architecture & Flows Hub &rarr;
+          </a>
+        </div>
+      </section>
+
       <!-- Three Commercial Pathways -->
       <section class="section pathways-section">
         <div class="container">
