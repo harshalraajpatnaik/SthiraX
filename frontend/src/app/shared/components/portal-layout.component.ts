@@ -73,23 +73,23 @@ import { AuthService } from '../../core/services/auth.service';
             <span class="nav-header">CORE OPERATIONS</span>
             <a routerLink="/app/dashboard" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-              Executive Dashboard
+              <span>Executive Dashboard</span>
             </a>
             <a routerLink="/app/orders" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-              Orders & Quotations
+              <span>Orders & Quotations</span>
             </a>
             <a routerLink="/app/batches" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-              Production Batches
+              <span>Production Batches</span>
             </a>
             <a routerLink="/app/quality" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              Quality & MRV Reviews
+              <span>Quality & MRV Reviews</span>
             </a>
             <a routerLink="/app/trace" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><line x1="4" y1="9" x2="20" y2="9"></line><line x1="9" y1="20" x2="9" y2="9"></line></svg>
-              Trace & Passports
+              <span>Trace & Passports</span>
             </a>
           </div>
 
@@ -97,19 +97,19 @@ import { AuthService } from '../../core/services/auth.service';
             <span class="nav-header">SUPPLY CHAIN & LOGISTICS</span>
             <a routerLink="/app/approvals" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
-              Partner Approvals
+              <span>Partner Approvals</span>
             </a>
             <a routerLink="/app/plants" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-              Precast Plant Network
+              <span>Precast Plant Network</span>
             </a>
             <a routerLink="/app/co2-suppliers" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-              CO₂ Supply Routing
+              <span>CO₂ Supply Routing</span>
             </a>
             <a routerLink="/app/logistics" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-              Shipments & Transit
+              <span>Shipments & Transit</span>
             </a>
           </div>
 
@@ -117,19 +117,19 @@ import { AuthService } from '../../core/services/auth.service';
             <span class="nav-header">FINANCE & GOVERNANCE</span>
             <a routerLink="/app/costing" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-              Cost Models & Margins
+              <span>Cost Models & Margins</span>
             </a>
             <a routerLink="/app/carbon-offtake" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path></svg>
-              Carbon Offtake Workspace
+              <span>Carbon Offtake Workspace</span>
             </a>
             <a routerLink="/app/regulatory" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              Regulatory Admin
+              <span>Regulatory Admin</span>
             </a>
             <a routerLink="/app/audit-log" routerLinkActive="active" class="side-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-              Audit & Access Logs
+              <span>Audit & Access Logs</span>
             </a>
           </div>
         </aside>

@@ -9,81 +9,115 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="carbon-offtake-portal-page">
-      <div class="page-header mb-8">
+    <div class="carbon-offtake-portal-page space-y-8">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span class="badge badge-accent mb-2">Carbon Finance (Non-Guaranteed Upside)</span>
-          <h1 class="page-title text-3xl font-display">Carbon Offtake & Removal Registry Workspace</h1>
-          <p class="text-secondary text-sm">Manage potential carbon credit offtake dialogues under Puro.earth, Isometric, and India's Carbon Credit Trading Scheme (CCTS).</p>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 mb-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Carbon Finance & Standards (Non-Guaranteed Upside)
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Carbon Offtake & Removal Registry Workspace
+          </h1>
+          <p class="text-slate-500 text-sm mt-1 max-w-2xl">
+            Track prospective corporate carbon removal dialogues under Puro.earth, Isometric, and India's Carbon Credit Trading Scheme (CCTS).
+          </p>
         </div>
       </div>
 
       <!-- Compliance Disclaimer Banner -->
-      <div style="background: #f0f7f3; border: 1px solid #c9decb; border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2rem;">
-        <svg width="22" height="22" style="width: 22px; height: 22px; min-width: 22px; min-height: 22px; color: #2e624c; margin-top: 2px; flex-shrink: 0;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-        <div style="font-size: 0.85rem; color: #234d3b; line-height: 1.55;">
-          <strong style="color: #1b3d2f; font-weight: 700; display: block; margin-bottom: 0.25rem;">Strict Governance Boundary:</strong>
-          Carbon credits represent non-guaranteed potential upside. SthiraX unit economics and partner facility payback are modelled to be self-sustaining without carbon removal revenue. Credits are never pre-sold before third-party verification and physical mineralisation confirmation.
+      <div class="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-5 sm:p-6 flex items-start gap-3.5 shadow-sm">
+        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold text-sm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        </div>
+        <div class="text-xs sm:text-sm text-emerald-950 leading-relaxed">
+          <strong class="font-bold text-emerald-900 block mb-0.5">Strict Governance & Additionality Boundary:</strong>
+          Carbon credits represent non-guaranteed prospective upside. SthiraX unit economics and partner facility payback are modelled to be self-sustaining without carbon removal revenue. Credits are never pre-sold before third-party verification and physical mineralisation confirmation.
         </div>
       </div>
 
-      <!-- Pipeline Summary Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div class="card p-4 bg-surface border-subtle">
-          <span class="text-xs text-secondary font-mono uppercase tracking-wider">Pipeline Opportunities</span>
-          <div class="text-2xl font-bold font-mono text-primary mt-1">{{ opportunities.length }}</div>
-          <span class="text-xs text-muted">Prospective corporate buyers</span>
+      <!-- Pipeline Summary Metric Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Active Pipeline</span>
+            <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">{{ opportunities.length }} Leads</div>
+          </div>
+          <span class="text-xs text-slate-500 mt-2 block">Prospective corporate buyers</span>
         </div>
-        <div class="card p-4 bg-surface border-subtle">
-          <span class="text-xs text-secondary font-mono uppercase tracking-wider">Prospective Volume</span>
-          <div class="text-2xl font-bold font-mono text-primary mt-1">{{ totalProspectiveTonnes | number }} t CO₂e</div>
-          <span class="text-xs text-muted">Over 24-month horizon</span>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Prospective Volume</span>
+            <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">{{ totalProspectiveTonnes | number }} t CO₂e</div>
+          </div>
+          <span class="text-xs text-slate-500 mt-2 block">Over 24-month horizon</span>
         </div>
-        <div class="card p-4 bg-surface border-subtle">
-          <span class="text-xs text-secondary font-mono uppercase tracking-wider">Avg Indicative Price</span>
-          <div class="text-2xl font-bold font-mono text-accent mt-1">&#36; {{ avgPriceUsd | number:'1.0-0' }} / t</div>
-          <span class="text-xs text-muted">(approx. ₹{{ (avgPriceUsd * 83) | number:'1.0-0' }} / t)</span>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Avg Indicative Price</span>
+            <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">\${{ avgPriceUsd | number:'1.0-0' }} / t</div>
+          </div>
+          <span class="text-xs text-slate-500 mt-2 block">approx. ₹{{ (avgPriceUsd * 83) | number:'1.0-0' }} / t CO₂</span>
         </div>
-        <div class="card p-4 bg-surface border-subtle">
-          <span class="text-xs text-secondary font-mono uppercase tracking-wider">Registry Target</span>
-          <div class="text-2xl font-bold font-mono text-primary mt-1">Puro.earth / CCTS</div>
-          <span class="text-xs text-muted">Carbonated Materials Standard</span>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Registry Alignment</span>
+            <div class="text-2xl font-black font-mono text-slate-900 mt-1.5">Puro.earth / CCTS</div>
+          </div>
+          <span class="text-xs text-slate-500 mt-2 block">Carbonated Materials Standard</span>
         </div>
+
       </div>
 
-      <!-- Opportunities Table -->
-      <div class="card overflow-hidden bg-surface border-subtle mb-8">
-        <div class="p-4 border-b border-subtle flex justify-between items-center">
-          <h2 class="text-base font-display font-semibold text-primary">Prospective Carbon Removal Offtake Pipeline</h2>
-          <span class="text-xs text-muted">Showing {{ opportunities.length }} opportunities</span>
+      <!-- Opportunities Pipeline Table Card -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Prospective Carbon Removal Pipeline</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Corporate offtake dialogues and forward procurement interest.</p>
+          </div>
+          <span class="text-xs font-mono font-medium text-slate-400">{{ opportunities.length }} Qualified Records</span>
         </div>
 
         <div class="overflow-x-auto">
-          <table class="table w-full text-xs">
+          <table class="w-full text-left border-collapse text-xs">
             <thead>
-              <tr class="text-secondary border-b border-subtle bg-canvas/50">
-                <th class="py-3 px-4 text-left font-mono">Opportunity ID</th>
-                <th class="py-3 px-4 text-left">Prospective Buyer / Counterparty</th>
-                <th class="py-3 px-4 text-left">Registry Standard</th>
-                <th class="py-3 px-4 text-right font-mono">Volume (t CO₂)</th>
-                <th class="py-3 px-4 text-right font-mono">Indicative Price</th>
-                <th class="py-3 px-4 text-center">Status</th>
-                <th class="py-3 px-4 text-right">Actions</th>
+              <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase font-mono tracking-wider text-[11px]">
+                <th class="py-3.5 px-5">Lead ID</th>
+                <th class="py-3.5 px-5">Prospective Counterparty</th>
+                <th class="py-3.5 px-5">Registry Standard</th>
+                <th class="py-3.5 px-5 text-right font-mono">Volume (t CO₂)</th>
+                <th class="py-3.5 px-5 text-right font-mono">Indicative Price</th>
+                <th class="py-3.5 px-5 text-center">Status</th>
+                <th class="py-3.5 px-5 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-subtle">
-              <tr *ngFor="let o of opportunities" class="hover:bg-canvas/30 transition-colors">
-                <td class="py-3 px-4 font-mono font-bold text-primary">{{ o.id }}</td>
-                <td class="py-3 px-4 font-semibold text-primary">{{ o.buyerName }}</td>
-                <td class="py-3 px-4">{{ o.registryStandard }}</td>
-                <td class="py-3 px-4 text-right font-mono">{{ o.volumeTonnes | number }} t</td>
-                <td class="py-3 px-4 text-right font-mono text-accent font-bold">&#36;{{ o.pricePerTonneUsd }} / t</td>
-                <td class="py-3 px-4 text-center">
-                  <span class="badge" [ngClass]="getStatusBadge(o.status)">{{ o.status }}</span>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr *ngFor="let o of opportunities" class="hover:bg-slate-50/80 transition-colors">
+                <td class="py-4 px-5 font-mono font-bold text-slate-900">{{ o.id }}</td>
+                <td class="py-4 px-5 font-bold text-slate-800">{{ o.buyerName }}</td>
+                <td class="py-4 px-5 text-slate-600">{{ o.registryStandard }}</td>
+                <td class="py-4 px-5 text-right font-mono font-medium text-slate-800">{{ o.volumeTonnes | number }} t</td>
+                <td class="py-4 px-5 text-right font-mono font-bold text-emerald-700">\${{ o.pricePerTonneUsd }} / t</td>
+                <td class="py-4 px-5 text-center">
+                  <span class="px-2.5 py-1 rounded-full font-mono font-bold text-[11px]" [ngClass]="getStatusBadge(o.status)">
+                    {{ o.status }}
+                  </span>
                 </td>
-                <td class="py-3 px-4 text-right">
-                  <button class="btn btn-outline text-[11px] py-1 px-2.5" (click)="viewDetails(o)">Details</button>
+                <td class="py-4 px-5 text-right">
+                  <button class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-xs transition-colors" (click)="viewDetails(o)">
+                    Inspect
+                  </button>
                 </td>
+              </tr>
+              <tr *ngIf="opportunities.length === 0">
+                <td colspan="7" class="py-12 text-center text-slate-400">No offtake opportunities found.</td>
               </tr>
             </tbody>
           </table>
@@ -91,29 +125,56 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
       </div>
 
       <!-- Methodology Alignment Grid -->
-      <div class="card p-6 bg-surface border-subtle">
-        <h3 class="text-base font-display font-semibold text-primary mb-4">Methodology & Standard Qualification Checklist</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-          <div class="p-4 bg-canvas rounded border border-subtle space-y-2">
-            <span class="font-bold text-primary block">1. Permanence & Durability</span>
-            <p class="text-muted leading-relaxed">
-              CO₂ is reacted into thermodynamically stable calcium carbonates ($CaCO_3$). Risk of reversal is near zero under ambient conditions below 800°C. Exceeds the 1,000-year permanence threshold required by durable CDR standards.
-            </p>
+      <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Methodology & Standard Qualification Checklist</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Verification criteria required to tokenize physical mineralization into durable carbon removal credits:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+          
+          <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">&check;</span>
+                <span class="font-bold text-slate-900 text-sm">1. Permanence & Durability</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed">
+                CO₂ is reacted into thermodynamically stable calcium carbonates ($CaCO_3$). Risk of reversal is near zero under ambient conditions below 800&deg;C. Exceeds the 1,000-year durability threshold required by durable CDR standards.
+              </p>
+            </div>
+            <span class="text-[11px] font-mono text-emerald-700 mt-2 block">Standard: Puro.earth &bull; &gt;1000y</span>
           </div>
-          <div class="p-4 bg-canvas rounded border border-subtle space-y-2">
-            <span class="font-bold text-primary block">2. Additionality & Baselines</span>
-            <p class="text-muted leading-relaxed">
-              Precast plants do not naturally absorb bulk industrial CO₂ in commercial timescales without pressurized mineralization retrofit enclosures. Baselines are established against standard ambient steam curing.
-            </p>
+
+          <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">&check;</span>
+                <span class="font-bold text-slate-900 text-sm">2. Clear Additionality</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed">
+                Precast factories do not naturally absorb bulk industrial CO₂ in commercial timescales without specialized pressurization retrofit skids. Baselines are established against standard ambient steam curing.
+              </p>
+            </div>
+            <span class="text-[11px] font-mono text-emerald-700 mt-2 block">Baseline: Ambient Steam Curing</span>
           </div>
-          <div class="p-4 bg-canvas rounded border border-subtle space-y-2">
-            <span class="font-bold text-primary block">3. Gate-to-Gate Life Cycle Boundaries</span>
-            <p class="text-muted leading-relaxed">
-              Life cycle emissions from liquid CO₂ transport, compression energy, and chamber fan ventilation are rigorously subtracted from gross mineralization to yield verified gate-to-gate net removal.
-            </p>
+
+          <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">&check;</span>
+                <span class="font-bold text-slate-900 text-sm">3. Gate-to-Gate Life Cycle</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed">
+                Life cycle emissions from liquid CO₂ transport, compression energy, and chamber fan ventilation are rigorously subtracted from gross mineralization to yield verified net physical removal.
+              </p>
+            </div>
+            <span class="text-[11px] font-mono text-emerald-700 mt-2 block">Protocol: ISO 14064-2</span>
           </div>
+
         </div>
       </div>
+
     </div>
   `
 })
@@ -141,14 +202,14 @@ export class CarbonOfftakeComponent implements OnInit {
 
   getStatusBadge(status: string): string {
     switch (status) {
-      case 'AGREEMENT_SIGNED': return 'badge-accent';
-      case 'AUDIT_STAGE': return 'badge-primary';
-      case 'TERM_SHEET': return 'badge-secondary';
-      default: return 'badge-warning';
+      case 'QUALIFIED': return 'bg-emerald-100 text-emerald-800';
+      case 'TERM_SHEET': return 'bg-cyan-100 text-cyan-800';
+      case 'DIALOGUE': return 'bg-amber-100 text-amber-800';
+      default: return 'bg-slate-100 text-slate-700';
     }
   }
 
   viewDetails(o: CarbonOfftakeOpportunity): void {
-    alert(`Opportunity ${o.id}: Buyer ${o.buyerName}, Status: ${o.status}, Notes: ${o.notes || 'Under review'}`);
+    alert(`Opportunity #${o.id} Details:\nBuyer: ${o.buyerName}\nStandard: ${o.registryStandard}\nVolume: ${o.volumeTonnes} tonnes\nIndicative Price: $${o.pricePerTonneUsd}/t`);
   }
 }

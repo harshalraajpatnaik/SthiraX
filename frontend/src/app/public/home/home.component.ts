@@ -250,38 +250,71 @@ import { Product } from '../../core/models/models';
       </section>
 
       <!-- Team & Leadership Highlight -->
-      <section class="section" style="padding: 2rem 0; background: #ffffff;">
-        <div class="container">
-          <div class="team-preview-section" style="padding: 2.5rem; background: #fdfdfc; border: 1px solid #e0e2db; border-radius: 8px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+      <section class="py-12 bg-white border-y border-slate-200">
+        <div class="container-wide">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
+            <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
               <div>
-                <span class="section-tag" style="color: #2e624c; font-weight: 700; font-size: 0.75rem; text-transform: uppercase;">Multidisciplinary Engineering</span>
-                <h2 style="font-size: 1.6rem; font-weight: 700; color: #181c1c; margin-top: 0.25rem;">Founding & Industrial Operations Team</h2>
-                <p style="color: #626a6c; font-size: 0.95rem; margin-top: 0.25rem;">Decades of hands-on experience across BPCL refineries, civil materials, mechanical engineering, enterprise platforms, and media integration.</p>
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300 inline-block mb-2">Multidisciplinary Leadership</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Founding & Industrial Operations Team</h2>
+                <p class="text-slate-600 text-sm max-w-3xl mt-1">Decades of operational leadership across refinery processes, civil infrastructure materials, mechanical digitization, enterprise cloud architectures, and media integration.</p>
               </div>
-              <a routerLink="/team" class="btn btn-secondary btn-sm" style="white-space: nowrap;">Meet the Entire Team &rarr;</a>
+              <a routerLink="/team" class="px-4 py-2.5 bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-xs rounded-xl shadow-sm transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5">
+                <span>View Full Team Profiles</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
-              <div style="padding: 1.25rem; background: #ffffff; border-radius: 6px; border: 1px solid #e0e2db;">
-                <strong style="color: #181c1c; display: block; font-size: 0.95rem;">Sai Nikhil Y</strong>
-                <span style="font-size: 0.75rem; color: #2e624c; font-weight: 600;">Product Leadership & Ops</span>
-                <p style="font-size: 0.75rem; color: #626a6c; margin-top: 6px; line-height: 1.4;">7 yrs logistics, retail intelligence & manufacturing digitization. Mechanical Engineering.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">Sai Nikhil Y</strong>
+                  <span class="text-xs font-semibold text-emerald-700">Product Leadership & Operations</span>
+                  <p class="text-xs text-slate-600 mt-2 leading-relaxed">7 yrs across logistics, retail intelligence, operations and manufacturing digitization. Mechanical Engineering background.</p>
+                </div>
               </div>
-              <div style="padding: 1.25rem; background: #ffffff; border-radius: 6px; border: 1px solid #e0e2db;">
-                <strong style="color: #181c1c; display: block; font-size: 0.95rem;">Hitesh Jain A</strong>
-                <span style="font-size: 0.75rem; color: #2e624c; font-weight: 600;">Construction Materials</span>
-                <p style="font-size: 0.75rem; color: #626a6c; margin-top: 6px; line-height: 1.4;">8+ yrs family business, Civil Engineering graduate, precast materials.</p>
+
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">Hitesh Jain A</strong>
+                  <span class="text-xs font-semibold text-emerald-700">Construction & Materials</span>
+                  <p class="text-xs text-slate-600 mt-2 leading-relaxed">8+ yrs in family construction materials and infrastructure works. Civil Engineering graduate.</p>
+                </div>
               </div>
-              <div style="padding: 1.25rem; background: #ffffff; border-radius: 6px; border: 1px solid #e0e2db;">
-                <strong style="color: #181c1c; display: block; font-size: 0.95rem;">Shashank Verma</strong>
-                <span style="font-size: 0.75rem; color: #2e624c; font-weight: 600;">Engineering & Projects</span>
-                <p style="font-size: 0.75rem; color: #626a6c; margin-top: 6px; line-height: 1.4;">13+ yrs BPCL engineering, safety officer & industrial B2B sales. Civil Engineering.</p>
+
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">Shashank Verma</strong>
+                  <span class="text-xs font-semibold text-emerald-700">Engineering, Safety & Sales</span>
+                  <p class="text-xs text-slate-600 mt-2 leading-relaxed">13+ yrs in engineering & projects, operations cum safety officer and sales at BPCL. Civil Engineering background.</p>
+                </div>
               </div>
-              <div style="padding: 1.25rem; background: #ffffff; border-radius: 6px; border: 1px solid #e0e2db;">
-                <strong style="color: #181c1c; display: block; font-size: 0.95rem;">Harshal Raaj Patnaik</strong>
-                <span style="font-size: 0.75rem; color: #2e624c; font-weight: 600;">Enterprise Technology</span>
-                <p style="font-size: 0.75rem; color: #626a6c; margin-top: 6px; line-height: 1.4;">5+ yrs cloud platforms, software engineering & digital transformation. CSE background.</p>
+
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">Harshal Raaj Patnaik</strong>
+                  <span class="text-xs font-semibold text-emerald-700">Enterprise Platforms & Tech</span>
+                  <p class="text-xs text-slate-600 mt-2 leading-relaxed">5+ yrs in enterprise technology and digital transformation across cloud platforms and software engineering. CSE background.</p>
+                </div>
               </div>
+
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">Pankaj Adhikari</strong>
+                  <span class="text-xs font-semibold text-emerald-700">Refinery Operations & Process</span>
+                  <p class="text-xs text-slate-600 mt-2 leading-relaxed">12+ yrs in continuous chemical & refinery operations at Bharat Petroleum and Reliance Industries. Chemical Engineering.</p>
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <strong class="text-slate-900 text-sm block font-bold">Lakshmi N Menon</strong>
+                  <span class="text-xs font-semibold text-emerald-700">Media, Legal & Communications</span>
+                  <p class="text-xs text-slate-600 mt-2 leading-relaxed">20 yrs editorial and media production at Asianet, The New Indian Express, AsiaNXT Digital. LLB & PGD Journalism graduate.</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
