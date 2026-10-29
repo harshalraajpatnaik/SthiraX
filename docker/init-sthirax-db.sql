@@ -118,6 +118,37 @@ CREATE TABLE IF NOT EXISTS audit_events (
     details TEXT
 );
 
+CREATE TABLE IF NOT EXISTS enquiries (
+    id VARCHAR(64) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    organization VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(64),
+    enquiry_type VARCHAR(64) NOT NULL,
+    product_category VARCHAR(64),
+    estimated_volume_units INTEGER,
+    delivery_pincode VARCHAR(32),
+    target_delivery_date VARCHAR(64),
+    message TEXT,
+    status VARCHAR(64) DEFAULT 'NEW',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS partner_applications (
+    id VARCHAR(64) PRIMARY KEY,
+    company_name VARCHAR(255) NOT NULL,
+    contact_person VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(64),
+    plant_location VARCHAR(255) NOT NULL,
+    state VARCHAR(64) NOT NULL,
+    annual_capacity_tonnes NUMERIC(12,2) NOT NULL,
+    current_products VARCHAR(255),
+    existing_steam_curing BOOLEAN,
+    status VARCHAR(64) DEFAULT 'PENDING_REVIEW',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Seed initial organizations
 INSERT INTO organisations (id, name, type, status, gstin) VALUES
 ('ORG-STHIRAX', 'SthiraX Technologies Pvt Ltd', 'STHIRAX_ADMIN', 'ACTIVE', '29AABCS1234F1Z5'),

@@ -4,6 +4,16 @@ server:
 spring:
   application:
     name: sthirax-platform
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:sthirax_db}
+    username: ${POSTGRES_USER:sthirax_user}
+    password: ${POSTGRES_PASSWORD:sthirax_secret_pass}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
   jackson:
     serialization:
       write-dates-as-timestamps: false

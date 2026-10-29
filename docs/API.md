@@ -1,6 +1,10 @@
-# SthiraX REST API Specification
+# SthiraX REST API & OpenAPI Specification
 
-Base URL: `http://localhost:8080/api/v1`
+Base URL: `http://localhost:8088/api/v1`
+
+## Interactive OpenAPI & Swagger Documentation
+* **Swagger UI (Interactive API Explorer)**: [`http://localhost:8088/swagger-ui/index.html`](http://localhost:8088/swagger-ui/index.html)
+* **OpenAPI 3.0.1 Specification (JSON)**: [`http://localhost:8088/v3/api-docs`](http://localhost:8088/v3/api-docs)
 
 All responses are formatted in UTF-8 JSON. Standard HTTP status codes are used:
 * `200 OK`: Successful retrieval / calculation
@@ -9,6 +13,33 @@ All responses are formatted in UTF-8 JSON. Standard HTTP status codes are used:
 * `401 Unauthorized`: Authentication missing or expired
 * `403 Forbidden`: Insufficient role permissions
 * `404 Not Found`: Resource does not exist
+
+---
+
+## 0. System & Database Health (PostgreSQL 15)
+
+### `GET /system/database-status`
+Returns real-time PostgreSQL 15 connection state, container status, and live row counts across all relational tables.
+
+**Response (200 OK):**
+```json
+{
+  "connected": true,
+  "database": "PostgreSQL 15 (Docker container: sthirax-postgres)",
+  "host": "localhost:5432 / sthirax_db",
+  "plantsCount": 1,
+  "co2SuppliersCount": 1,
+  "productsCount": 4,
+  "batchesCount": 2,
+  "passportsCount": 1,
+  "enquiriesCount": 2,
+  "partnerApplicationsCount": 2,
+  "auditEventsCount": 10,
+  "statusMessage": "PostgreSQL 15 is active, connected, and persisting industrial data end-to-end."
+}
+```
+
+---
 
 ---
 

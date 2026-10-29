@@ -17,6 +17,7 @@ public class DataStore {
 
     private final PasswordEncoder passwordEncoder;
     private final CostCalculationService costService;
+    private final com.sthirax.service.PostgreSqlPersistenceService persistenceService;
 
     public final Map<String, User> users = new ConcurrentHashMap<>();
     public final Map<String, Organisation> organisations = new ConcurrentHashMap<>();
@@ -39,8 +40,15 @@ public class DataStore {
     public final List<AuditEvent> auditEvents = Collections.synchronizedList(new ArrayList<>());
 
     public DataStore(PasswordEncoder passwordEncoder, CostCalculationService costService) {
+        this(passwordEncoder, costService, null);
+    }
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public DataStore(PasswordEncoder passwordEncoder, CostCalculationService costService,
+                     @org.springframework.beans.factory.annotation.Autowired(required = false) com.sthirax.service.PostgreSqlPersistenceService persistenceService) {
         this.passwordEncoder = passwordEncoder;
         this.costService = costService;
+        this.persistenceService = persistenceService;
     }
 
     @PostConstruct
@@ -53,6 +61,15 @@ public class DataStore {
         seedOrdersQuotesAndBatches();
         seedCostModels();
         seedCarbonOfftake();
+
+        if (persistenceService != null && persistenceService.isConnected()) {
+            for (ProductionBatch b : productionBatches.values()) {
+                persistenceService.persistBatch(b);
+            }
+            for (ProductPassport p : productPassports.values()) {
+                persistenceService.persistPassport(p);
+            }
+        }
     }
 
     private void seedOrganisationsAndUsers() {
@@ -536,5 +553,36 @@ public class DataStore {
                 action, entityType, entityId, userId, userName, role, details
         );
         auditEvents.add(event);
+        if (persistenceService != null) {
+            persistenceService.persistAuditEvent(event);
+        }
+    }
+
+    public void saveBatch(ProductionBatch batch) {
+        productionBatches.put(batch.getId(), batch);
+        if (persistenceService != null) {
+            persistenceService.persistBatch(batch);
+        }
+    }
+
+    public void savePassport(ProductPassport passport) {
+        productPassports.put(passport.getId(), passport);
+        if (persistenceService != null) {
+            persistenceService.persistPassport(passport);
+        }
+    }
+
+    public void saveEnquiry(Enquiry enquiry) {
+        enquiries.put(enquiry.getId(), enquiry);
+        if (persistenceService != null) {
+            persistenceService.persistEnquiry(enquiry);
+        }
+    }
+
+    public void savePartnerApplication(PartnerApplication app) {
+        partnerApplications.put(app.getId(), app);
+        if (persistenceService != null) {
+            persistenceService.persistPartnerApplication(app);
+        }
     }
 }

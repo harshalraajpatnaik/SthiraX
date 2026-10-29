@@ -67,7 +67,7 @@ public class BatchController {
         dataStore.qualityReviews.put(qr.getId(), qr);
 
         batch.setQualityReviewId(qr.getId());
-        dataStore.productionBatches.put(batch.getId(), batch);
+        dataStore.saveBatch(batch);
 
         dataStore.logAudit("CREATE_BATCH", "BATCH", batch.getId(), "operator-1", 
                 batch.getOperatorName() != null ? batch.getOperatorName() : "Plant Operator", 

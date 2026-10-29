@@ -79,12 +79,14 @@ public class QualityReviewController {
                 passport.setDisclaimer("Published under verified quality review protocol. Commercial terms and private supplier identifiers are redacted.");
                 passport.setPublishedAt(Instant.now());
 
-                dataStore.productPassports.put(passport.getId(), passport);
+                dataStore.savePassport(passport);
                 batch.setPublicPassportId(passport.getId());
+                dataStore.saveBatch(batch);
             } else if ("REJECTED".equalsIgnoreCase(req.getDecision())) {
                 batch.setBatchStatus("REJECTED");
                 // Rule: Rejected batches cannot have published passports!
                 batch.setPublicPassportId(null);
+                dataStore.saveBatch(batch);
             }
         }
 

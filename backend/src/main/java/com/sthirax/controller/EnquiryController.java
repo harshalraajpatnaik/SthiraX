@@ -44,7 +44,7 @@ public class EnquiryController {
         enquiry.setStatus("PENDING_REVIEW");
         enquiry.setCreatedAt(Instant.now());
 
-        dataStore.enquiries.put(enquiry.getId(), enquiry);
+        dataStore.saveEnquiry(enquiry);
 
         // If it's a quote enquiry, automatically establish a draft customer order for operational review
         if ("QUOTE".equalsIgnoreCase(enquiry.getType())) {

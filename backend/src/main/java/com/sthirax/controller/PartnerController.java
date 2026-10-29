@@ -46,7 +46,7 @@ public class PartnerController {
         app.setStatus("PENDING_REVIEW");
         app.setCreatedAt(Instant.now());
 
-        dataStore.partnerApplications.put(app.getId(), app);
+        dataStore.savePartnerApplication(app);
         dataStore.logAudit("PARTNER_APPLICATION_SUBMITTED", "PARTNER_APPLICATION", app.getId(), 
                 "public", req.getContactPerson(), "PUBLIC", "Partner application submitted by " + req.getCompanyName());
 
