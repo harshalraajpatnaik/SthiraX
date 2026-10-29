@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
       <div class="container-wide footer-content">
         <div class="footer-brand">
           <div class="brand-logo">
-            <span class="mineral-cube"></span>
+            <img src="/favicon.svg" alt="SthiraX Mineralization Logo" width="28" height="28" class="h-7 w-7 rounded-md inline-block mr-2" />
             <span class="brand-name">STHIRA<span>X</span></span>
           </div>
           <p class="brand-desc">

@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
       <div class="container-wide nav-container">
         <a routerLink="/" class="brand-logo">
           <div class="logo-mark">
-            <span class="mineral-cube"></span>
+            <img src="/favicon.svg" alt="SthiraX Mineralization Logo" width="32" height="32" class="h-8 w-8 rounded-lg" />
           </div>
           <div class="brand-text">
             <span class="brand-name">STHIRA<span>X</span></span>

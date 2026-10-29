@@ -13,7 +13,7 @@ import { AuthService } from '../../core/services/auth.service';
       <header class="portal-topbar">
         <div class="topbar-left">
           <a routerLink="/" class="portal-brand">
-            <span class="mineral-dot"></span>
+            <img src="/favicon.svg" alt="SthiraX" width="22" height="22" class="h-5 w-5 rounded mr-1.5" />
             <strong>STHIRA<span>X</span></strong>
             <span class="portal-label">OPERATIONS CONSOLE</span>
           </a>
