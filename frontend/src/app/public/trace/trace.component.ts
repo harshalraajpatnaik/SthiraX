@@ -59,11 +59,11 @@ import { FormsModule } from '@angular/forms';
                 </div>
                 <div class="hero-chip">
                   <span class="text-[10px] text-slate-400 uppercase tracking-wider block">BIS Code</span>
-                  <span class="text-slate-200 font-bold block">IS 15658:2006</span>
+                  <span class="text-white font-bold block">IS 15658:2006</span>
                 </div>
                 <div class="hero-chip">
                   <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Test Lab</span>
-                  <span class="text-slate-200 font-bold block">CivilAid NABL</span>
+                  <span class="text-white font-bold block">CivilAid NABL</span>
                 </div>
                 <div class="hero-chip">
                   <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Embodied Carbon</span>
@@ -360,6 +360,7 @@ import { FormsModule } from '@angular/forms';
       border: 1px solid #334155;
       border-radius: 0.625rem;
       padding: 0.5rem 0.65rem;
+      color: #ffffff;
     }
     .passport-preview-card {
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(6, 78, 59, 0.6));
