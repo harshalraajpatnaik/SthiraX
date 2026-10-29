@@ -38,22 +38,22 @@ import { QualityReview } from '../../core/models';
 
       <!-- KPI Metrics Overview -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Pending Reviews</span>
           <div class="text-3xl font-black font-mono text-amber-600 mt-1.5">{{ pendingReviewsCount }}</div>
           <span class="text-xs text-slate-500 mt-1 block">Awaiting QA Lead sign-off</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Approved Passports</span>
           <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">{{ approvedCount }}</div>
           <span class="text-xs text-slate-500 mt-1 block">Verified & issued to public</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">NABL Accredited Labs</span>
           <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">2 Facilities</div>
           <span class="text-xs text-slate-500 mt-1 block">CivilAid & National Test House</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Rejection / Defect Rate</span>
           <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">0.4 %</div>
           <span class="text-xs text-slate-500 mt-1 block">Strictly below 1.5% tolerance</span>
@@ -61,7 +61,7 @@ import { QualityReview } from '../../core/models';
       </div>
 
       <!-- Inspector Panel when a review is selected -->
-      <div *ngIf="selectedReview" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div *ngIf="selectedReview" class="inspector-panel space-y-6">
         
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
           <div>
@@ -157,7 +157,7 @@ import { QualityReview } from '../../core/models';
       </div>
 
       <!-- Main Review Queue Table -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="table-card">
         <div class="p-5 border-b border-slate-100 flex items-center justify-between">
           <div>
             <h2 class="text-base font-bold text-slate-900">Inspection & Review Queue</h2>

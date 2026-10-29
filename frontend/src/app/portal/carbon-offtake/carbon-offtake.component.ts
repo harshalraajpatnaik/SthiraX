@@ -28,7 +28,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
       </div>
 
       <!-- Compliance Disclaimer Banner -->
-      <div class="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-5 sm:p-6 flex items-start gap-3.5 shadow-sm">
+      <div class="disclaimer-banner flex items-start gap-3.5 shadow-sm">
         <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold text-sm">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
         </div>
@@ -41,7 +41,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
       <!-- Pipeline Summary Metric Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Active Pipeline</span>
             <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">{{ opportunities.length }} Leads</div>
@@ -49,7 +49,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
           <span class="text-xs text-slate-500 mt-2 block">Prospective corporate buyers</span>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Prospective Volume</span>
             <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">{{ totalProspectiveTonnes | number }} t CO₂e</div>
@@ -57,7 +57,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
           <span class="text-xs text-slate-500 mt-2 block">Over 24-month horizon</span>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Avg Indicative Price</span>
             <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">\${{ avgPriceUsd | number:'1.0-0' }} / t</div>
@@ -65,7 +65,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
           <span class="text-xs text-slate-500 mt-2 block">approx. ₹{{ (avgPriceUsd * 83) | number:'1.0-0' }} / t CO₂</span>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Registry Alignment</span>
             <div class="text-2xl font-black font-mono text-slate-900 mt-1.5">Puro.earth / CCTS</div>
@@ -76,7 +76,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
       </div>
 
       <!-- Opportunities Pipeline Table Card -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="pipeline-table-card">
         <div class="p-5 border-b border-slate-100 flex items-center justify-between">
           <div>
             <h2 class="text-base font-bold text-slate-900">Prospective Carbon Removal Pipeline</h2>
@@ -125,7 +125,7 @@ import { CarbonOfftakeOpportunity } from '../../core/models';
       </div>
 
       <!-- Methodology Alignment Grid -->
-      <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+      <div class="checklist-card space-y-4">
         <div>
           <h3 class="text-base font-bold text-slate-900">Methodology & Standard Qualification Checklist</h3>
           <p class="text-xs text-slate-500 mt-0.5">Verification criteria required to tokenize physical mineralization into durable carbon removal credits:</p>

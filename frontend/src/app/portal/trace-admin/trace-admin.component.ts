@@ -38,22 +38,22 @@ import { ProductPassport } from '../../core/models';
 
       <!-- Quick KPI Metrics -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Total Passports</span>
           <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">{{ passports.length }}</div>
           <span class="text-xs text-slate-500 mt-1 block">Issued to verified batches</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Publicly Scannable</span>
           <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">{{ publishedCount }}</div>
           <span class="text-xs text-slate-500 mt-1 block">Active across jobsite QR codes</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Audited Mineralized</span>
           <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">{{ totalMineralized | number:'1.1-1' }} kg</div>
           <span class="text-xs text-slate-500 mt-1 block">Coriolis mass flow logged</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="kpi-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Audit Standard</span>
           <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">ISO 14064-2</div>
           <span class="text-xs text-slate-500 mt-1 block">Gate-to-gate GHG protocol</span>
@@ -61,7 +61,7 @@ import { ProductPassport } from '../../core/models';
       </div>
 
       <!-- Selected Passport Inspector Drawer -->
-      <div *ngIf="selectedPassport" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div *ngIf="selectedPassport" class="drawer-card space-y-6">
         
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
           <div>
@@ -173,7 +173,7 @@ import { ProductPassport } from '../../core/models';
       </div>
 
       <!-- Passports Registry Table -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="table-card">
         <div class="p-5 border-b border-slate-100 flex items-center justify-between">
           <div>
             <h2 class="text-base font-bold text-slate-900">Digital Product Passports Registry</h2>

@@ -570,12 +570,12 @@ import { RouterModule } from '@angular/router';
           <!-- Chemistry & Math Cards -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             
-            <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="science-card">
               <div>
                 <span class="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase">Thermodynamic Stoichiometry</span>
                 <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Exothermic Mineralization Reaction</h3>
                 
-                <div class="bg-slate-950 text-emerald-300 font-mono text-sm p-4 rounded-xl my-3 border border-slate-800 space-y-1.5">
+                <div class="math-terminal space-y-1.5 my-3">
                   <div class="text-xs text-slate-400 font-sans">Primary Calcium Carbonation Equation:</div>
                   <div class="font-bold text-base text-white">Ca(OH)₂ + CO₂ &rarr; CaCO₃ + H₂O</div>
                   <div class="text-xs text-emerald-400">&Delta;H = &minus;74.4 kJ / mol (Spontaneous & Exothermic)</div>
@@ -595,12 +595,12 @@ import { RouterModule } from '@angular/router';
               </div>
             </div>
 
-            <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="science-card">
               <div>
                 <span class="text-xs font-mono font-bold text-cyan-800 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full uppercase">Gate-to-Gate Life Cycle Boundary</span>
                 <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Net Physical Removal Equation</h3>
                 
-                <div class="bg-slate-950 text-cyan-300 font-mono text-sm p-4 rounded-xl my-3 border border-slate-800 space-y-1.5">
+                <div class="math-terminal space-y-1.5 my-3">
                   <div class="text-xs text-slate-400 font-sans">ISO 14064-2 Net Quantified Mass:</div>
                   <div class="font-bold text-base text-white">Net Removal = CO₂ Mineralized &minus; (E_process + E_transport)</div>
                   <div class="text-xs text-cyan-400">E_process = 0.040 kg CO₂e / kWh &bull; E_transport = 0.082 kg CO₂e / t-km</div>
@@ -672,7 +672,7 @@ import { RouterModule } from '@angular/router';
           </div>
 
           <!-- Passport Architecture Pipeline Card -->
-          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm mb-10">
+          <div class="arch-card mb-10">
             <div class="max-w-3xl mb-6">
               <span class="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase">DPP Data Pipeline</span>
               <h3 class="text-xl font-bold text-slate-900 mt-2">End-to-End Cryptographic Seal Generation</h3>
@@ -764,9 +764,9 @@ import { RouterModule } from '@angular/router';
           <div class="space-y-4 mb-10">
             
             <!-- FAQ 1: Standards -->
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="faq-item-card">
               <div class="flex items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">STANDARDS & COMPLIANCE</span>
+                <span class="faq-tag text-emerald-800 bg-emerald-50 border border-emerald-200">STANDARDS & COMPLIANCE</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 Does SthiraX precast concrete satisfy Bureau of Indian Standards (BIS) specifications?
@@ -795,9 +795,9 @@ import { RouterModule } from '@angular/router';
             </div>
 
             <!-- FAQ 2: Retrofit -->
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="faq-item-card">
               <div class="flex items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-800 bg-cyan-50 px-2.5 py-1 rounded border border-cyan-200">FACTORY RETROFIT</span>
+                <span class="faq-tag text-cyan-800 bg-cyan-50 border border-cyan-200">FACTORY RETROFIT</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 What modifications are required at an existing partner precast plant?
@@ -808,9 +808,9 @@ import { RouterModule } from '@angular/router';
             </div>
 
             <!-- FAQ 3: Payback -->
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="faq-item-card">
               <div class="flex items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded border border-amber-200">FINANCIAL ECONOMICS</span>
+                <span class="faq-tag text-amber-800 bg-amber-50 border border-amber-200">FINANCIAL ECONOMICS</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 What is the estimated capital payback period for a precast plant retrofit?
@@ -821,9 +821,9 @@ import { RouterModule } from '@angular/router';
             </div>
 
             <!-- FAQ 4: Carbon Credits -->
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="faq-item-card">
               <div class="flex items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-2.5 py-1 rounded border border-purple-200">CARBON OFFSETS</span>
+                <span class="faq-tag text-purple-800 bg-purple-50 border border-purple-200">CARBON OFFSETS</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 mb-2">
                 Does the business require carbon removal credit sales to remain profitable?

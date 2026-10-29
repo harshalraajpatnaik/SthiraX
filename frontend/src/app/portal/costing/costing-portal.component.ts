@@ -27,7 +27,7 @@ import { ApiService } from '../../core/services/api.service';
       </div>
 
       <!-- Live Scenario Simulator Controls Card -->
-      <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+      <div class="simulator-card space-y-5">
         <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-100 pb-3">
           <div>
             <h2 class="text-base font-bold text-slate-900">Plant Retrofit & Unit Cost Simulator</h2>
@@ -42,35 +42,35 @@ import { ApiService } from '../../core/services/api.service';
           
           <div class="space-y-1.5">
             <label class="block font-semibold text-slate-700">Delivered CO₂ Cost (₹ / tonne)</label>
-            <div class="relative">
-              <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-mono">₹</span>
-              <input type="number" [(ngModel)]="co2DeliveredCost" (ngModelChange)="recalc()" class="w-full pl-7 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl font-mono text-xs text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:bg-white" step="500">
+            <div class="input-with-prefix">
+              <span class="input-prefix">₹</span>
+              <input type="number" [(ngModel)]="co2DeliveredCost" (ngModelChange)="recalc()" class="prefixed-input" step="500">
             </div>
             <span class="text-[11px] text-slate-400 block">Baseline: ₹8,000 / t (Deccan Distilleries)</span>
           </div>
 
           <div class="space-y-1.5">
             <label class="block font-semibold text-slate-700">Specific Uptake (kg CO₂ / t block)</label>
-            <div class="relative">
-              <input type="number" [(ngModel)]="uptakeKgPerTonne" (ngModelChange)="recalc()" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl font-mono text-xs text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:bg-white" step="1">
+            <div>
+              <input type="number" [(ngModel)]="uptakeKgPerTonne" (ngModelChange)="recalc()" class="plain-input" step="1">
             </div>
             <span class="text-[11px] text-slate-400 block">Tested range: 25 – 35 kg/t</span>
           </div>
 
           <div class="space-y-1.5">
             <label class="block font-semibold text-slate-700">Finished Selling Price (₹ / t)</label>
-            <div class="relative">
-              <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-mono">₹</span>
-              <input type="number" [(ngModel)]="sellingPricePerTonne" (ngModelChange)="recalc()" class="w-full pl-7 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl font-mono text-xs text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:bg-white" step="50">
+            <div class="input-with-prefix">
+              <span class="input-prefix">₹</span>
+              <input type="number" [(ngModel)]="sellingPricePerTonne" (ngModelChange)="recalc()" class="prefixed-input" step="50">
             </div>
             <span class="text-[11px] text-slate-400 block">Market average: ₹3,500 – ₹3,800 / t</span>
           </div>
 
           <div class="space-y-1.5">
             <label class="block font-semibold text-slate-700">SthiraX Software Fee (₹ / t)</label>
-            <div class="relative">
-              <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-mono">₹</span>
-              <input type="number" [(ngModel)]="royaltyPerTonne" (ngModelChange)="recalc()" class="w-full pl-7 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl font-mono text-xs text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:bg-white" step="25">
+            <div class="input-with-prefix">
+              <span class="input-prefix">₹</span>
+              <input type="number" [(ngModel)]="royaltyPerTonne" (ngModelChange)="recalc()" class="prefixed-input" step="25">
             </div>
             <span class="text-[11px] text-slate-400 block">Trace license & sensor MRV telemetry</span>
           </div>
@@ -81,7 +81,7 @@ import { ApiService } from '../../core/services/api.service';
       <!-- Financial KPI Overview Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">CO₂ Cost per Tonne</span>
             <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">₹ {{ co2CostPerTonneBlock | number:'1.1-1' }}</div>
@@ -89,7 +89,7 @@ import { ApiService } from '../../core/services/api.service';
           <span class="text-xs text-slate-500 mt-2 block">{{ uptakeKgPerTonne }} kg &#64; ₹{{ (co2DeliveredCost/1000) | number:'1.2-2' }}/kg</span>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Total Delivered Cost</span>
             <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">₹ {{ totalDeliveredCostPerTonne | number:'1.0-0' }} / t</div>
@@ -97,7 +97,7 @@ import { ApiService } from '../../core/services/api.service';
           <span class="text-xs text-slate-500 mt-2 block">Raw + CO₂ + Energy + Software Fee</span>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Manufacturer Net Margin</span>
             <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">₹ {{ manufacturerMarginPerTonne | number:'1.0-0' }} / t</div>
@@ -105,7 +105,7 @@ import { ApiService } from '../../core/services/api.service';
           <span class="text-xs text-emerald-700 font-semibold mt-2 block">{{ (manufacturerMarginPerTonne / sellingPricePerTonne * 100) | number:'1.1-1' }}% EBITDA contribution</span>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div class="kpi-card flex flex-col justify-between">
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Retrofit CapEx Payback</span>
             <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">{{ retrofitPaybackMonths | number:'1.1-1' }} Mos</div>
@@ -119,7 +119,7 @@ import { ApiService } from '../../core/services/api.service';
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         <!-- Conventional vs SthiraX Breakdown -->
-        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <div class="waterfall-card space-y-6">
           <div>
             <h3 class="text-base font-bold text-slate-900">Unit Cost Comparison: Conventional vs. SthiraX</h3>
             <p class="text-xs text-slate-500 mt-0.5">Illustrating how 20% cement replacement with industrial slag/fly ash lowers net bill of materials.</p>
@@ -171,7 +171,7 @@ import { ApiService } from '../../core/services/api.service';
         </div>
 
         <!-- Sensitivity Matrix -->
-        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <div class="matrix-card space-y-4">
           <div>
             <h3 class="text-base font-bold text-slate-900">Sensitivity Matrix: Delivered CO₂ vs. Selling Price</h3>
             <p class="text-xs text-slate-500 mt-0.5">Manufacturer gross margin (₹ / t) across varied bulk liquid CO₂ transport costs and selling prices:</p>
@@ -264,6 +264,69 @@ import { ApiService } from '../../core/services/api.service';
       border-radius: 1.25rem;
       padding: 1.75rem;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+    .input-with-prefix {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .input-prefix {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono, monospace);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #64748b;
+      pointer-events: none;
+      z-index: 2;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+    .prefixed-input {
+      width: 100%;
+      padding-left: 2.25rem !important; /* 36px left padding guarantees numbers never collide with ₹ */
+      padding-right: 0.75rem;
+      padding-top: 0.55rem;
+      padding-bottom: 0.55rem;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0f172a;
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.625rem;
+      transition: all 0.15s ease-in-out;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .prefixed-input:focus {
+      background-color: #ffffff;
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    }
+    .plain-input {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0f172a;
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.625rem;
+      transition: all 0.15s ease-in-out;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .plain-input:focus {
+      background-color: #ffffff;
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
     }
   `]
 })

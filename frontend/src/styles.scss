@@ -79,6 +79,124 @@ input, select, textarea {
   font-size: 0.95rem;
 }
 
+/* Input styling with icon/prefix support */
+.input-with-prefix {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.input-prefix {
+  position: absolute !important;
+  left: 0.85rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  color: #64748b !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  user-select: none !important;
+  display: flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+}
+
+.prefixed-input {
+  width: 100% !important;
+  padding-left: 2.25rem !important; /* 36px left padding guarantees numbers never collide with ₹ */
+  padding-right: 0.75rem !important;
+  padding-top: 0.55rem !important;
+  padding-bottom: 0.55rem !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 0.625rem !important;
+  transition: all 0.15s ease-in-out !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+
+  &:focus {
+    background-color: #ffffff !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+  }
+}
+
+.plain-input {
+  width: 100% !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  padding-top: 0.55rem !important;
+  padding-bottom: 0.55rem !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 0.625rem !important;
+  transition: all 0.15s ease-in-out !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+
+  &:focus {
+    background-color: #ffffff !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+  }
+}
+
+/* Dedicated Search Input styling with absolute icon spacing */
+.search-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+}
+
+.search-icon {
+  position: absolute !important;
+  left: 1.15rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #94a3b8 !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.search-field {
+  width: 100% !important;
+  padding-left: 3.25rem !important; /* 52px ensures search text and placeholder never overlap the icon */
+  padding-right: 1rem !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.875rem !important;
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.15s ease-in-out !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+
+  &:focus {
+    background-color: #ffffff !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18) !important;
+  }
+}
+
 /* Common utility classes */
 .container {
   max-width: var(--max-width-content);
@@ -393,6 +511,34 @@ input, select, textarea {
 .px-5 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 .px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
 .px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+
+.pl-0 { padding-left: 0 !important; }
+.pl-1 { padding-left: 0.25rem !important; }
+.pl-2 { padding-left: 0.5rem !important; }
+.pl-2\.5 { padding-left: 0.625rem !important; }
+.pl-3 { padding-left: 0.75rem !important; }
+.pl-3\.5 { padding-left: 0.875rem !important; }
+.pl-4 { padding-left: 1rem !important; }
+.pl-5 { padding-left: 1.25rem !important; }
+.pl-6 { padding-left: 1.5rem !important; }
+.pl-7 { padding-left: 1.75rem !important; }
+.pl-8 { padding-left: 2rem !important; }
+.pl-9 { padding-left: 2.25rem !important; }
+.pl-10 { padding-left: 2.5rem !important; }
+.pl-11 { padding-left: 2.75rem !important; }
+.pl-12 { padding-left: 3rem !important; }
+
+.pr-0 { padding-right: 0 !important; }
+.pr-1 { padding-right: 0.25rem !important; }
+.pr-2 { padding-right: 0.5rem !important; }
+.pr-2\.5 { padding-right: 0.625rem !important; }
+.pr-3 { padding-right: 0.75rem !important; }
+.pr-3\.5 { padding-right: 0.875rem !important; }
+.pr-4 { padding-right: 1rem !important; }
+.pr-5 { padding-right: 1.25rem !important; }
+.pr-6 { padding-right: 1.5rem !important; }
+.pr-8 { padding-right: 2rem !important; }
+.pr-10 { padding-right: 2.5rem !important; }
 
 .py-0\.5 { padding-top: 0.125rem !important; padding-bottom: 0.125rem !important; }
 .py-1 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }

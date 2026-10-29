@@ -44,22 +44,22 @@ import { ProductionBatch, Plant, Product } from '../../core/models';
 
       <!-- Overview Metric Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="metric-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Tracked Batches</span>
           <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">{{ batches.length }}</div>
           <span class="text-xs text-slate-500 mt-1 block">Across 3 regional plants</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="metric-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Active in Chamber</span>
           <div class="text-3xl font-black font-mono text-emerald-600 mt-1.5">{{ activeInChamberCount }}</div>
           <span class="text-xs text-slate-500 mt-1 block">Live telemetry streaming</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="metric-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Mineralized CO₂</span>
           <div class="text-3xl font-black font-mono text-emerald-700 mt-1.5">{{ totalMineralizedKg | number:'1.1-1' }} kg</div>
           <span class="text-xs text-slate-500 mt-1 block">Fixed permanently into rock</span>
         </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="metric-card">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Average 28d Strength</span>
           <div class="text-3xl font-black font-mono text-slate-900 mt-1.5">{{ avgStrengthMpa | number:'1.1-1' }} MPa</div>
           <span class="text-xs text-slate-500 mt-1 block">Exceeds IS 15658 M-35 spec</span>
@@ -67,7 +67,7 @@ import { ProductionBatch, Plant, Product } from '../../core/models';
       </div>
 
       <!-- Batch Detail / Live Telemetry Drawer -->
-      <div *ngIf="selectedBatch" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div *ngIf="selectedBatch" class="telemetry-drawer space-y-6">
         
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
           <div>
@@ -192,7 +192,7 @@ import { ProductionBatch, Plant, Product } from '../../core/models';
       </div>
 
       <!-- Main Batches Table Card -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="table-container">
         
         <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
