@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
       <div class="container-wide nav-container">
         
         <!-- Brand Logo & Badge -->
-        <a routerLink="/" class="brand-logo" title="SthiraX Home">
+        <a routerLink="/" class="brand-logo" title="SthiraX Home" (click)="closeDropdowns()">
           <div class="logo-icon-badge">
             <svg viewBox="0 0 64 64" width="34" height="34" class="brand-svg">
               <defs>
@@ -51,21 +51,26 @@ import { AuthService } from '../../core/services/auth.service';
         <nav class="main-nav" [class.open]="mobileMenuOpen">
           
           <!-- Dropdown 1: Solutions -->
-          <div class="nav-dropdown">
-            <button class="dropdown-trigger" type="button">
-              Solutions
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <div class="nav-dropdown" [class.is-open]="activeDropdown === 'solutions'">
+            <button 
+              class="dropdown-trigger" 
+              type="button" 
+              [class.active]="activeDropdown === 'solutions'"
+              (click)="toggleDropdown('solutions', $event)"
+              [attr.aria-expanded]="activeDropdown === 'solutions'">
+              <span>Solutions</span>
+              <svg class="chevron-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <div class="dropdown-menu">
-              <a routerLink="/solutions/manufacturers" (click)="mobileMenuOpen = false">
+            <div class="dropdown-menu" [class.show]="activeDropdown === 'solutions'">
+              <a routerLink="/solutions/manufacturers" (click)="handleItemClick()">
                 <strong>For Precast Manufacturers</strong>
                 <span>Turnkey curing skid retrofits, testing & capacity onboarding</span>
               </a>
-              <a routerLink="/solutions/co2-suppliers" (click)="mobileMenuOpen = false">
+              <a routerLink="/solutions/co2-suppliers" (click)="handleItemClick()">
                 <strong>For Industrial CO₂ Suppliers</strong>
                 <span>Biogenic & industrial flue-gas capture offtake routing</span>
               </a>
-              <a routerLink="/technology" (click)="mobileMenuOpen = false">
+              <a routerLink="/technology" (click)="handleItemClick()">
                 <strong>Technology & Kinetics</strong>
                 <span>Accelerated mineralization reaction & mass balance</span>
               </a>
@@ -73,17 +78,22 @@ import { AuthService } from '../../core/services/auth.service';
           </div>
 
           <!-- Dropdown 2: Products & Trace -->
-          <div class="nav-dropdown">
-            <button class="dropdown-trigger" type="button">
-              Products & Trace
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <div class="nav-dropdown" [class.is-open]="activeDropdown === 'products'">
+            <button 
+              class="dropdown-trigger" 
+              type="button"
+              [class.active]="activeDropdown === 'products'"
+              (click)="toggleDropdown('products', $event)"
+              [attr.aria-expanded]="activeDropdown === 'products'">
+              <span>Products & Trace</span>
+              <svg class="chevron-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <div class="dropdown-menu">
-              <a routerLink="/materials" (click)="mobileMenuOpen = false">
+            <div class="dropdown-menu" [class.show]="activeDropdown === 'products'">
+              <a routerLink="/materials" (click)="handleItemClick()">
                 <strong>Precast Materials Catalogue</strong>
                 <span>Interlocking pavers, solid masonry blocks & kerbstones</span>
               </a>
-              <a routerLink="/trace" (click)="mobileMenuOpen = false">
+              <a routerLink="/trace" (click)="handleItemClick()">
                 <strong>SthiraX Trace™ Passports</strong>
                 <span>Batch-level digital passports with verified SHA-256 proofs</span>
               </a>
@@ -91,35 +101,40 @@ import { AuthService } from '../../core/services/auth.service';
           </div>
 
           <!-- Direct Item 3: Docs & Flows Hub -->
-          <a routerLink="/docs" routerLinkActive="active" (click)="mobileMenuOpen = false" class="nav-item-link">
+          <a routerLink="/docs" routerLinkActive="active" (click)="handleItemClick()" class="nav-item-link">
             Docs & Flows
           </a>
 
           <!-- Direct Item 4: Tools & Calculators -->
-          <a routerLink="/tools" routerLinkActive="active" (click)="mobileMenuOpen = false" class="nav-item-link">
+          <a routerLink="/tools" routerLinkActive="active" (click)="handleItemClick()" class="nav-item-link">
             Calculators
           </a>
 
           <!-- Dropdown 5: Company -->
-          <div class="nav-dropdown">
-            <button class="dropdown-trigger" type="button">
-              Company
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <div class="nav-dropdown" [class.is-open]="activeDropdown === 'company'">
+            <button 
+              class="dropdown-trigger" 
+              type="button"
+              [class.active]="activeDropdown === 'company'"
+              (click)="toggleDropdown('company', $event)"
+              [attr.aria-expanded]="activeDropdown === 'company'">
+              <span>Company</span>
+              <svg class="chevron-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <div class="dropdown-menu">
-              <a routerLink="/team" (click)="mobileMenuOpen = false">
+            <div class="dropdown-menu" [class.show]="activeDropdown === 'company'">
+              <a routerLink="/team" (click)="handleItemClick()">
                 <strong>Founders & Operations Team</strong>
                 <span>Engineering, refinery & operations leadership</span>
               </a>
-              <a routerLink="/about" (click)="mobileMenuOpen = false">
+              <a routerLink="/about" (click)="handleItemClick()">
                 <strong>About SthiraX</strong>
                 <span>Mission, operating principles & ESG governance</span>
               </a>
-              <a routerLink="/regulatory" (click)="mobileMenuOpen = false">
+              <a routerLink="/regulatory" (click)="handleItemClick()">
                 <strong>Standards & Regulations</strong>
                 <span>IS 15658, IS 2185 & CPCB C&D Waste Rules, 2025</span>
               </a>
-              <a routerLink="/roadmap" (click)="mobileMenuOpen = false">
+              <a routerLink="/roadmap" (click)="handleItemClick()">
                 <strong>Industrial Roadmap</strong>
                 <span>Phase milestones & pilot validation timeline</span>
               </a>
@@ -130,9 +145,9 @@ import { AuthService } from '../../core/services/auth.service';
 
         <!-- Right Action Buttons -->
         <div class="nav-actions">
-          <a routerLink="/contact" class="btn btn-secondary btn-sm">Request Quote</a>
-          <a *ngIf="!authService.isAuthenticated()" routerLink="/login" class="btn btn-primary btn-sm">Portal Login</a>
-          <a *ngIf="authService.isAuthenticated()" routerLink="/app/dashboard" class="btn btn-dark btn-sm">Operations Console</a>
+          <a routerLink="/contact" (click)="handleItemClick()" class="btn btn-secondary btn-sm">Request Quote</a>
+          <a *ngIf="!authService.isAuthenticated()" routerLink="/login" (click)="handleItemClick()" class="btn btn-primary btn-sm">Portal Login</a>
+          <a *ngIf="authService.isAuthenticated()" routerLink="/app/dashboard" (click)="handleItemClick()" class="btn btn-dark btn-sm">Operations Console</a>
 
           <!-- Mobile Hamburger Toggle -->
           <button class="mobile-toggle" (click)="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle navigation">
@@ -152,7 +167,7 @@ import { AuthService } from '../../core/services/auth.service';
       top: 0;
       z-index: 1000;
       height: 64px;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
     }
     .nav-container {
       display: flex;
@@ -167,6 +182,7 @@ import { AuthService } from '../../core/services/auth.service';
       gap: 0.65rem;
       text-decoration: none;
       flex-shrink: 0;
+      cursor: pointer;
     }
     .logo-icon-badge {
       display: flex;
@@ -239,15 +255,31 @@ import { AuthService } from '../../core/services/auth.service';
       background: none;
       border: none;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      padding: 0.4rem 0;
+      gap: 0.35rem;
+      padding: 0.4rem 0.25rem;
       transition: color 0.15s ease;
+      user-select: none;
     }
-    .dropdown-trigger:hover {
+    .dropdown-trigger:hover,
+    .dropdown-trigger.active,
+    .nav-dropdown.is-open .dropdown-trigger {
       color: #059669;
     }
+    
+    /* Dropdown Expand Arrow Rotation */
+    .chevron-arrow {
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .nav-dropdown:hover .chevron-arrow,
+    .nav-dropdown.is-open .chevron-arrow,
+    .dropdown-trigger.active .chevron-arrow {
+      transform: rotate(180deg);
+    }
+
     .dropdown-menu {
       position: absolute;
       top: calc(100% + 8px);
@@ -263,8 +295,23 @@ import { AuthService } from '../../core/services/auth.service';
       flex-direction: column;
       gap: 0.25rem;
       z-index: 100;
+      animation: dropdownFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .nav-dropdown:hover .dropdown-menu {
+    @keyframes dropdownFadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -6px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    /* Keep open on hover OR on active click toggle */
+    .nav-dropdown:hover .dropdown-menu,
+    .dropdown-menu.show,
+    .nav-dropdown.is-open .dropdown-menu {
       display: flex;
     }
     .dropdown-menu a {
@@ -337,7 +384,7 @@ import { AuthService } from '../../core/services/auth.service';
       .dropdown-trigger {
         width: 100%;
         justify-content: space-between;
-        padding: 0.5rem 0;
+        padding: 0.6rem 0;
       }
       .dropdown-menu {
         position: static;
@@ -346,6 +393,10 @@ import { AuthService } from '../../core/services/auth.service';
         box-shadow: none;
         border: none;
         padding: 0.25rem 0 0.5rem 0.75rem;
+        display: none;
+      }
+      .dropdown-menu.show,
+      .nav-dropdown.is-open .dropdown-menu {
         display: flex;
       }
     }
@@ -353,5 +404,26 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class NavbarComponent {
   mobileMenuOpen = false;
+  activeDropdown: string | null = null;
+
   constructor(public authService: AuthService) {}
+
+  toggleDropdown(name: string, event: MouseEvent): void {
+    event.stopPropagation();
+    this.activeDropdown = this.activeDropdown === name ? null : name;
+  }
+
+  closeDropdowns(): void {
+    this.activeDropdown = null;
+  }
+
+  handleItemClick(): void {
+    this.mobileMenuOpen = false;
+    this.closeDropdowns();
+  }
+
+  @HostListener('document:click')
+  onDocumentClick(): void {
+    this.closeDropdowns();
+  }
 }

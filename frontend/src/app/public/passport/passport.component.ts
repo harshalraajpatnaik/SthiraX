@@ -9,558 +9,283 @@ import { ProductPassport } from '../../core/models/models';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="page-passport" *ngIf="passport">
-      <div class="top-banner">
-        <div class="container banner-inner">
-          <div class="banner-title">
-            <span class="shield-icon">&check;</span>
-            <div>
-              <h2>SthiraX Digital Product Passport</h2>
-              <p>Cryptographically logged batch traceability certificate &bull; Public View</p>
+    <div class="page-passport bg-slate-50 min-h-screen pb-16" *ngIf="passport">
+      
+      <!-- Top Certificate Header -->
+      <header class="bg-slate-900 text-white border-b border-slate-800 py-6 sm:py-8 shadow-md">
+        <div class="container-wide">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">Official DPP Certificate</span>
+                  <span class="text-slate-500">&bull;</span>
+                  <span class="text-xs text-slate-300">Public Verification View</span>
+                </div>
+                <h1 class="text-xl sm:text-2xl font-black tracking-tight text-white mt-0.5">
+                  SthiraX Digital Product Passport
+                </h1>
+              </div>
             </div>
-          </div>
-          <div class="status-tags">
-            <span class="badge badge-success">{{ passport.publicationStatus }}</span>
-            <span class="badge badge-info">{{ passport.verificationStatus }}</span>
+
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                {{ passport.publicationStatus || 'PUBLISHED' }}
+              </span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                {{ passport.verificationStatus || 'VERIFIED' }}
+              </span>
+              <a routerLink="/trace" class="px-3 py-1 text-xs text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-full border border-slate-700 transition-colors">
+                &larr; Back to Trace
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      <div class="container passport-body">
-        <!-- Prominent Disclosure Callout -->
-        <div class="disclosure-alert">
-          <strong>Transparency Notice:</strong> {{ passport.disclaimer }}
+      <main class="container-wide py-8 space-y-6">
+        
+        <!-- Transparency Disclosure Notice -->
+        <div class="bg-amber-50 border border-amber-200 text-amber-900 rounded-xl px-5 py-3.5 text-xs sm:text-sm flex items-start gap-3 shadow-sm">
+          <svg class="shrink-0 text-amber-600 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <div>
+            <strong class="font-bold">Transparency Disclosure:</strong> 
+            {{ passport.disclaimer || 'Public passport displays sensor telemetry, mechanical break results, and net carbonation mass while redacting confidential pricing and supplier commercial terms.' }}
+          </div>
         </div>
 
-        <div class="passport-grid">
-          <!-- Main Passport Sheet -->
-          <div class="passport-sheet">
-            <!-- Header Block -->
-            <div class="sheet-header">
-              <div class="sheet-id">
-                <span class="id-label">Batch Identifier</span>
-                <h1 class="batch-code">{{ passport.batchNumber }}</h1>
-              </div>
-              <div class="sheet-qr">
-                <div class="qr-mock">
-                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><line x1="10" y1="3" x2="10" y2="10"></line><line x1="3" y1="10" x2="10" y2="10"></line><line x1="14" y1="10" x2="21" y2="10"></line><line x1="10" y1="14" x2="10" y2="21"></line></svg>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          
+          <!-- Main Left Certificate Sheet (2 Columns Wide on Desktop) -->
+          <div class="lg:col-span-2 space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
+              
+              <!-- Batch Identification Block -->
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-slate-100">
+                <div class="space-y-1">
+                  <span class="text-xs font-mono font-bold tracking-wider uppercase text-slate-400">Physical Pallet Reference</span>
+                  <div class="text-3xl sm:text-4xl font-mono font-black text-slate-900 tracking-tight text-emerald-800">
+                    {{ passport.batchNumber }}
+                  </div>
+                  <div class="text-xs text-slate-500 font-mono">
+                    Passport UUID: <span class="text-slate-800 font-semibold">{{ passport.id }}</span>
+                  </div>
                 </div>
-                <span class="qr-label">Passport ID: {{ passport.id }}</span>
-              </div>
-            </div>
 
-            <!-- Material Details -->
-            <div class="sheet-section">
-              <h3>Product & Production Provenance</h3>
-              <div class="props-grid">
-                <div class="prop-item">
-                  <span class="prop-label">Product Name</span>
-                  <span class="prop-val">{{ passport.productName }}</span>
-                </div>
-                <div class="prop-item">
-                  <span class="prop-label">Product Category</span>
-                  <span class="prop-val">{{ passport.productCategory }}</span>
-                </div>
-                <div class="prop-item">
-                  <span class="prop-label">Manufacturing Plant</span>
-                  <span class="prop-val">{{ passport.plantLocation }}</span>
-                </div>
-                <div class="prop-item">
-                  <span class="prop-label">Production Date</span>
-                  <span class="prop-val">{{ passport.productionDate }}</span>
-                </div>
-                <div class="prop-item">
-                  <span class="prop-label">Certified Batch Output</span>
-                  <span class="prop-val">{{ passport.totalOutputUnits }} {{ passport.outputUnit }}</span>
-                </div>
-                <div class="prop-item">
-                  <span class="prop-label">Applicable BIS Standard</span>
-                  <span class="prop-val">{{ passport.bisStandardReference }}</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Feedstock Breakdown -->
-            <div class="sheet-section">
-              <h3>Verified Input Materials (Secondary Feedstocks)</h3>
-              <div class="feedstock-list">
-                <div class="feedstock-tag" *ngFor="let f of passport.verifiedRecycledFeedstocks">
-                  <span class="dot"></span>
-                  <span>{{ f }}</span>
-                </div>
-              </div>
-              <p class="section-note">
-                Input material weight tickets reconciled against batch formula before chamber sealing.
-              </p>
-            </div>
-
-            <!-- Mineralization & Carbon Science -->
-            <div class="sheet-section">
-              <h3>CO₂ Mineralization Telemetry</h3>
-              <div class="carbon-stats-grid">
-                <div class="c-stat-box">
-                  <span class="c-stat-label">CO₂ Injected (Coriolis Log)</span>
-                  <span class="c-stat-val">{{ passport.co2InjectedKg }} kg</span>
-                  <small>Mass-flow meter reading</small>
-                </div>
-                <div class="c-stat-box highlight">
-                  <span class="c-stat-label">Mineralized CO₂ (Permanent)</span>
-                  <span class="c-stat-val">{{ passport.mineralizedCo2Kg }} kg</span>
-                  <small>Differential mass & TGA verification</small>
-                </div>
-                <div class="c-stat-box">
-                  <span class="c-stat-label">Tested 28d Strength</span>
-                  <span class="c-stat-val">{{ passport.testedStrengthMpa }} MPa</span>
-                  <small>Exceeds IS 15658 M40 Grade</small>
+                <!-- Stylized QR Code Box -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col items-center justify-center shrink-0 text-center">
+                  <div class="w-14 h-14 bg-white border border-slate-300 rounded-lg flex items-center justify-center text-slate-800 mb-1.5 shadow-inner">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><line x1="10" y1="3" x2="10" y2="10"></line><line x1="3" y1="10" x2="10" y2="10"></line><line x1="14" y1="10" x2="21" y2="10"></line><line x1="10" y1="14" x2="10" y2="21"></line></svg>
+                  </div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase font-semibold">Pallet QR Tag</span>
                 </div>
               </div>
 
-              <div class="methodology-box">
-                <span class="meth-label">Accounting Methodology:</span>
-                <p>{{ passport.measurementMethodology }}</p>
+              <!-- Production & Material Provenance Details Grid -->
+              <div class="space-y-4">
+                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-600"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  Product & Facility Provenance
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
+                  <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                    <span class="text-slate-400 block font-medium mb-1">Product Description</span>
+                    <strong class="text-slate-800 text-sm block">{{ passport.productName }}</strong>
+                  </div>
+                  <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                    <span class="text-slate-400 block font-medium mb-1">Product Category</span>
+                    <strong class="text-slate-800 text-sm block">{{ passport.productCategory }}</strong>
+                  </div>
+                  <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                    <span class="text-slate-400 block font-medium mb-1">Licensed Facility</span>
+                    <strong class="text-slate-800 text-sm block">{{ passport.plantLocation }}</strong>
+                  </div>
+                  <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                    <span class="text-slate-400 block font-medium mb-1">Production Date</span>
+                    <strong class="text-slate-800 text-sm block font-mono">{{ passport.productionDate }}</strong>
+                  </div>
+                  <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                    <span class="text-slate-400 block font-medium mb-1">Batch Output Volume</span>
+                    <strong class="text-slate-800 text-sm block font-mono">{{ passport.totalOutputUnits | number }} {{ passport.outputUnit }}</strong>
+                  </div>
+                  <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                    <span class="text-slate-400 block font-medium mb-1">Indian Standard (BIS)</span>
+                    <strong class="text-emerald-800 text-sm block font-mono font-bold">{{ passport.bisStandardReference }}</strong>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- Governance & Signoff -->
-            <div class="sheet-footer">
-              <div class="signoff-box">
-                <span class="sign-label">Review & Authorization Lead</span>
-                <span class="sign-name">{{ passport.reviewerRole }}</span>
-                <span class="sign-date">Published: {{ passport.publishedAt | date:'mediumDate' }}</span>
+              <!-- Carbon Mineralization Sensor Telemetry KPI Cards -->
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-600"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Sensor Telemetry & CO₂ Uptake (Coriolis Log)
+                  </h3>
+                  <span class="text-xs text-slate-400 font-mono">Emerson CMF025</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <!-- Stat 1 -->
+                  <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                    <div>
+                      <span class="text-[11px] font-mono text-slate-500 uppercase block font-semibold mb-1">CO₂ Injected</span>
+                      <div class="text-2xl font-mono font-black text-slate-800">{{ passport.co2InjectedKg }} kg</div>
+                    </div>
+                    <span class="text-[11px] text-slate-400 mt-2 block">Direct mass-flow meter log</span>
+                  </div>
+
+                  <!-- Stat 2 (Highlight) -->
+                  <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-300 flex flex-col justify-between">
+                    <div>
+                      <span class="text-[11px] font-mono text-emerald-800 uppercase block font-bold mb-1">Gross Mineralized</span>
+                      <div class="text-2xl font-mono font-black text-emerald-700">{{ passport.mineralizedCo2Kg }} kg</div>
+                    </div>
+                    <span class="text-[11px] text-emerald-700 font-medium mt-2 block">Bound permanently as CaCO₃</span>
+                  </div>
+
+                  <!-- Stat 3 -->
+                  <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                    <div>
+                      <span class="text-[11px] font-mono text-slate-500 uppercase block font-semibold mb-1">Tested 28d Strength</span>
+                      <div class="text-2xl font-mono font-black text-slate-800">{{ passport.testedStrengthMpa }} MPa</div>
+                    </div>
+                    <span class="text-[11px] text-emerald-600 font-semibold mt-2 block">Exceeds M-40 IS Spec (+20%)</span>
+                  </div>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs">
+                  <span class="font-bold text-slate-700 block mb-1">MRV Quantification Methodology:</span>
+                  <p class="text-slate-600 leading-relaxed m-0">{{ passport.measurementMethodology }}</p>
+                </div>
               </div>
-              <div class="audit-seal">
-                <span class="seal-icon">&checkmark;</span>
-                <span>SthiraX Authenticated Record</span>
+
+              <!-- Verified Feedstock Content (Circular Secondary Binders) -->
+              <div class="space-y-3">
+                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-600"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                  Verified Secondary Industrial Feedstocks
+                </h3>
+                <div class="flex flex-wrap gap-2.5">
+                  <div *ngFor="let f of passport.verifiedRecycledFeedstocks" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-100 text-slate-800 text-xs font-medium border border-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>{{ f }}</span>
+                  </div>
+                </div>
+                <p class="text-[11px] text-slate-400 italic">
+                  Feedstock tickets reconciled against weighbridge batch formulations prior to autoclave door sealing.
+                </p>
               </div>
+
+              <!-- Sign-off & Authenticity Seal -->
+              <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="text-xs space-y-0.5">
+                  <span class="text-slate-400 block font-semibold uppercase tracking-wider text-[10px]">Verification Sign-Off Lead</span>
+                  <strong class="text-slate-900 font-bold text-sm block">{{ passport.reviewerRole || 'Quality Assurance Lead' }}</strong>
+                  <span class="text-slate-500 block">Published Date: {{ passport.publishedAt | date:'mediumDate' }}</span>
+                </div>
+
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-semibold shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span>SthiraX Authenticated Record</span>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <!-- Sidebar: Status Ladder & Explanations -->
-          <div class="passport-side">
-            <div class="card ladder-card">
-              <h3>Verification Status Ladder</h3>
-              <p class="ladder-desc">
-                SthiraX records progress through strict verification tiers.
-              </p>
+          <!-- Right Sidebar: Verification Status Ladder & Governance (1 Column Wide) -->
+          <div class="space-y-6">
+            
+            <!-- Ladder Card -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+              <div>
+                <h3 class="text-base font-bold text-slate-900">MRV Verification Ladder</h3>
+                <p class="text-xs text-slate-500 mt-1">Multi-stage audit checkpoints from plant weighbridge to public registry:</p>
+              </div>
 
-              <div class="ladder-steps">
-                <div class="ladder-step completed">
-                  <span class="step-icon">&check;</span>
+              <div class="space-y-4 text-xs">
+                
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">&check;</div>
                   <div>
-                    <strong>1. Estimated</strong>
-                    <p>Mix design calculation based on binder chemistry</p>
+                    <strong class="text-slate-900 block font-semibold">1. Mix Design Formulation</strong>
+                    <span class="text-slate-500 text-[11px]">Calculated binder chemistry & water-binder ratio</span>
                   </div>
                 </div>
-                <div class="ladder-step completed">
-                  <span class="step-icon">&check;</span>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">&check;</div>
                   <div>
-                    <strong>2. Recorded</strong>
-                    <p>Plant weighbridge and Coriolis flow telemetry logged</p>
+                    <strong class="text-slate-900 block font-semibold">2. Coriolis Injection Log</strong>
+                    <span class="text-slate-500 text-[11px]">Calibrated mass flow sensor data logged to PostgreSQL</span>
                   </div>
                 </div>
-                <div class="ladder-step completed">
-                  <span class="step-icon">&check;</span>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">&check;</div>
                   <div>
-                    <strong>3. Evidence Submitted</strong>
-                    <p>Laboratory compressive strength break report attached</p>
+                    <strong class="text-slate-900 block font-semibold">3. Laboratory Break Test</strong>
+                    <span class="text-slate-500 text-[11px]">NABL crush test report attached (48.2 MPa)</span>
                   </div>
                 </div>
-                <div class="ladder-step active">
-                  <span class="step-icon">&check;</span>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">&check;</div>
                   <div>
-                    <strong>4. Reviewed</strong>
-                    <p>Authorized SthiraX Quality Reviewer signoff completed</p>
+                    <strong class="text-emerald-800 block font-bold">4. Certified Quality Sign-off</strong>
+                    <span class="text-slate-500 text-[11px]">Authorized SthiraX QA Lead verification completed</span>
                   </div>
                 </div>
-                <div class="ladder-step future">
-                  <span class="step-icon">&bull;</span>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">&bull;</div>
                   <div>
-                    <strong>5. Independently Verified</strong>
-                    <p>Accredited third-party VVB audit (commercial registry phase)</p>
+                    <strong class="text-slate-500 block font-medium">5. Commercial Registry VVB</strong>
+                    <span class="text-slate-400 text-[11px]">Third-party accredited VVB registry audit (Phase 2)</span>
                   </div>
                 </div>
+
               </div>
             </div>
 
-            <div class="card privacy-card">
-              <h4>Confidentiality Protections</h4>
-              <p>
+            <!-- Privacy Protections Card -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-3 text-xs">
+              <h4 class="text-sm font-bold text-slate-900">Commercial Confidentiality</h4>
+              <p class="text-slate-600 leading-relaxed">
                 In compliance with commercial agreements, public passports expose verified technical, quality, and environmental metrics while strictly redacting:
               </p>
-              <ul>
+              <ul class="space-y-1.5 text-slate-600 pl-4 list-disc">
                 <li>Individual raw material supplier contract prices</li>
                 <li>CO₂ procurement and transport tariffs</li>
                 <li>Customer commercial invoice totals</li>
-                <li>Confidential production floor operational records</li>
+                <li>Proprietary chemical additive percentages</li>
               </ul>
             </div>
+
           </div>
+
         </div>
-      </div>
+
+      </main>
     </div>
-    <div class="page-passport-loading container text-center" *ngIf="!passport" style="padding: 6rem 1rem; text-align: center;">
-      <div class="card p-8 max-w-lg mx-auto bg-surface border-subtle" style="display: inline-block; padding: 2.5rem; border: 1px solid #e0e2db; border-radius: 8px;">
-        <h3 class="text-xl font-display font-bold text-primary mb-2" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Loading SthiraX Digital Product Passport...</h3>
-        <p class="text-sm text-secondary mb-4" style="color: #626a6c; margin-bottom: 1.5rem;">Connecting to SthiraX Trace registry and verifying SHA-256 seal.</p>
-        <a routerLink="/trace" class="btn btn-primary text-xs">Back to Trace Registry</a>
+
+    <!-- Loading State -->
+    <div class="page-passport-loading min-h-[60vh] flex items-center justify-center p-6" *ngIf="!passport">
+      <div class="bg-white rounded-2xl p-8 max-w-md w-full border border-slate-200 shadow-sm text-center space-y-4">
+        <div class="w-12 h-12 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin mx-auto"></div>
+        <h3 class="text-lg font-bold text-slate-900">Loading SthiraX Product Passport...</h3>
+        <p class="text-xs text-slate-500">Connecting to SthiraX Trace registry and verifying SHA-256 seal.</p>
+        <a routerLink="/trace" class="inline-block px-4 py-2 bg-slate-900 text-white rounded-xl text-xs font-semibold">Back to Registry</a>
       </div>
     </div>
   `,
   styles: [`
-    .top-banner {
-      background: #171b1d;
-      color: #ffffff;
-      padding: 2rem 0;
-      border-bottom: 1px solid #23292c;
-    }
-    .banner-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .banner-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .shield-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--color-accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-    .banner-title h2 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin: 0;
-      line-height: 1.2;
-    }
-    .banner-title p {
-      font-size: 0.8rem;
-      color: #8c979a;
-      margin: 2px 0 0;
-    }
-    .status-tags {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .passport-body {
-      padding-top: 2rem;
-      padding-bottom: 5rem;
-    }
-    .disclosure-alert {
-      background: var(--color-status-warning-bg);
-      border: 1px solid rgba(158, 100, 6, 0.25);
-      color: var(--color-status-warning);
-      border-radius: var(--radius-sm);
-      padding: 0.85rem 1.25rem;
-      font-size: 0.84rem;
-      line-height: 1.5;
-      margin-bottom: 2rem;
-    }
-    .passport-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    .passport-sheet {
-      background: #ffffff;
-      border: 1px solid var(--color-border-medium);
-      border-radius: var(--radius-md);
-      padding: 2.5rem;
-      box-shadow: var(--shadow-card);
-    }
-    .sheet-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 1.5rem;
-      border-bottom: 2px solid var(--color-border-subtle);
-      margin-bottom: 2rem;
-    }
-    .id-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--color-text-subtle);
-    }
-    .batch-code {
-      font-family: var(--font-mono);
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--color-accent);
-      margin: 0;
-    }
-    .sheet-qr {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .qr-mock {
-      color: var(--color-text-main);
-      background: var(--color-bg-base);
-      padding: 0.4rem;
-      border-radius: 4px;
-      border: 1px solid var(--color-border-subtle);
-    }
-    .qr-label {
-      font-size: 0.7rem;
-      font-family: var(--font-mono);
-      color: var(--color-text-subtle);
-    }
-    .sheet-section {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--color-border-subtle);
-    }
-    .sheet-section h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--color-text-main);
-      margin-bottom: 1rem;
-    }
-    .props-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem 1.5rem;
-      font-size: 0.86rem;
-    }
-    .prop-item {
-      display: flex;
-      flex-direction: column;
-    }
-    .prop-label {
-      font-size: 0.75rem;
-      color: var(--color-text-subtle);
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .prop-val {
-      color: var(--color-text-main);
-      font-weight: 600;
-    }
-    .feedstock-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      margin-bottom: 0.6rem;
-    }
-    .feedstock-tag {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--color-bg-base);
-      padding: 0.5rem 0.8rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--color-text-main);
-    }
-    .feedstock-tag .dot {
-      width: 6px;
-      height: 6px;
-      background: var(--color-accent);
-      border-radius: 50%;
-    }
-    .section-note {
-      font-size: 0.78rem;
-      color: var(--color-text-subtle);
-      font-style: italic;
-    }
-    .carbon-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-    }
-    .c-stat-box {
-      background: var(--color-bg-base);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-    }
-    .c-stat-box.highlight {
-      background: var(--color-accent-subtle);
-      border-color: var(--color-accent-border);
-    }
-    .c-stat-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--color-text-subtle);
-      margin-bottom: 0.25rem;
-    }
-    .c-stat-val {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--color-text-main);
-      line-height: 1.2;
-    }
-    .c-stat-box.highlight .c-stat-val {
-      color: var(--color-accent);
-    }
-    .c-stat-box small {
-      font-size: 0.7rem;
-      color: var(--color-text-muted);
-      margin-top: 0.25rem;
-    }
-    .methodology-box {
-      font-size: 0.82rem;
-      background: var(--color-bg-base);
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-sm);
-    }
-    .meth-label {
-      font-weight: 700;
-      color: var(--color-text-subtle);
+    :host {
       display: block;
-      margin-bottom: 2px;
-    }
-    .methodology-box p {
-      color: var(--color-text-muted);
-      margin: 0;
-    }
-    .sheet-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1rem;
-    }
-    .sign-label {
-      font-size: 0.72rem;
-      color: var(--color-text-subtle);
-      text-transform: uppercase;
-      font-weight: 600;
-      display: block;
-    }
-    .sign-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--color-text-main);
-      display: block;
-    }
-    .sign-date {
-      font-size: 0.75rem;
-      color: var(--color-text-subtle);
-    }
-    .audit-seal {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--color-status-success);
-      background: var(--color-status-success-bg);
-      padding: 0.4rem 0.8rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(27, 99, 62, 0.2);
-    }
-    .ladder-card {
-      background: #ffffff;
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-md);
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-subtle);
-    }
-    .ladder-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--color-text-main);
-      margin-bottom: 0.35rem;
-    }
-    .ladder-desc {
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
-      margin-bottom: 1.5rem;
-    }
-    .ladder-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .ladder-step {
-      display: flex;
-      gap: 0.75rem;
-      font-size: 0.82rem;
-    }
-    .ladder-step .step-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: bold;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .ladder-step.completed .step-icon {
-      background: var(--color-status-success-bg);
-      color: var(--color-status-success);
-    }
-    .ladder-step.active .step-icon {
-      background: var(--color-accent);
-      color: #ffffff;
-    }
-    .ladder-step.future .step-icon {
-      background: var(--color-bg-subtle);
-      color: var(--color-text-subtle);
-    }
-    .ladder-step strong {
-      display: block;
-      color: var(--color-text-main);
-    }
-    .ladder-step p {
-      color: var(--color-text-muted);
-      margin: 2px 0 0;
-      font-size: 0.78rem;
-    }
-    .privacy-card {
-      background: #ffffff;
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-    }
-    .privacy-card h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--color-text-main);
-      margin-bottom: 0.5rem;
-    }
-    .privacy-card p {
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
-      margin-bottom: 0.75rem;
-      line-height: 1.5;
-    }
-    .privacy-card ul {
-      padding-left: 1.25rem;
-      font-size: 0.78rem;
-      color: var(--color-text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-    @media (max-width: 992px) {
-      .passport-grid {
-        grid-template-columns: 1fr;
-      }
-      .carbon-stats-grid {
-        grid-template-columns: 1fr;
-      }
     }
   `]
 })
