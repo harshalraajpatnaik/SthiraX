@@ -11,8 +11,33 @@ import { AuthService } from '../../core/services/auth.service';
     <header class="site-header">
       <div class="container-wide nav-container">
         <a routerLink="/" class="brand-logo">
-          <div class="logo-mark">
-            <img src="/favicon.svg" alt="SthiraX Mineralization Logo" width="32" height="32" class="h-8 w-8 rounded-lg" />
+          <div class="logo-icon-badge">
+            <svg viewBox="0 0 64 64" width="36" height="36" class="brand-svg">
+              <defs>
+                <linearGradient id="nbBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0F172A"/>
+                  <stop offset="100%" stop-color="#022C22"/>
+                </linearGradient>
+                <linearGradient id="nbEm" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#34D399"/>
+                  <stop offset="100%" stop-color="#059669"/>
+                </linearGradient>
+                <linearGradient id="nbCry" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#38BDF8"/>
+                  <stop offset="100%" stop-color="#0284C7"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#nbBg)" stroke="#1E293B" stroke-width="2"/>
+              <rect x="6" y="6" width="52" height="52" rx="12" fill="none" stroke="#334155" stroke-width="1" stroke-opacity="0.4"/>
+              <path d="M18 16 L27 16 L46 48 L37 48 Z" fill="url(#nbCry)"/>
+              <path d="M46 16 L37 16 L18 48 L27 48 Z" fill="url(#nbEm)"/>
+              <path d="M22 20 C22 17 40 17 42 22 L35 25 C34 23 28 23 28 25 C28 28 42 27 42 35 C42 42 24 43 21 37 L28 34 C29 36 35 36 35 34 C35 31 22 32 22 20 Z" fill="#F8FAFC" opacity="0.95"/>
+              <circle cx="32" cy="32" r="4.5" fill="#FFFFFF"/>
+              <circle cx="32" cy="32" r="3" fill="#10B981"/>
+              <circle cx="33" cy="31" r="1" fill="#FFFFFF"/>
+              <circle cx="15" cy="15" r="2" fill="#10B981" opacity="0.8"/>
+              <circle cx="49" cy="49" r="2" fill="#38BDF8" opacity="0.8"/>
+            </svg>
           </div>
           <div class="brand-text">
             <span class="brand-name">STHIRA<span>X</span></span>
@@ -81,14 +106,21 @@ import { AuthService } from '../../core/services/auth.service';
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      text-decoration: none;
     }
-    .mineral-cube {
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      background: linear-gradient(135deg, var(--color-accent) 0%, #1a3a2d 100%);
-      border-radius: 3px;
-      box-shadow: 2px 2px 0px var(--color-mineral-sand);
+    .logo-icon-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+    }
+    .brand-svg {
+      display: block;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
     }
     .brand-name {
       font-size: 1.25rem;

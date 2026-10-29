@@ -12,8 +12,28 @@ import { AuthService } from '../../core/services/auth.service';
       <!-- Portal Topbar -->
       <header class="portal-topbar">
         <div class="topbar-left">
-          <a routerLink="/" class="portal-brand">
-            <img src="/favicon.svg" alt="SthiraX" width="22" height="22" class="h-5 w-5 rounded mr-1.5" />
+          <a routerLink="/" class="portal-brand flex items-center">
+            <svg viewBox="0 0 64 64" width="24" height="24" class="portal-brand-svg shrink-0 mr-2" style="display:inline-block; border-radius:6px;">
+              <defs>
+                <linearGradient id="pBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0F172A"/>
+                  <stop offset="100%" stop-color="#022C22"/>
+                </linearGradient>
+                <linearGradient id="pEm" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#34D399"/>
+                  <stop offset="100%" stop-color="#059669"/>
+                </linearGradient>
+                <linearGradient id="pCry" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#38BDF8"/>
+                  <stop offset="100%" stop-color="#0284C7"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#pBg)"/>
+              <path d="M18 16 L27 16 L46 48 L37 48 Z" fill="url(#pCry)"/>
+              <path d="M46 16 L37 16 L18 48 L27 48 Z" fill="url(#pEm)"/>
+              <path d="M22 20 C22 17 40 17 42 22 L35 25 C34 23 28 23 28 25 C28 28 42 27 42 35 C42 42 24 43 21 37 L28 34 C29 36 35 36 35 34 C35 31 22 32 22 20 Z" fill="#F8FAFC"/>
+              <circle cx="32" cy="32" r="4" fill="#10B981"/>
+            </svg>
             <strong>STHIRA<span>X</span></strong>
             <span class="portal-label">OPERATIONS CONSOLE</span>
           </a>
