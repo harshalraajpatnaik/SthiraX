@@ -1,0 +1,21 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: sthirax-platform
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+sthirax:
+  demo-mode: true
+  jwt-secret: "sthirax-dev-secret-key-must-be-at-least-256-bits-long-for-hmac-sha256"
+  cors:
+    allowed-origins: "http://localhost:4200,http://127.0.0.1:4200"

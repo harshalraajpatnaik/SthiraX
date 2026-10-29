@@ -1,0 +1,20 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:sthirax_db}
+    username: ${POSTGRES_USER:sthirax_user}
+    password: ${POSTGRES_PASSWORD:sthirax_secret_pass}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+sthirax:
+  demo-mode: true
+  jwt-secret: "sthirax-dev-secret-key-must-be-at-least-256-bits-long-for-hmac-sha256"
+  cors:
+    allowed-origins: "http://localhost:4200,http://127.0.0.1:4200"

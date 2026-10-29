@@ -1,0 +1,12 @@
+<div class="app-container">
+  <!-- Public Global Navigation (Only on non-portal pages) -->
+  <app-navbar *ngIf="!isPortalRoute"></app-navbar>
+
+  <!-- Main View Area -->
+  <main [class.portal-mode]="isPortalRoute" [class.public-mode]="!isPortalRoute">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Public Global Footer (Only on non-portal pages) -->
+  <app-footer *ngIf="!isPortalRoute"></app-footer>
+</div>

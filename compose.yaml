@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # SthiraX PostgreSQL 15 Relational Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: sthirax-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sthirax_db}
+      POSTGRES_USER: ${POSTGRES_USER:-sthirax_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sthirax_secret_pass}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - sthirax_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sthirax_user} -d ${POSTGRES_DB:-sthirax_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  sthirax_postgres_data:
+    driver: local
