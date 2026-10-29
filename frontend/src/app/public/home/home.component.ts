@@ -80,18 +80,22 @@ import { Product } from '../../core/models/models';
       </section>
 
       <!-- Interactive Architecture & Amateur Guide Callout Banner -->
-      <section class="bg-slate-900 border-y border-slate-800 py-6 px-4">
-        <div class="container-wide flex flex-col md:flex-row items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl shrink-0">💡</span>
-            <div>
-              <h3 class="text-base font-bold text-white">Curious how captured factory CO₂ turns into solid precast stone?</h3>
-              <p class="text-xs text-slate-400">Explore our interactive architecture diagrams, 60-second beginner guide, and industrial value-chain flows.</p>
+      <section class="docs-callout-banner">
+        <div class="container-wide banner-inner">
+          <div class="banner-left">
+            <span class="banner-icon-badge">💡</span>
+            <div class="banner-text">
+              <span class="banner-tag">Beginner & Technical Guide</span>
+              <h3 class="banner-heading">How captured factory CO₂ permanently becomes solid precast stone</h3>
+              <p class="banner-sub">Explore our 60-second amateur guide, 5-step industrial value chain, and interactive software & IoT architecture.</p>
             </div>
           </div>
-          <a routerLink="/docs" class="btn btn-primary btn-sm shrink-0 whitespace-nowrap">
-            View Architecture & Flows Hub &rarr;
-          </a>
+          <div class="banner-right">
+            <a routerLink="/docs" class="btn btn-primary btn-sm whitespace-nowrap">
+              <span>Explore Architecture & Flows</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -675,6 +679,61 @@ import { Product } from '../../core/models/models';
       flex-direction: column;
       gap: 0.75rem;
       min-width: 250px;
+    }
+    .docs-callout-banner {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      border-top: 1px solid #334155;
+      border-bottom: 1px solid #334155;
+      padding: 1.5rem 0;
+      color: #ffffff;
+    }
+    .banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .banner-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .banner-icon-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(5, 150, 105, 0.2);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .banner-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #34D399;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .banner-heading {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.3;
+      margin: 0;
+    }
+    .banner-sub {
+      font-size: 0.8rem;
+      color: #94A3B8;
+      margin: 0.25rem 0 0 0;
+    }
+    .banner-right {
+      flex-shrink: 0;
     }
     @media (max-width: 992px) {
       .hero-container {

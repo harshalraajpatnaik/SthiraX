@@ -7,516 +7,862 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="docs-page">
-      <!-- Breadcrumb & Top Bar -->
-      <section class="docs-hero bg-slate-900 border-b border-slate-800 text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-          <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            Public Knowledge Base & Architecture Hub
+    <div class="docs-hub-root">
+      
+      <!-- Premium Hero Header -->
+      <section class="docs-hero-section">
+        <div class="container-wide">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>PUBLIC KNOWLEDGE BASE &bull; SYSTEM ARCHITECTURE &bull; VALUE CHAIN FLOWS</span>
           </div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
-            How SthiraX Works: <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Architecture, Flows & Science</span>
+
+          <h1 class="hero-title">
+            How SthiraX Works: <span class="gradient-text">Architecture, Flows & Science</span>
           </h1>
-          <p class="text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed mb-6">
-            Everything you need to understand our distributed CO₂-mineralization technology, industrial precast plant retrofits, end-to-end telemetry flow, and verified digital product passports — designed for beginners, enterprise buyers, and engineers alike.
+
+          <p class="hero-lead">
+            A clear, visual guide designed for infrastructure buyers, precast plant owners, and curious observers alike. Discover how industrial CO₂ emissions are permanently transformed into certified high-strength precast concrete.
           </p>
 
-          <!-- Quick Navigation Pill Tabs -->
-          <div class="flex flex-wrap gap-2 pt-2">
+          <!-- Interactive Nav Tabs / Segmented Control -->
+          <div class="segmented-nav">
             <button 
+              type="button"
               (click)="activeTab = 'simple'" 
-              [class.bg-emerald-600]="activeTab === 'simple'"
-              [class.bg-slate-800]="activeTab !== 'simple'"
-              class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all hover:bg-emerald-500 hover:text-white flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-              60-Second Amateur Guide
+              [class.active]="activeTab === 'simple'"
+              class="tab-btn">
+              <span class="tab-icon">💡</span>
+              <span class="tab-text">60-Second Beginner Guide</span>
             </button>
+
             <button 
+              type="button"
               (click)="activeTab = 'flow'" 
-              [class.bg-emerald-600]="activeTab === 'flow'"
-              [class.bg-slate-800]="activeTab !== 'flow'"
-              class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all hover:bg-emerald-500 hover:text-white flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-              Industrial Value Chain Flow
+              [class.active]="activeTab === 'flow'"
+              class="tab-btn">
+              <span class="tab-icon">🔄</span>
+              <span class="tab-text">Industrial Value Chain Flow</span>
             </button>
+
             <button 
+              type="button"
               (click)="activeTab = 'system'" 
-              [class.bg-emerald-600]="activeTab === 'system'"
-              [class.bg-slate-800]="activeTab !== 'system'"
-              class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all hover:bg-emerald-500 hover:text-white flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-              Software & IoT Architecture
+              [class.active]="activeTab === 'system'"
+              class="tab-btn">
+              <span class="tab-icon">🏗️</span>
+              <span class="tab-text">Software & IoT Architecture</span>
             </button>
+
             <button 
+              type="button"
               (click)="activeTab = 'carbon'" 
-              [class.bg-emerald-600]="activeTab === 'carbon'"
-              [class.bg-slate-800]="activeTab !== 'carbon'"
-              class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all hover:bg-emerald-500 hover:text-white flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-              Carbon Accounting & Chemistry
+              [class.active]="activeTab === 'carbon'"
+              class="tab-btn">
+              <span class="tab-icon">🧪</span>
+              <span class="tab-text">Carbon Accounting & Math</span>
             </button>
+
             <button 
+              type="button"
               (click)="activeTab = 'faq'" 
-              [class.bg-emerald-600]="activeTab === 'faq'"
-              [class.bg-slate-800]="activeTab !== 'faq'"
-              class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all hover:bg-emerald-500 hover:text-white flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-              Standards & FAQs
+              [class.active]="activeTab === 'faq'"
+              class="tab-btn">
+              <span class="tab-icon">📋</span>
+              <span class="tab-text">Standards & FAQs</span>
             </button>
           </div>
         </div>
       </section>
 
-      <!-- Main Content Container -->
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Main Visual Workspace -->
+      <main class="container-wide py-12">
         
         <!-- ========================================== -->
         <!-- TAB 1: 60-SECOND GUIDE FOR AMATEURS        -->
         <!-- ========================================== -->
-        <div *ngIf="activeTab === 'simple'" class="space-y-8 animate-fadeIn">
-          <div class="bg-gradient-to-br from-emerald-950/40 via-slate-900 to-slate-950 p-6 sm:p-8 rounded-2xl border border-emerald-800/40 shadow-xl">
-            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2 flex items-center gap-3">
-              <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">💡</span>
-              The SthiraX Concept Explained in Plain English
+        <section *ngIf="activeTab === 'simple'" class="tab-pane animate-fade">
+          
+          <!-- Key Callout Card -->
+          <div class="overview-banner mb-10">
+            <div class="banner-badge">Simple Analogy</div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3 tracking-tight">
+              Think of it like turning fizzy soda gas into natural granite stone.
             </h2>
-            <p class="text-slate-300 text-base leading-relaxed mb-6">
-              You don't need a chemical engineering degree to understand what SthiraX does. Here is the entire business model in 4 simple steps:
+            <p class="text-slate-600 text-base leading-relaxed max-w-4xl">
+              Concrete is the world's most consumed material after water, producing 8% of all global greenhouse gases. SthiraX changes the equation: instead of emitting CO₂, we capture it from factory exhaust and inject it into curing concrete, permanently trapping it forever as mineralized rock.
             </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <!-- Step 1 -->
-              <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800 hover:border-emerald-500/50 transition-all">
-                <div class="text-3xl mb-3">🏭</div>
-                <div class="text-xs font-bold text-rose-400 uppercase tracking-wider mb-1">01. The Problem</div>
-                <h3 class="text-lg font-bold text-white mb-2">Concrete Is Carbon-Heavy</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                  Making ordinary cement requires roasting limestone at 1450°C, releasing 8% of all global CO₂ emissions. Every building and road today carries that carbon footprint.
-                </p>
-              </div>
-
-              <!-- Step 2 -->
-              <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800 hover:border-emerald-500/50 transition-all">
-                <div class="text-3xl mb-3">💨</div>
-                <div class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-1">02. The Capture</div>
-                <h3 class="text-lg font-bold text-white mb-2">We Collect Flue CO₂</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                  Instead of letting industrial smoke escape from distilleries and chemical plants, pure CO₂ is captured, liquefied into food-grade liquid, and transported via insulated tankers.
-                </p>
-              </div>
-
-              <!-- Step 3 -->
-              <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800 hover:border-emerald-500/50 transition-all">
-                <div class="text-3xl mb-3">⚗️</div>
-                <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">03. The Mineralization</div>
-                <h3 class="text-lg font-bold text-white mb-2">Gas Becomes Solid Stone</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                  Inside sealed curing chambers, CO₂ gas reacts with industrial byproducts (fly ash and slag). It converts permanently into solid calcium carbonate limestone inside the block!
-                </p>
-              </div>
-
-              <!-- Step 4 -->
-              <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800 hover:border-emerald-500/50 transition-all">
-                <div class="text-3xl mb-3">🧱</div>
-                <div class="text-xs font-bold text-emerald-300 uppercase tracking-wider mb-1">04. The Result</div>
-                <h3 class="text-lg font-bold text-white mb-2">Superior Green Materials</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                  The pavers are 20% stronger, consume 25% less virgin cement, meet Indian Standards (IS 15658), and lock away 28–34 kg CO₂ per square meter forever.
-                </p>
-              </div>
-            </div>
           </div>
 
-          <!-- Amateur FAQ Callout Box -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2">
-                <span class="text-emerald-400">❓</span> Will the CO₂ ever leak out?
-              </h4>
-              <p class="text-sm text-slate-400 leading-relaxed">
-                <strong>Never.</strong> This is not storing gas in a balloon. It is a chemical reaction that creates synthetic rock (limestone). The CO₂ is permanently locked in solid mineral form for millennia unless heated above 800°C.
+          <!-- 4 Clean Step Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <!-- Step 1 -->
+            <div class="step-card">
+              <div class="step-num step-num-rose">01</div>
+              <div class="step-badge text-rose-700 bg-rose-50 border-rose-200">The Problem</div>
+              <h3 class="step-title">Cement Emits Heavy CO₂</h3>
+              <p class="step-desc">
+                Roasting limestone at 1450°C releases immense carbon into the sky. Every footpath paver and drain cover historically carried this heavy carbon footprint.
               </p>
             </div>
-            <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2">
-                <span class="text-emerald-400">❓</span> Does it cost twice as much?
-              </h4>
-              <p class="text-sm text-slate-400 leading-relaxed">
-                <strong>No.</strong> Because accelerated CO₂ curing reduces Portland cement requirements and allows 60% fly ash/slag blends, material savings offset the CO₂ gas cost, making prices fully competitive (₹48/paver).
+
+            <!-- Step 2 -->
+            <div class="step-card">
+              <div class="step-num step-num-cyan">02</div>
+              <div class="step-badge text-cyan-700 bg-cyan-50 border-cyan-200">The Harvest</div>
+              <h3 class="step-title">We Trap Factory Exhaust</h3>
+              <p class="step-desc">
+                From ethanol distilleries and chemical fermenters, high-purity CO₂ is captured, liquefied, and safely transported in cryogenic road tankers to regional precast clusters.
               </p>
             </div>
-            <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-base mb-2 flex items-center gap-2">
-                <span class="text-emerald-400">❓</span> How do buyers verify claims?
-              </h4>
-              <p class="text-sm text-slate-400 leading-relaxed">
-                Every batch pallet carries a laser-etched or printed QR code linked to <a routerLink="/trace" class="text-emerald-400 underline font-semibold">SthiraX Trace™</a> showing Coriolis flow sensor readings, 28-day break tests, and SHA-256 digital proof.
+
+            <!-- Step 3 -->
+            <div class="step-card">
+              <div class="step-num step-num-emerald">03</div>
+              <div class="step-badge text-emerald-700 bg-emerald-50 border-emerald-200">The Reaction</div>
+              <h3 class="step-title">Gas Becomes Solid Stone</h3>
+              <p class="step-desc">
+                Inside sealed curing kilns, CO₂ reacts with industrial byproducts (fly ash & slag), crystallizing into solid calcium carbonate rock. It can <strong>never</strong> evaporate.
               </p>
             </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+              <div class="step-num step-num-emerald">04</div>
+              <div class="step-badge text-emerald-800 bg-emerald-100 border-emerald-300">The Result</div>
+              <h3 class="step-title">Stronger, Greener Blocks</h3>
+              <p class="step-desc">
+                The resulting pavers achieve 45+ MPa compressive strength (20% higher than standard), reduce virgin cement by 25%, and lock up 28–34 kg CO₂ per m².
+              </p>
+            </div>
+
           </div>
-        </div>
 
-        <!-- ========================================== -->
-        <!-- TAB 2: INDUSTRIAL VALUE CHAIN FLOW         -->
-        <!-- ========================================== -->
-        <div *ngIf="activeTab === 'flow'" class="space-y-8 animate-fadeIn">
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
-            <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
-              <div>
-                <h2 class="text-2xl font-bold text-white">End-to-End Industrial Flow Architecture</h2>
-                <p class="text-sm text-slate-400">Gate-to-gate operational progression from industrial emitter to certified delivery.</p>
-              </div>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Hub-and-Spoke Regional Model
-              </span>
-            </div>
-
-            <!-- Sequential Interactive Flow Steps -->
-            <div class="relative border-l-2 border-emerald-500/30 ml-4 sm:ml-8 pl-6 sm:pl-8 space-y-8 my-6">
-              
-              <!-- Flow Step 1 -->
-              <div class="relative group">
-                <div class="absolute -left-[35px] sm:-left-[43px] top-0 w-8 h-8 rounded-full bg-slate-950 border-2 border-emerald-400 flex items-center justify-center text-xs font-bold text-emerald-400">
-                  1
-                </div>
-                <div class="bg-slate-950/70 p-5 rounded-xl border border-slate-800/80 group-hover:border-emerald-500/40 transition-all">
-                  <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Source Point & Emitter Liquefaction</span>
-                  <h3 class="text-lg font-bold text-white mt-1 mb-2">Industrial & Biogenic CO₂ Capture</h3>
-                  <p class="text-sm text-slate-300 mb-3">
-                    High-purity CO₂ (>98.5%) is captured from ethanol fermentation and chemical plants (e.g. Deccan Distilleries, Belagavi). Flue gas is scrubbed, compressed, and liquefied at -20°C and 20 bar.
-                  </p>
-                  <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Feedstock: Biogenic Fermentation</span>
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Transport: Insulated Road Tankers (18t)</span>
-                    <span class="bg-emerald-950 text-emerald-300 px-2.5 py-1 rounded">Delivered Cost: ₹6.50 – ₹8.50/kg</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Flow Step 2 -->
-              <div class="relative group">
-                <div class="absolute -left-[35px] sm:-left-[43px] top-0 w-8 h-8 rounded-full bg-slate-950 border-2 border-cyan-400 flex items-center justify-center text-xs font-bold text-cyan-400">
-                  2
-                </div>
-                <div class="bg-slate-950/70 p-5 rounded-xl border border-slate-800/80 group-hover:border-cyan-500/40 transition-all">
-                  <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Precast Plant Retrofit Skid</span>
-                  <h3 class="text-lg font-bold text-white mt-1 mb-2">Controlled Atmospheric Injection Manifold</h3>
-                  <p class="text-sm text-slate-300 mb-3">
-                    Existing precast steam kilns are upgraded with airtight silicone gaskets and our automated injection skid. Liquefied CO₂ is vaporized and metered via Coriolis mass-flow sensors into the chamber at 1.2 – 1.4 bar.
-                  </p>
-                  <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Retrofit CapEx: ₹18.0 Lakhs</span>
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Cycle Duration: 18 – 24 Hours</span>
-                    <span class="bg-emerald-950 text-emerald-300 px-2.5 py-1 rounded">Chamber Volume: 120 m³</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Flow Step 3 -->
-              <div class="relative group">
-                <div class="absolute -left-[35px] sm:-left-[43px] top-0 w-8 h-8 rounded-full bg-slate-950 border-2 border-emerald-400 flex items-center justify-center text-xs font-bold text-emerald-400">
-                  3
-                </div>
-                <div class="bg-slate-950/70 p-5 rounded-xl border border-slate-800/80 group-hover:border-emerald-500/40 transition-all">
-                  <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Thermochemical Transformation</span>
-                  <h3 class="text-lg font-bold text-white mt-1 mb-2">Accelerated Carbonation Mineralization</h3>
-                  <p class="text-sm text-slate-300 mb-3">
-                    CO₂ diffuses through pore networks in green concrete, reacting exothermically with free calcium hydroxide (Portlandite) to form nanostructured calcite (CaCO₃). This micro-crystalline matrix fills internal voids, radically increasing early strength.
-                  </p>
-                  <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Uptake Efficiency: 82% – 88%</span>
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Temperature: 45°C Controlled</span>
-                    <span class="bg-emerald-950 text-emerald-300 px-2.5 py-1 rounded">Early 24h Strength: 28+ MPa</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Flow Step 4 -->
-              <div class="relative group">
-                <div class="absolute -left-[35px] sm:-left-[43px] top-0 w-8 h-8 rounded-full bg-slate-950 border-2 border-amber-400 flex items-center justify-center text-xs font-bold text-amber-400">
-                  4
-                </div>
-                <div class="bg-slate-950/70 p-5 rounded-xl border border-slate-800/80 group-hover:border-amber-500/40 transition-all">
-                  <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Independent Quality Assurance</span>
-                  <h3 class="text-lg font-bold text-white mt-1 mb-2">NABL Laboratory Strength Break & Carbonation Depth Tests</h3>
-                  <p class="text-sm text-slate-300 mb-3">
-                    Core samples from every batch run are submitted to accredited NABL testing laboratories. 28-day compressive break tests confirm M40 / M50 structural compliance under IS 15658 standards.
-                  </p>
-                  <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Target Strength: 45.0 MPa (Tested: 46.2 – 48.5 MPa)</span>
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Phenolphthalein Test: Accelerated Carbonation</span>
-                    <span class="bg-amber-950 text-amber-300 px-2.5 py-1 rounded">Governance: Dual Operations & QA Sign-off</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Flow Step 5 -->
-              <div class="relative group">
-                <div class="absolute -left-[35px] sm:-left-[43px] top-0 w-8 h-8 rounded-full bg-slate-950 border-2 border-emerald-400 flex items-center justify-center text-xs font-bold text-emerald-400">
-                  5
-                </div>
-                <div class="bg-slate-950/70 p-5 rounded-xl border border-slate-800/80 group-hover:border-emerald-500/40 transition-all">
-                  <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Traceability & Delivery</span>
-                  <h3 class="text-lg font-bold text-white mt-1 mb-2">Digital Product Passport Issuance & Site Dispatch</h3>
-                  <p class="text-sm text-slate-300 mb-3">
-                    Once QA approves, SthiraX generates a cryptographically signed Digital Product Passport. A tamper-evident QR code is issued and affixed to pallets. Infrastructure contractors scan on site to confirm ESG compliance and carbon savings.
-                  </p>
-                  <div class="flex flex-wrap gap-2 text-xs">
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Cryptographic Proof: SHA-256 Hash</span>
-                    <span class="bg-emerald-950 text-emerald-300 px-2.5 py-1 rounded">Public URL: sthirax.com/passports/:id</span>
-                    <span class="bg-slate-800 text-slate-300 px-2.5 py-1 rounded">Audit Trail: PostgreSQL Timestamped</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- TAB 3: SOFTWARE & IOT ARCHITECTURE        -->
-        <!-- ========================================== -->
-        <div *ngIf="activeTab === 'system'" class="space-y-8 animate-fadeIn">
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
-            <h2 class="text-2xl font-bold text-white mb-2">Technical System Architecture</h2>
-            <p class="text-sm text-slate-400 mb-6">Designed as a modular monolith optimized for industrial reliability, high telemetry ingestion throughput, and low operational overhead.</p>
-
-            <!-- 3-Tier Layered Diagram -->
-            <div class="space-y-4">
-              <!-- Frontend Layer -->
-              <div class="bg-slate-950 p-5 rounded-xl border border-cyan-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 rounded text-xs font-bold bg-cyan-500/20 text-cyan-400 uppercase">Presentation Layer</span>
-                    <span class="text-xs text-slate-500">Port 4200</span>
-                  </div>
-                  <h3 class="text-base font-bold text-white mt-1">Angular 17 Standalone Single-Page Application</h3>
-                  <p class="text-xs text-slate-400 mt-1 max-w-2xl">
-                    Signals-ready, standalone components architecture. Includes public corporate portal, interactive economic feasibility calculators, and role-gated private Operations Console.
-                  </p>
-                </div>
-                <div class="text-xs text-slate-300 bg-slate-900 px-3 py-2 rounded border border-slate-800 shrink-0">
-                  Tailwind CSS &bull; Reactive Forms &bull; Leaflet GIS
-                </div>
-              </div>
-
-              <!-- Connection Arrow -->
-              <div class="flex justify-center text-slate-600">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-              </div>
-
-              <!-- Backend Layer -->
-              <div class="bg-slate-950 p-5 rounded-xl border border-emerald-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 uppercase">Core Application Engine</span>
-                    <span class="text-xs text-slate-500">Port 8088</span>
-                  </div>
-                  <h3 class="text-base font-bold text-white mt-1">Spring Boot 2.6 Modular Monolith (Java 17)</h3>
-                  <p class="text-xs text-slate-400 mt-1 max-w-2xl">
-                    Stateless REST API with Spring Security RBAC. Houses the Carbon Accounting Service (Gate-to-Gate mass balance), Plant Cost Calculation Engine, and Tamper-Evident Audit Logger.
-                  </p>
-                </div>
-                <div class="text-xs text-slate-300 bg-slate-900 px-3 py-2 rounded border border-slate-800 shrink-0">
-                  Springdoc OpenAPI 3.0 &bull; HikariCP &bull; BCrypt
-                </div>
-              </div>
-
-              <!-- Connection Arrow -->
-              <div class="flex justify-center text-slate-600">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-              </div>
-
-              <!-- Database & IoT Layer -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-slate-950 p-5 rounded-xl border border-purple-500/30">
-                  <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 rounded text-xs font-bold bg-purple-500/20 text-purple-400 uppercase">Persistence Layer</span>
-                    <span class="text-xs text-slate-500">Port 5432</span>
-                  </div>
-                  <h4 class="text-base font-bold text-white mt-1">PostgreSQL 15 Container</h4>
-                  <p class="text-xs text-slate-400 mt-1">
-                    Relational schema with persistent Docker volume. Stores 9 normalized entities (plants, suppliers, batches, passports, quality reviews, orders, enquiries, audit logs).
-                  </p>
-                </div>
-
-                <div class="bg-slate-950 p-5 rounded-xl border border-amber-500/30">
-                  <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 rounded text-xs font-bold bg-amber-500/20 text-amber-400 uppercase">Industrial Hardware Layer</span>
-                    <span class="text-xs text-slate-500">Modbus TCP / MQTT</span>
-                  </div>
-                  <h4 class="text-base font-bold text-white mt-1">Coriolis Mass Flow Ingestion</h4>
-                  <p class="text-xs text-slate-400 mt-1">
-                    Direct integration with Endress+Hauser Promass Coriolis meters, chamber PT100 temperature probes, and differential pressure sensors for automated verification.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Swagger Interactive API Box -->
-            <div class="mt-8 bg-emerald-950/30 border border-emerald-500/30 p-5 rounded-xl flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <h4 class="text-sm font-bold text-white">Interactive Swagger OpenAPI Explorer Available</h4>
-                <p class="text-xs text-slate-300 mt-0.5">Test endpoints, inspect DTO schemas, and review payload structures directly in your browser.</p>
-              </div>
-              <a href="http://localhost:8088/swagger-ui/index.html" target="_blank" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center gap-2 transition-all">
-                <span>Open Swagger UI</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- TAB 4: CARBON ACCOUNTING & CHEMISTRY       -->
-        <!-- ========================================== -->
-        <div *ngIf="activeTab === 'carbon'" class="space-y-8 animate-fadeIn">
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
-            <h2 class="text-2xl font-bold text-white mb-2">Climate-Tech Carbon Accounting Boundaries</h2>
-            <p class="text-sm text-slate-400 mb-6">SthiraX enforces strict scientific boundaries to prevent double-counting and carbon greenwashing.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <!-- Equation Card -->
-              <div class="bg-slate-950 p-6 rounded-xl border border-emerald-500/30">
-                <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Chemical Reaction</div>
-                <h3 class="text-lg font-bold text-white mb-2">Mineralization Stoichiometry</h3>
-                <div class="p-4 bg-slate-900 rounded-lg font-mono text-emerald-300 text-sm mb-3">
-                  Ca(OH)₂ + CO₂ &rarr; CaCO₃ + H₂O + 74.4 kJ/mol
-                </div>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                  Thermodynamically exothermic reaction. Calcium hydroxide from hydrated cement and pozzolanic fines reacts with dissolved CO₂ to crystallize into stable calcium carbonate rock. Reaction is permanent and irreversible under ambient conditions.
-                </p>
-              </div>
-
-              <!-- Boundary Card -->
-              <div class="bg-slate-950 p-6 rounded-xl border border-cyan-500/30">
-                <div class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-2">Carbon Accounting Metric</div>
-                <h3 class="text-lg font-bold text-white mb-2">Net Gate-to-Gate Removal Formula</h3>
-                <div class="p-4 bg-slate-900 rounded-lg font-mono text-cyan-300 text-xs sm:text-sm mb-3">
-                  Net = CO₂_Mineralized &minus; (E_process + E_transport)
-                </div>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                  Gross injected CO₂ is NOT equal to net removal. SthiraX explicitly deducts parasitic blower electricity (0.04 kg CO₂/kWh) and road cryogenic tanker transport (0.082 kg CO₂/tonne-km) from the final certified claim.
-                </p>
-              </div>
-            </div>
-
-            <!-- Boundary Distinction Table -->
+          <!-- Quick Comparison Table -->
+          <div class="comparison-card">
+            <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <span>⚖️</span> Ordinary Precast Concrete vs. SthiraX Carbon-Cured Precast
+            </h3>
             <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+              <table class="w-full text-left text-sm text-slate-700 border-collapse">
                 <thead>
-                  <tr class="border-b border-slate-800 text-slate-400 uppercase text-xs">
-                    <th class="py-3 px-4">Metric</th>
-                    <th class="py-3 px-4">Definition</th>
-                    <th class="py-3 px-4">Typical Value (per m²)</th>
-                    <th class="py-3 px-4">Status</th>
+                  <tr class="border-b border-slate-200 text-slate-500 uppercase text-xs font-semibold">
+                    <th class="py-3 px-4">Feature</th>
+                    <th class="py-3 px-4">Traditional Precast</th>
+                    <th class="py-3 px-4 text-emerald-700 bg-emerald-50/50">SthiraX Carbon-Cured</th>
+                    <th class="py-3 px-4">Why It Matters</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-slate-800/60">
+                <tbody class="divide-y divide-slate-100">
                   <tr>
-                    <td class="py-3 px-4 font-bold text-white">Gross CO₂ Injected</td>
-                    <td class="py-3 px-4 text-slate-400">Total gas metered into the curing chamber</td>
-                    <td class="py-3 px-4 font-mono text-slate-200">32.0 kg</td>
-                    <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-xs bg-slate-800 text-slate-300">Measured (Coriolis)</span></td>
+                    <td class="py-3.5 px-4 font-semibold text-slate-900">Carbon Balance</td>
+                    <td class="py-3.5 px-4 text-rose-600 font-medium">+350 to +450 kg CO₂ / tonne</td>
+                    <td class="py-3.5 px-4 font-bold text-emerald-700 bg-emerald-50/50">Permanently sequestered CO₂</td>
+                    <td class="py-3.5 px-4 text-slate-500 text-xs">Direct climate impact & ESG compliance</td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-bold text-emerald-400">Gross Mineralized</td>
-                    <td class="py-3 px-4 text-slate-400">CO₂ chemically converted into solid calcite</td>
-                    <td class="py-3 px-4 font-mono text-emerald-300">28.5 kg (89%)</td>
-                    <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-xs bg-emerald-950 text-emerald-400">TGA Validated</span></td>
+                    <td class="py-3.5 px-4 font-semibold text-slate-900">28-Day Strength</td>
+                    <td class="py-3.5 px-4 text-slate-600">35 – 40 MPa</td>
+                    <td class="py-3.5 px-4 font-bold text-emerald-700 bg-emerald-50/50">46.2 – 48.5 MPa (Exceeds M40)</td>
+                    <td class="py-3.5 px-4 text-slate-500 text-xs">Micro-crystalline pore refinement</td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-bold text-cyan-400">Net Gate-to-Gate Removal</td>
-                    <td class="py-3 px-4 text-slate-400">Gross mineralized minus parasitic electricity & transport</td>
-                    <td class="py-3 px-4 font-mono text-cyan-300">25.1 kg</td>
-                    <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-xs bg-cyan-950 text-cyan-400">Certified Claim</span></td>
+                    <td class="py-3.5 px-4 font-semibold text-slate-900">Recycled Content</td>
+                    <td class="py-3.5 px-4 text-slate-600">10% – 15% Max</td>
+                    <td class="py-3.5 px-4 font-bold text-emerald-700 bg-emerald-50/50">Up to 60% Fly Ash & Slag</td>
+                    <td class="py-3.5 px-4 text-slate-500 text-xs">Complies with CPCB C&D Rules 2025</td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-bold text-amber-400">Avoided Emissions</td>
-                    <td class="py-3 px-4 text-slate-400">Displaced virgin Portland cement via pozzolanic blends</td>
-                    <td class="py-3 px-4 font-mono text-amber-300">14.8 kg</td>
-                    <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-xs bg-amber-950 text-amber-400">Separate LCA Metric</span></td>
+                    <td class="py-3.5 px-4 font-semibold text-slate-900">Verification Proof</td>
+                    <td class="py-3.5 px-4 text-slate-600">Paper certificates / Unverified</td>
+                    <td class="py-3.5 px-4 font-bold text-emerald-700 bg-emerald-50/50">Scannable QR Digital Passport</td>
+                    <td class="py-3.5 px-4 text-slate-500 text-xs">Coriolis mass flow sensor telemetry</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-        </div>
+
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 2: INDUSTRIAL VALUE CHAIN FLOW         -->
+        <!-- ========================================== -->
+        <section *ngIf="activeTab === 'flow'" class="tab-pane animate-fade">
+          
+          <div class="section-intro mb-8">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              End-to-End Industrial Value Chain Flow
+            </h2>
+            <p class="text-slate-600 text-base max-w-3xl mt-1">
+              How captured gas journeys from ethanol distilleries to finished footpath pavers in 5 transparent, verifiable stages:
+            </p>
+          </div>
+
+          <!-- Vertical Timeline with High-Contrast Stage Cards -->
+          <div class="timeline-container">
+            
+            <!-- Stage 1 -->
+            <div class="timeline-row">
+              <div class="timeline-marker">1</div>
+              <div class="timeline-card">
+                <div class="timeline-tag">STAGE 01 &bull; SOURCE OFFTAKE</div>
+                <h3 class="timeline-title">Biogenic CO₂ Capture & Cryogenic Liquefaction</h3>
+                <p class="timeline-body">
+                  High-purity CO₂ (>98.5%) is captured from industrial fermentation (e.g., Deccan Distilleries, Belagavi). The gas is scrubbed, compressed, and liquefied at -20°C / 20 bar, then loaded into 18-tonne vacuum-insulated cryogenic road tankers.
+                </p>
+                <div class="timeline-metrics">
+                  <span class="metric-pill">Feedstock: Biogenic Ethanol Flue</span>
+                  <span class="metric-pill">Purity: >98.5% Vol</span>
+                  <span class="metric-pill">Logistics: Cryo Tankers (80–120 km)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="timeline-row">
+              <div class="timeline-marker">2</div>
+              <div class="timeline-card">
+                <div class="timeline-tag">STAGE 02 &bull; PLANT RETROFIT</div>
+                <h3 class="timeline-title">Modular Precast Kiln Skid & Controlled Injection</h3>
+                <p class="timeline-body">
+                  Existing partner precast sheds (e.g. Hosur Pilot Facility) are upgraded with airtight silicone door gaskets, vaporization manifolds, and Coriolis mass-flow meters. Liquefied CO₂ is vaporized and metered into curing enclosures at 1.2 – 1.4 bar.
+                </p>
+                <div class="timeline-metrics">
+                  <span class="metric-pill">Retrofit CapEx: ~₹18.0 Lakhs</span>
+                  <span class="metric-pill">Install Time: 3 Weeks</span>
+                  <span class="metric-pill">Pressure: 1.25 bar Controlled</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="timeline-row">
+              <div class="timeline-marker">3</div>
+              <div class="timeline-card">
+                <div class="timeline-tag">STAGE 03 &bull; THERMOCHEMICAL REACTION</div>
+                <h3 class="timeline-title">Accelerated Carbonation Curing (18–24 Hours)</h3>
+                <p class="timeline-body">
+                  CO₂ gas diffuses into porous fresh concrete, reacting exothermically with free calcium hydroxide (Portlandite) to form microscopic calcite crystals (CaCO₃). This seals micro-capillaries, delivering 28-day target strength in just 24 hours.
+                </p>
+                <div class="timeline-metrics">
+                  <span class="metric-pill">Curing Cycle: 18 – 24 Hours</span>
+                  <span class="metric-pill">Reaction Yield: 85% – 89%</span>
+                  <span class="metric-pill">Chamber Temp: 45°C Controlled</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="timeline-row">
+              <div class="timeline-marker">4</div>
+              <div class="timeline-card">
+                <div class="timeline-tag">STAGE 04 &bull; QUALITY AUDIT</div>
+                <h3 class="timeline-title">NABL Laboratory Compressive Strength Break Tests</h3>
+                <p class="timeline-body">
+                  Core sample specimens from every batch run are crushed in calibrated compressive testing machines. Independent NABL-accredited test reports verify M40 / M50 strength compliance under Indian Standards (IS 15658 / IS 2185).
+                </p>
+                <div class="timeline-metrics">
+                  <span class="metric-pill">Target: 40.0 MPa (Achieved: 46.2 – 48.5 MPa)</span>
+                  <span class="metric-pill">Standard: IS 15658:2006</span>
+                  <span class="metric-pill">Carbonation Depth: Verified by Phenolphthalein</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="timeline-row">
+              <div class="timeline-marker">5</div>
+              <div class="timeline-card">
+                <div class="timeline-tag">STAGE 05 &bull; DIGITAL PASSPORT</div>
+                <h3 class="timeline-title">Cryptographic Digital Product Passport & Site Delivery</h3>
+                <p class="timeline-body">
+                  Approved batches generate an immutable Digital Product Passport. A tamper-evident QR code is affixed to every shipping pallet. Site engineers and sustainability auditors scan the code to inspect gas injection logs, NABL lab certificates, and net carbon balances.
+                </p>
+                <div class="timeline-metrics">
+                  <span class="metric-pill">Cryptographic Proof: SHA-256 Hash</span>
+                  <span class="metric-pill">Passport Status: Publicly Verifiable</span>
+                  <span class="metric-pill">Audit Trail: PostgreSQL Timestamped</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 3: SOFTWARE & IOT ARCHITECTURE        -->
+        <!-- ========================================== -->
+        <section *ngIf="activeTab === 'system'" class="tab-pane animate-fade">
+          
+          <div class="section-intro mb-8">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Software & Industrial Hardware Architecture
+            </h2>
+            <p class="text-slate-600 text-base max-w-3xl mt-1">
+              Engineered as a high-reliability, modular monolith designed for industrial telemetry ingestion, zero data loss, and seamless operational audits:
+            </p>
+          </div>
+
+          <!-- Clean Tiered System Cards -->
+          <div class="space-y-6 mb-10">
+            
+            <!-- Tier 1: Client Layer -->
+            <div class="arch-card border-l-4 border-l-cyan-500">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+                <span class="arch-tier-pill text-cyan-800 bg-cyan-100">CLIENT & AUDITOR INTERFACE</span>
+                <span class="font-mono text-xs text-slate-500">Port 4200 &bull; Single-Page App</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1">Angular 17 Standalone Architecture</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                Reactive, modern TypeScript frontend featuring standalone components, Tailwind CSS styling, responsive layout controls, and client-side economic calculators. Integrates role-based route guards for Operations Managers, Plant Operators, and QA Reviewers.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="tech-tag">Angular 17</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Reactive Forms</span>
+                <span class="tech-tag">Standalone Components</span>
+              </div>
+            </div>
+
+            <!-- Tier 2: Application Layer -->
+            <div class="arch-card border-l-4 border-l-emerald-500">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+                <span class="arch-tier-pill text-emerald-800 bg-emerald-100">CORE APPLICATION ENGINE</span>
+                <span class="font-mono text-xs text-slate-500">Port 8088 &bull; REST API</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1">Spring Boot 2.6 Modular Monolith (Java 17)</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                High-throughput, stateless Spring Boot service housing the Carbon Accounting Service (Gate-to-Gate mass balance engine), Retrofit Economics Engine, and Tamper-Evident Audit Logger. Exposes full OpenAPI 3.0 documentation via interactive Swagger UI.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="tech-tag">Java 17</span>
+                <span class="tech-tag">Spring Security RBAC</span>
+                <span class="tech-tag">Springdoc OpenAPI 3.0</span>
+                <span class="tech-tag">HikariCP Pool</span>
+              </div>
+            </div>
+
+            <!-- Tier 3: Persistence & IoT Layer -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <div class="arch-card border-l-4 border-l-purple-500">
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="arch-tier-pill text-purple-800 bg-purple-100">PERSISTENCE TIER</span>
+                  <span class="font-mono text-xs text-slate-500">Port 5432</span>
+                </div>
+                <h4 class="text-base font-bold text-slate-900 mb-1">PostgreSQL 15 (Dockerized)</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                  Persistent Docker container volume storage. Houses 9 relational tables: plants, suppliers, batches, curing telemetry, product passports, enquiries, and immutable audit logs.
+                </p>
+                <div class="flex flex-wrap gap-1.5 text-xs">
+                  <span class="tech-tag">Docker Compose</span>
+                  <span class="tech-tag">Health Checks</span>
+                  <span class="tech-tag">Persistent Volumes</span>
+                </div>
+              </div>
+
+              <div class="arch-card border-l-4 border-l-amber-500">
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="arch-tier-pill text-amber-800 bg-amber-100">IOT HARDWARE INGESTION</span>
+                  <span class="font-mono text-xs text-slate-500">Modbus TCP</span>
+                </div>
+                <h4 class="text-base font-bold text-slate-900 mb-1">Coriolis Mass Flow Ingestion</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                  Direct physical sensor integration with Endress+Hauser Promass Coriolis meters, chamber thermocouple arrays, and pressure transducers to record tamper-proof mass balance data.
+                </p>
+                <div class="flex flex-wrap gap-1.5 text-xs">
+                  <span class="tech-tag">Coriolis Flow Sensors</span>
+                  <span class="tech-tag">PT100 Probes</span>
+                  <span class="tech-tag">Differential Pressure</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Interactive API Explorer CTA Card -->
+          <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-6 sm:p-8 rounded-xl text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-lg">
+            <div>
+              <div class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-1">Developer & Integration Access</div>
+              <h3 class="text-xl font-bold text-white">Interactive Swagger OpenAPI Explorer</h3>
+              <p class="text-sm text-slate-300 mt-1 max-w-xl">
+                Inspect REST endpoints, test live batch submissions, and review JSON schema contracts directly in your browser.
+              </p>
+            </div>
+            <a href="http://localhost:8088/swagger-ui/index.html" target="_blank" class="px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm flex items-center gap-2 transition-all shrink-0">
+              <span>Open Swagger UI</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 4: CARBON ACCOUNTING & CHEMISTRY       -->
+        <!-- ========================================== -->
+        <section *ngIf="activeTab === 'carbon'" class="tab-pane animate-fade">
+          
+          <div class="section-intro mb-8">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Carbon Accounting & Reaction Chemistry
+            </h2>
+            <p class="text-slate-600 text-base max-w-3xl mt-1">
+              Scientific boundary definitions distinguishing gross mineralized carbon, gate-to-gate net removal, and avoided scope 3 emissions:
+            </p>
+          </div>
+
+          <!-- Chemistry & Math Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full uppercase">Thermodynamic Chemistry</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Mineralization Reaction Stoichiometry</h3>
+              <div class="bg-slate-900 text-emerald-400 font-mono text-sm p-4 rounded-lg my-3 overflow-x-auto">
+                Ca(OH)₂ + CO₂ &rarr; CaCO₃ + H₂O (&Delta;H = &minus;74.4 kJ/mol)
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                The carbonation reaction is naturally exothermic. Free calcium hydroxide (Portlandite) present in hydrating cement combines with dissolved aqueous CO₂ to precipitate synthetic calcium carbonate (calcite). The crystal structure permanently bonds into the aggregate matrix.
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+              <span class="text-xs font-bold text-cyan-700 bg-cyan-50 border-cyan-200 px-2.5 py-1 rounded-full uppercase">Gate-to-Gate Boundary</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Net Physical Removal Equation</h3>
+              <div class="bg-slate-900 text-cyan-400 font-mono text-sm p-4 rounded-lg my-3 overflow-x-auto">
+                Net_Removal = CO₂_Mineralized &minus; (E_process + E_transport)
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Gross injected gas is NOT the same as certified net removal. SthiraX explicitly deducts parasitic electricity consumed by kiln blowers (0.04 kg CO₂/kWh) and diesel consumed by cryogenic road tankers (0.082 kg CO₂/tonne-km) before calculating net sequestered tons.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Detailed Boundary Comparison Card -->
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="text-lg font-bold text-slate-900 mb-4">Boundary Hierarchy & Disclosure Standards</h3>
+            <div class="space-y-4">
+              <div class="p-4 bg-slate-50 rounded-lg border border-slate-200/80">
+                <div class="font-bold text-slate-900 text-sm">1. Gross Injected CO₂ (Physical Input)</div>
+                <p class="text-xs text-slate-600 mt-1">Total mass of vaporized industrial gas metered into the chamber via Coriolis flow meter. Typically 32.0 kg / m².</p>
+              </div>
+
+              <div class="p-4 bg-emerald-50/60 rounded-lg border border-emerald-200">
+                <div class="font-bold text-emerald-900 text-sm">2. Gross Mineralized CO₂ (Permanent Calcite)</div>
+                <p class="text-xs text-emerald-800 mt-1">Gas chemically bound as solid calcium carbonate rock, verified via Thermal Gravimetric Analysis (TGA) & differential mass balance. Typically 28.5 kg / m² (89% uptake).</p>
+              </div>
+
+              <div class="p-4 bg-cyan-50/60 rounded-lg border border-cyan-200">
+                <div class="font-bold text-cyan-900 text-sm">3. Net Gate-to-Gate Carbon Removal (Certified Claim)</div>
+                <p class="text-xs text-cyan-800 mt-1">Gross mineralized carbon minus all process parasitic emissions (cryogenic trucking, vaporization energy, exhaust blowers). Typically 25.1 kg / m².</p>
+              </div>
+
+              <div class="p-4 bg-amber-50/60 rounded-lg border border-amber-200">
+                <div class="font-bold text-amber-900 text-sm">4. Scope 3 Avoided Emissions (Substitution Baseline)</div>
+                <p class="text-xs text-amber-800 mt-1">Emissions avoided by displacing virgin ordinary Portland cement through supplementary slag and fly ash pozzolans. Reported separately in LCA to maintain integrity.</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
 
         <!-- ========================================== -->
         <!-- TAB 5: STANDARDS & FAQS                    -->
         <!-- ========================================== -->
-        <div *ngIf="activeTab === 'faq'" class="space-y-8 animate-fadeIn">
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
-            <h2 class="text-2xl font-bold text-white mb-2">Indian Standards & Frequently Asked Questions</h2>
-            <p class="text-sm text-slate-400 mb-6">Certified testing compliance and answers for plant owners, procurement executives, and consumers.</p>
+        <section *ngIf="activeTab === 'faq'" class="tab-pane animate-fade">
+          
+          <div class="section-intro mb-8">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Indian Standards & Frequently Asked Questions
+            </h2>
+            <p class="text-slate-600 text-base max-w-3xl mt-1">
+              Clear answers to technical compliance, economics, and operational questions for contractors and plant partners:
+            </p>
+          </div>
 
-            <div class="space-y-4">
-              <div class="bg-slate-950 p-5 rounded-xl border border-slate-800">
-                <h3 class="text-base font-bold text-emerald-400 mb-2">Which Bureau of Indian Standards (BIS) specifications apply?</h3>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  All SthiraX products are formulated to exceed standard Indian construction specifications:
-                  <br>&bull; <strong>IS 15658:2006</strong>: Precast Concrete Blocks for Paving (M35 – M50 commercial grades).
-                  <br>&bull; <strong>IS 2185 Part 1:2005</strong>: Concrete Masonry Blocks (Solid and Hollow load-bearing units).
-                  <br>&bull; <strong>IRC:SP:63</strong>: Guidelines for Interlocking Concrete Block Pavements in Highway Infrastructure.
-                  <br>&bull; <strong>CPCB C&D Waste Rules, 2025</strong>: Mandates 20%–50% recycled aggregate utilization in municipal works.
-                </p>
-              </div>
-
-              <div class="bg-slate-950 p-5 rounded-xl border border-slate-800">
-                <h3 class="text-base font-bold text-emerald-400 mb-2">Can a precast manufacturer keep using existing curing chambers?</h3>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  <strong>Yes, absolutely.</strong> That is the core of our retrofit strategy. Instead of spending ₹5+ Crore on building a brand new plant, we install our turnkey skid (CO₂ vaporization manifold, airtight chamber gaskets, safety sensors, and telemetry controller) onto your existing steam or ambient curing sheds in 3 weeks for ~₹18 Lakhs.
-                </p>
-              </div>
-
-              <div class="bg-slate-950 p-5 rounded-xl border border-slate-800">
-                <h3 class="text-base font-bold text-emerald-400 mb-2">What is the delivery radius for liquid CO₂ tankers?</h3>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  Our regional cluster analysis indicates an optimal economic logistics radius of <strong>80 – 150 km</strong> from cryogenic liquefaction nodes (e.g. Bangalore-Hosur hub, Chennai-Sri City, Belagavi). Beyond 200 km, road freight parasitics reduce net removal efficiency.
-                </p>
-              </div>
-
-              <div class="bg-slate-950 p-5 rounded-xl border border-slate-800">
-                <h3 class="text-base font-bold text-emerald-400 mb-2">Are carbon credits guaranteed as upfront revenue?</h3>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  <strong>No.</strong> SthiraX treats carbon credits strictly as a non-guaranteed commercial upside. Our plant economics are designed to be profitable on precast material margins alone (selling pavers and blocks competitively to infrastructure contractors). When third-party VVB validation is completed under Puro.earth or India's CCTS, offtake proceeds provide bonus dividends.
-                </p>
-              </div>
+          <!-- FAQ Cards with Generous Spacing -->
+          <div class="space-y-4 mb-10">
+            
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+              <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="text-emerald-600">✓</span> Does SthiraX precast meet Bureau of Indian Standards (BIS)?
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Yes. All materials are engineered and laboratory-tested to satisfy or exceed Indian national codes:
+                <br>&bull; <strong>IS 15658:2006</strong>: Precast Concrete Blocks for Paving (M35 – M50 commercial grades).
+                <br>&bull; <strong>IS 2185 Part 1:2005</strong>: Concrete Masonry Blocks (Solid load-bearing units).
+                <br>&bull; <strong>IRC:SP:63</strong>: Interlocking Concrete Block Pavement guidelines for heavy-traffic municipal highways.
+                <br>&bull; <strong>CPCB C&D Waste Rules, 2025</strong>: Certified 20% to 50% recycled aggregate content.
+              </p>
             </div>
-          </div>
-        </div>
 
-        <!-- Call to Action Banner -->
-        <div class="mt-12 bg-gradient-to-r from-emerald-900/60 to-slate-900 p-8 rounded-2xl border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <h3 class="text-xl sm:text-2xl font-bold text-white">Ready to explore actual sample batches?</h3>
-            <p class="text-sm text-slate-300 mt-1">Look up verified Digital Product Passports with real telemetry and laboratory test data.</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+              <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="text-emerald-600">✓</span> What changes are needed at an existing precast plant?
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                No new factory construction is required. SthiraX installs a modular, skid-mounted vaporization manifold onto existing curing rooms, adds airtight silicone perimeter seals, and connects Coriolis gas meters and telemetry probes. Retrofit downtime is typically under 3 weeks.
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+              <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="text-emerald-600">✓</span> What is the payback period for a precast plant retrofit?
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                At an average annual volume of 12,000 tonnes and retrofit CapEx of ₹18 Lakhs, cement savings (replacing 20% OPC with fly ash/slag) combined with premium low-carbon selling prices deliver full capital payback within <strong>1.4 to 1.8 years</strong>.
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+              <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="text-emerald-600">✓</span> Are carbon removal credits needed for the business to be profitable?
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                <strong>No.</strong> SthiraX operates profitably strictly from material sales of certified precast concrete products. Carbon credits (such as Puro.earth or India's Carbon Credit Trading Scheme) are treated strictly as non-guaranteed financial upside.
+              </p>
+            </div>
+
           </div>
-          <div class="flex flex-wrap gap-3">
-            <a routerLink="/trace" class="btn btn-primary px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+
+        </section>
+
+        <!-- Bottom Explorer Action Box -->
+        <div class="docs-cta-card">
+          <div class="cta-content">
+            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Experience Live Batch Traceability</h3>
+            <p class="text-sm text-slate-600 mt-1 max-w-xl">
+              Inspect active Digital Product Passports with real mass-flow telemetry, NABL laboratory certificates, and cryptographic hashes.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a routerLink="/trace" class="btn btn-primary px-5 py-2.5 text-sm font-semibold flex items-center gap-2">
               <span>View SthiraX Trace™</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
-            <a routerLink="/tools" class="btn btn-secondary px-5 py-2.5 rounded-lg text-sm font-semibold">
+            <a routerLink="/tools" class="btn btn-secondary px-5 py-2.5 text-sm font-semibold">
               Economics Calculators
             </a>
           </div>
         </div>
 
       </main>
+
     </div>
   `,
   styles: [`
-    .docs-page {
-      background-color: var(--color-bg-base, #0F172A);
-      min-height: calc(100vh - 70px);
+    .docs-hub-root {
+      background-color: #F8FAFC;
+      min-height: calc(100vh - 64px);
     }
-    .animate-fadeIn {
-      animation: fadeIn 0.25s ease-in-out;
+    .docs-hero-section {
+      background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+      color: #ffffff;
+      padding: 3rem 1.5rem 2.5rem;
+      border-bottom: 1px solid #334155;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #34D399;
+      background: rgba(6, 78, 59, 0.4);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #34D399;
+      box-shadow: 0 0 8px #34D399;
+    }
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      max-width: 900px;
+    }
+    @media (min-width: 640px) {
+      .hero-title { font-size: 3rem; }
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #34D399 0%, #38BDF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead {
+      font-size: 1rem;
+      color: #94A3B8;
+      max-width: 760px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    /* Segmented Nav Tabs */
+    .segmented-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.5rem;
+    }
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: #CBD5E1;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.8);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+    .tab-btn.active {
+      background: #059669;
+      color: #ffffff;
+      border-color: #10B981;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+    }
+
+    /* Overview Banner */
+    .overview-banner {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+    .banner-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #059669;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Step Cards */
+    .step-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      position: relative;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+    .step-num {
+      font-size: 2.25rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .step-num-rose { color: #F43F5E; }
+    .step-num-cyan { color: #06B6D4; }
+    .step-num-emerald { color: #10B981; }
+    
+    .step-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      border-width: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: #64748B;
+      line-height: 1.55;
+    }
+
+    /* Comparison Card */
+    .comparison-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Timeline Sequence */
+    .timeline-container {
+      position: relative;
+      border-left: 2px solid #CBD5E1;
+      margin-left: 1rem;
+      padding-left: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    @media (min-width: 640px) {
+      .timeline-container {
+        margin-left: 1.5rem;
+        padding-left: 2.25rem;
+      }
+    }
+    .timeline-row {
+      position: relative;
+    }
+    .timeline-marker {
+      position: absolute;
+      left: -2.45rem;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #059669;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      box-shadow: 0 0 0 4px #F8FAFC;
+    }
+    @media (min-width: 640px) {
+      .timeline-marker {
+        left: -3rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+      }
+    }
+    .timeline-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.875rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+    .timeline-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #059669;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+    .timeline-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-body {
+      font-size: 0.875rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .timeline-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .metric-pill {
+      font-size: 0.725rem;
+      font-weight: 600;
+      background: #F1F5F9;
+      color: #334155;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.375rem;
+    }
+
+    /* Architecture Tier Cards */
+    .arch-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.875rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+    .arch-tier-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+    .tech-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      color: #475569;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.3rem;
+    }
+
+    /* Bottom CTA Card */
+    .docs-cta-card {
+      margin-top: 3rem;
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    @media (min-width: 640px) {
+      .docs-cta-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      shrink: 0;
+    }
+
+    .animate-fade {
+      animation: fadeIn 0.2s ease-in-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
   `]
