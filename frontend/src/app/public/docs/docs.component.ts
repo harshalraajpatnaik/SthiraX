@@ -29,6 +29,15 @@ import { RouterModule } from '@angular/router';
           <div class="segmented-nav">
             <button 
               type="button"
+              (click)="activeTab = 'guide'" 
+              [class.active]="activeTab === 'guide'"
+              class="tab-btn">
+              <span class="tab-icon">🧭</span>
+              <span class="tab-text">Platform Guide & Sitemap</span>
+            </button>
+
+            <button 
+              type="button"
               (click)="activeTab = 'simple'" 
               [class.active]="activeTab === 'simple'"
               class="tab-btn">
@@ -87,6 +96,378 @@ import { RouterModule } from '@angular/router';
       <!-- Main Visual Workspace -->
       <main class="container-wide py-12">
         
+        <!-- ========================================== -->
+        <!-- TAB 0: MASTER PLATFORM GUIDE & SITEMAP     -->
+        <!-- ========================================== -->
+        <section *ngIf="activeTab === 'guide'" class="tab-pane animate-fade space-y-12">
+          
+          <!-- Section 1: Executive Mission & Core Fundamentals -->
+          <div class="guide-hero-banner">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="guide-badge">STHIRAX MASTER DIRECTORY & MANUAL</span>
+              <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                End-to-End System Guide
+              </span>
+            </div>
+            
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+              Understanding SthiraX: The Why, What, and How
+            </h2>
+            
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl mb-6">
+              A plain-English and technical roadmap explaining why we are mineralizing industrial emissions, what the platform does, and how every visitor—from a first-time contractor or curious amateur to a factory owner or software architect—can navigate and use the entire website.
+            </p>
+
+            <!-- The Why, What & How 3-Column Primer -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+              <div class="guide-primer-card border-l-4 border-l-emerald-600">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-lg">🌍</span>
+                  <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">1. The "WHY" (The Need)</h3>
+                </div>
+                <p class="text-xs text-slate-700 leading-relaxed">
+                  Cement manufacturing causes <strong>8% of global CO₂</strong>. India is building highways, metro lines, and smart cities at record scale. Meanwhile, <strong>CPCB C&D 2025 Rules</strong> mandate 20% to 50% non-clinker fines in public tenders. We must replace clinker with industrial pozzolans and bind captured carbon to stop emissions at the source.
+                </p>
+              </div>
+
+              <div class="guide-primer-card border-l-4 border-l-cyan-600">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-lg">🧪</span>
+                  <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">2. The "WHAT" (The Tech)</h3>
+                </div>
+                <p class="text-xs text-slate-700 leading-relaxed">
+                  We retrofit precast factories with modular skids that inject captured industrial CO₂ at 1.25 bar. The gas reacts with calcium hydroxide to create <strong>permanent synthetic limestone rock (calcite)</strong> in 24 hours. The blocks gain 20% higher strength, use 25% less cement, and carry verifiable Digital Product Passports.
+                </p>
+              </div>
+
+              <div class="guide-primer-card border-l-4 border-l-purple-600">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-lg">💰</span>
+                  <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">3. The Economics</h3>
+                </div>
+                <p class="text-xs text-slate-700 leading-relaxed">
+                  <strong>Zero dependence on carbon credits.</strong> Replacing expensive virgin cement with secondary slag lowers raw material costs by ₹230/t. Precast factories achieve a <strong>14.0-month CapEx payback</strong> and expand EBITDA margins to 14–16%, purely from material bill-of-materials savings.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Architectural Separation: Customer Public Window vs. Admin Operations Portal -->
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 inline-block mb-1">
+                SYSTEM TOPOLOGY & BOUNDARIES
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                Customer Public Window vs. Admin Operations Portal
+              </h3>
+              <p class="text-slate-600 text-xs sm:text-sm mt-0.5">
+                The platform is cleanly split into two distinct environments to ensure frictionless public discovery while protecting industrial plant operations and private commercial contracts.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              
+              <!-- Panel A: Customer & Public Window -->
+              <div class="guide-topology-card public-window">
+                <div class="flex items-center justify-between pb-3 border-b border-emerald-200/80 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <h4 class="font-bold text-base text-emerald-950">Customer & Public Window</h4>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-100 text-emerald-800">
+                    OPEN &bull; ZERO LOGIN
+                  </span>
+                </div>
+
+                <div class="space-y-3 text-xs text-slate-700 leading-relaxed">
+                  <p>
+                    <strong>Who uses this:</strong> Infrastructure contractors, highway developers, municipal tender officers, jobsite foremen, ESG consultants, and curious citizens.
+                  </p>
+                  
+                  <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-200/60 space-y-2">
+                    <strong class="text-emerald-900 block font-sans">Included Public Modules:</strong>
+                    <ul class="list-disc list-inside space-y-1 text-slate-600 font-mono text-[11px]">
+                      <li><span class="text-slate-900 font-bold">/</span> Corporate Landing & Value Chain Overview</li>
+                      <li><span class="text-slate-900 font-bold">/materials</span> Certified Precast Products Catalogue</li>
+                      <li><span class="text-slate-900 font-bold">/solutions/*</span> Factory Retrofit & CO₂ Offtake Feasibility</li>
+                      <li><span class="text-slate-900 font-bold">/trace</span> Digital Product Passport Registry Explorer</li>
+                      <li><span class="text-slate-900 font-bold">/passports/:id</span> Public Pallet QR Code Verification</li>
+                      <li><span class="text-slate-900 font-bold">/tools</span> Retrofit Payback & Embodied Carbon Calculators</li>
+                      <li><span class="text-slate-900 font-bold">/regulatory</span> Bureau of Indian Standards (BIS) Codes</li>
+                    </ul>
+                  </div>
+
+                  <div class="flex items-center gap-2 text-[11px] text-emerald-800 font-medium">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span><strong>Zero-Knowledge Rule:</strong> Technical specs & test breaks are transparent; private plant pricing is redacted.</span>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-emerald-200/80 mt-4 flex items-center justify-between">
+                  <span class="font-mono text-[11px] text-slate-500">Route Root: /</span>
+                  <a routerLink="/materials" class="text-xs font-bold text-emerald-700 hover:text-emerald-900 flex items-center gap-1">
+                    <span>Explore Products</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Panel B: Admin & Operations Portal -->
+              <div class="guide-topology-card admin-window">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-700 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+                    <h4 class="font-bold text-base text-white">Admin & Operations Portal</h4>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-slate-800 text-cyan-300 border border-cyan-500/30">
+                    RESTRICTED &bull; RBAC GATED
+                  </span>
+                </div>
+
+                <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                  <p>
+                    <strong>Who uses this:</strong> Plant curing operators, NABL accredited laboratory certifiers, factory managing directors, and carbon offtake auditors.
+                  </p>
+                  
+                  <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-700 space-y-2">
+                    <strong class="text-cyan-300 block font-sans">Included Authenticated Modules:</strong>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 font-mono text-[11px]">
+                      <li><span class="text-white font-bold">/app/dashboard</span> Plant Sequestration & Active Cycle KPIs</li>
+                      <li><span class="text-white font-bold">/app/batches</span> Real-time Modbus Coriolis Sensor Telemetry</li>
+                      <li><span class="text-white font-bold">/app/quality</span> NABL Lab Crush Sign-off & QA Authorization</li>
+                      <li><span class="text-white font-bold">/app/trace</span> Passport Publishing & QR Token Governance</li>
+                      <li><span class="text-white font-bold">/app/costing</span> Raw Material Bill-of-Materials & Margin Matrix</li>
+                      <li><span class="text-white font-bold">/app/carbon-offtake</span> Puro.earth & CCTS Buyer Pipeline</li>
+                      <li><span class="text-white font-bold">/app/audit-log</span> Immutable PostgreSQL 15 Event Ledger</li>
+                    </ul>
+                  </div>
+
+                  <div class="flex items-center gap-2 text-[11px] text-cyan-300 font-medium">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span><strong>Security:</strong> Gated behind /login using Angular authGuard and Spring Security 2.6.</span>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-700 mt-4 flex items-center justify-between">
+                  <span class="font-mono text-[11px] text-slate-400">Route Root: /app/*</span>
+                  <a routerLink="/login" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+                    <span>Portal Sign In</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Section 3: Interactive Step-by-Step User Journeys -->
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 inline-block mb-1">
+                HOW TO USE THE PLATFORM STEP-BY-STEP
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                Select Your Role for an Interactive Walkthrough
+              </h3>
+              <p class="text-slate-600 text-xs sm:text-sm mt-0.5">
+                Click any of the four personas below to see their exact four-step journey through the website.
+              </p>
+            </div>
+
+            <!-- Persona Selectors -->
+            <div class="flex flex-wrap gap-2.5">
+              <button 
+                *ngFor="let p of personas" 
+                type="button"
+                (click)="activePersona = p.id"
+                [class.active]="activePersona === p.id"
+                class="guide-persona-btn">
+                <span class="text-base">{{ p.icon }}</span>
+                <span class="font-bold">{{ p.name }}</span>
+              </button>
+            </div>
+
+            <!-- Active Persona Journey Card -->
+            <div class="guide-journey-card">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-2xl">{{ currentPersona.icon }}</span>
+                    <h4 class="text-lg font-extrabold text-slate-900">{{ currentPersona.personaName }}</h4>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-0.5">{{ currentPersona.role }}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  4-STEP INTERACTIVE WORKFLOW
+                </span>
+              </div>
+
+              <!-- 4-Step Progression Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+                <div *ngFor="let step of currentPersona.steps" class="guide-step-card flex flex-col justify-between">
+                  <div>
+                    <span class="guide-step-num">{{ step.num }}</span>
+                    <h5 class="text-sm font-bold text-slate-900 mt-2 mb-1.5">{{ step.title }}</h5>
+                    <p class="text-xs text-slate-600 leading-relaxed">{{ step.desc }}</p>
+                  </div>
+                  <div class="pt-3 border-t border-slate-100 mt-3">
+                    <a [routerLink]="step.link" class="text-xs font-semibold text-emerald-700 hover:text-emerald-900 flex items-center gap-1">
+                      <span>{{ step.linkText }}</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: Complete Section-by-Section Platform Directory -->
+          <div class="space-y-4">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div>
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 inline-block mb-1">
+                  PLATFORM SITEMAP & DIRECTORY
+                </span>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                  Every Section on the Website & What It Does
+                </h3>
+                <p class="text-slate-600 text-xs sm:text-sm mt-0.5">
+                  Filter by access type to explore what each route delivers:
+                </p>
+              </div>
+
+              <!-- Filter Pills -->
+              <div class="flex items-center gap-1.5 bg-slate-200/70 p-1 rounded-xl text-xs font-semibold">
+                <button 
+                  type="button" 
+                  (click)="directoryFilter = 'all'" 
+                  [class.bg-white]="directoryFilter === 'all'"
+                  [class.text-slate-900]="directoryFilter === 'all'"
+                  class="px-3 py-1 rounded-lg transition-all text-slate-600">
+                  All ({{ modules.length }})
+                </button>
+                <button 
+                  type="button" 
+                  (click)="directoryFilter = 'public'" 
+                  [class.bg-white]="directoryFilter === 'public'"
+                  [class.text-emerald-800]="directoryFilter === 'public'"
+                  class="px-3 py-1 rounded-lg transition-all text-slate-600">
+                  Public Window (9)
+                </button>
+                <button 
+                  type="button" 
+                  (click)="directoryFilter = 'admin'" 
+                  [class.bg-white]="directoryFilter === 'admin'"
+                  [class.text-slate-900]="directoryFilter === 'admin'"
+                  class="px-3 py-1 rounded-lg transition-all text-slate-600">
+                  Admin Portal (7)
+                </button>
+              </div>
+            </div>
+
+            <!-- Directory Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div *ngFor="let m of filteredModules" class="guide-module-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-2">
+                    <span 
+                      class="px-2 py-0.5 rounded text-[10px] font-mono font-bold"
+                      [ngClass]="m.type === 'public' ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : 'bg-slate-900 text-cyan-300 border border-slate-700'">
+                      {{ m.type === 'public' ? 'PUBLIC WINDOW' : 'ADMIN RBAC PORTAL' }}
+                    </span>
+                    <span class="font-mono text-xs text-slate-400">{{ m.route }}</span>
+                  </div>
+                  <h4 class="text-base font-bold text-slate-900 mb-1.5">{{ m.title }}</h4>
+                  <p class="text-xs text-slate-600 leading-relaxed mb-3">{{ m.desc }}</p>
+                </div>
+
+                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span class="text-slate-400 text-[11px] truncate max-w-[180px]">For: {{ m.audience }}</span>
+                  <a [routerLink]="m.route" class="font-bold text-emerald-700 hover:text-emerald-900 flex items-center gap-0.5">
+                    <span>Visit Page</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: The Triple Perspective: Architect, Product Manager, Commercial Sales -->
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 inline-block mb-1">
+                STRATEGIC SYNTHESIS
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                The Triple Perspective: Systems, Product & Commercial
+              </h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              
+              <div class="guide-perspective-card">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xl">🏛️</span>
+                  <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">The Systems Architect</h4>
+                </div>
+                <p class="text-xs text-slate-700 leading-relaxed mb-3">
+                  "Physical industrial hardware and cloud registries must never rely on manual inputs. We read fluid mass directly from Emerson CMF025 Coriolis flow transmitters via Modbus TCP. The Spring Boot backend stores every batch in 9 foreign-key constrained PostgreSQL tables, and mints an immutable SHA-256 hash. Private pricing is protected behind zero-knowledge projection views."
+                </p>
+                <div class="text-[11px] font-mono text-emerald-700 pt-2 border-t border-slate-100">
+                  Focus: Physical Grounding & Cryptographic Proof
+                </div>
+              </div>
+
+              <div class="guide-perspective-card">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xl">🎯</span>
+                  <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">The Product Manager</h4>
+                </div>
+                <p class="text-xs text-slate-700 leading-relaxed mb-3">
+                  "We eliminated all adoption friction. A site foreman does not need to download an app or create an account; their standard smartphone camera scans the physical pallet QR code and renders the certificate in under 1 second. Plant operators have large, high-contrast touch buttons; tender officers get one-click audit PDFs."
+                </p>
+                <div class="text-[11px] font-mono text-cyan-700 pt-2 border-t border-slate-100">
+                  Focus: Zero-Friction User Experience & Fast Verification
+                </div>
+              </div>
+
+              <div class="guide-perspective-card">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xl">💼</span>
+                  <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">The Commercial Director</h4>
+                </div>
+                <p class="text-xs text-slate-700 leading-relaxed mb-3">
+                  "We do not ask plant owners to take a risk on volatile carbon credits. By replacing 20% to 25% virgin cement with secondary slag, plant operators save ₹230/t on raw materials. The ₹35 Lakhs retrofit pays for itself in 14.0 months. Plus, meeting CPCB C&D 2025 mandates gives our partner plants preferred tender status."
+                </p>
+                <div class="text-[11px] font-mono text-purple-700 pt-2 border-t border-slate-100">
+                  Focus: 14-Month Payback & Tender Competitive Moat
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Section 6: Permanent Document Callout -->
+          <div class="p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+              <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest block mb-1">
+                PUBLICATION-GRADE REFERENCE DOCUMENT
+              </span>
+              <h4 class="text-lg sm:text-xl font-bold text-white">
+                Complete Technical Specification & Offline Manual
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
+                The full 500+ line technical and commercial manifesto is stored permanently inside the repository at <code class="bg-slate-800 text-emerald-300 px-1.5 py-0.5 rounded font-mono text-xs">docs/STHIRAX_END_TO_END_MASTER_GUIDE.md</code> for offline review, investor decks, and developer integrations.
+              </p>
+            </div>
+            <a routerLink="/docs" (click)="activeTab = 'simple'" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md shrink-0">
+              Read Executive Overview &rarr;
+            </a>
+          </div>
+
+        </section>
+
         <!-- ========================================== -->
         <!-- TAB 1: EXECUTIVE OVERVIEW                  -->
         <!-- ========================================== -->
@@ -1289,6 +1670,128 @@ import { RouterModule } from '@angular/router';
       shrink: 0;
     }
 
+    /* Guide & Topology Styles */
+    .guide-hero-banner {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04);
+    }
+    .guide-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #059669;
+      background: #ECFDF5;
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+      border: 1px solid #A7F3D0;
+      font-family: var(--font-mono, monospace);
+    }
+    .guide-primer-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+    }
+    .guide-topology-card {
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .guide-topology-card.public-window {
+      background: #ffffff;
+      border: 1.5px solid #A7F3D0;
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.08);
+    }
+    .guide-topology-card.admin-window {
+      background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
+      border: 1.5px solid #334155;
+      color: #ffffff;
+      box-shadow: 0 10px 20px -3px rgba(15, 23, 42, 0.25);
+    }
+    .guide-persona-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      background: #ffffff;
+      color: #475569;
+      border: 1px solid #CBD5E1;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+    }
+    .guide-persona-btn:hover {
+      background: #F1F5F9;
+      color: #0F172A;
+      border-color: #94A3B8;
+    }
+    .guide-persona-btn.active {
+      background: #0F172A;
+      color: #ffffff;
+      border-color: #0F172A;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15);
+    }
+    .guide-journey-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04);
+    }
+    .guide-step-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .guide-step-card:hover {
+      transform: translateY(-2px);
+      border-color: #CBD5E1;
+    }
+    .guide-step-num {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #059669;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.35rem;
+      display: inline-block;
+    }
+    .guide-module-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .guide-module-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px -2px rgba(15, 23, 42, 0.06);
+      border-color: #CBD5E1;
+    }
+    .guide-perspective-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.15rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .animate-fade {
       animation: fadeIn 0.2s ease-in-out;
     }
@@ -1299,5 +1802,282 @@ import { RouterModule } from '@angular/router';
   `]
 })
 export class DocsComponent {
-  activeTab: 'simple' | 'flow' | 'system' | 'carbon' | 'passport' | 'faq' = 'simple';
+  activeTab: 'guide' | 'simple' | 'flow' | 'system' | 'carbon' | 'passport' | 'faq' = 'guide';
+  activePersona: 'buyer' | 'owner' | 'inspector' | 'operator' = 'buyer';
+  directoryFilter: 'all' | 'public' | 'admin' = 'all';
+
+  personas = [
+    {
+      id: 'buyer' as const,
+      name: 'Municipal Buyer / Builder',
+      role: 'Procures certified precast for public highways, metro rail & urban transit plazas',
+      icon: '🏗️',
+      personaName: 'Rajesh Kumar (Highway Infrastructure Contractor)',
+      steps: [
+        {
+          num: '01',
+          title: 'Browse Certified Materials',
+          desc: 'Visit /materials to inspect M-40 heavy-duty paving blocks, solid masonry units, and road kerbstones.',
+          link: '/materials',
+          linkText: 'Open Catalogue'
+        },
+        {
+          num: '02',
+          title: 'Calculate Project Carbon Savings',
+          desc: 'Use the /tools calculator to enter your order volume (e.g. 15,000 m²) to see tonnes of CO₂ sequestered and clinker avoided.',
+          link: '/tools',
+          linkText: 'Run Carbon Estimator'
+        },
+        {
+          num: '03',
+          title: 'Request an Official Tender Quotation',
+          desc: 'Submit your delivery pincode and required compressive strength grade to receive competitive commercial pricing.',
+          link: '/contact',
+          linkText: 'Request Quotation'
+        },
+        {
+          num: '04',
+          title: 'Verify Pallet QR on Jobsite Delivery',
+          desc: 'Scan the weatherproof tag on any arriving pallet with your phone camera to instantly view the NABL break test report.',
+          link: '/trace',
+          linkText: 'Try Batch Lookup'
+        }
+      ]
+    },
+    {
+      id: 'owner' as const,
+      name: 'Precast Factory Owner',
+      role: 'Retrofits existing curing rooms to lower binder costs and expand EBITDA margins',
+      icon: '🏭',
+      personaName: 'Suresh Reddy (Managing Director, Precast Concrete)',
+      steps: [
+        {
+          num: '01',
+          title: 'Review Turnkey Skid Specifications',
+          desc: 'Open /solutions/manufacturers to understand modular CO₂ chamber sealing, vaporizer skids, and 3-week installation turnaround.',
+          link: '/solutions/manufacturers',
+          linkText: 'Skid Feasibility'
+        },
+        {
+          num: '02',
+          title: 'Model Unit Economics & Margins',
+          desc: 'Test delivered CO₂ cost (₹8,000/t) against cement binder savings in the /app/costing simulator to see your EBITDA jump to 14–16%.',
+          link: '/tools',
+          linkText: 'Open ROI Calculator'
+        },
+        {
+          num: '03',
+          title: 'Observe CapEx Payback Timeline',
+          desc: 'Calculate how a ₹35 Lakhs skid investment pays back in 14.0 months on 18,000 tonnes/year without relying on carbon offset sales.',
+          link: '/solutions/manufacturers',
+          linkText: 'Review Payback Model'
+        },
+        {
+          num: '04',
+          title: 'Apply for Chamber Inspection',
+          desc: 'Submit your plant location, capacity, and current binder mix to schedule on-site airtightness and sensor readiness auditing.',
+          link: '/solutions/manufacturers',
+          linkText: 'Apply for Retrofit'
+        }
+      ]
+    },
+    {
+      id: 'inspector' as const,
+      name: 'Jobsite Quality Inspector',
+      role: 'Validates structural strength, BIS compliance, and green claims for audits',
+      icon: '🔍',
+      personaName: 'Ananya Sharma (Quality Assurance Lead, NHAI Consultant)',
+      steps: [
+        {
+          num: '01',
+          title: 'Scan Physical Pallet QR Tag',
+          desc: 'Point any smartphone camera at the physical QR tag affixed to arriving concrete pallets on the jobsite.',
+          link: '/trace',
+          linkText: 'Inspect Live Demo QR'
+        },
+        {
+          num: '02',
+          title: 'Audit Cryptographic SHA-256 Hash',
+          desc: 'Review the immutable hash seal verifying that sensor readings and crush test logs have not been altered.',
+          link: '/passports/pass-7f9a2b4c',
+          linkText: 'Inspect Hash Seal'
+        },
+        {
+          num: '03',
+          title: 'Verify Compressive Crush Break Data',
+          desc: 'Confirm 28-day core tested strength (e.g. 48.2 MPa) against Bureau of Indian Standards IS 15658 / IS 2185 tolerances.',
+          link: '/regulatory',
+          linkText: 'View Indian Standards'
+        },
+        {
+          num: '04',
+          title: 'Download Formal Compliance Sheet',
+          desc: 'Obtain the zero-knowledge public compliance certificate and attach it to the official government tender audit archive.',
+          link: '/passports/pass-7f9a2b4c',
+          linkText: 'View Batch #B108'
+        }
+      ]
+    },
+    {
+      id: 'operator' as const,
+      name: 'Plant Operator & QA Lead',
+      role: 'Manages physical curing cycles, monitors sensors, and authorizes passport release',
+      icon: '⚙️',
+      personaName: 'Vikram Patel (Operations) & Dr. Meenakshi (NABL Reviewer)',
+      steps: [
+        {
+          num: '01',
+          title: 'Authenticate into Operations Portal',
+          desc: 'Sign into the secured /app/dashboard using role-based access control (RBAC) to manage plant operations.',
+          link: '/login',
+          linkText: 'Go to Portal Login'
+        },
+        {
+          num: '02',
+          title: 'Record Production Batch Run',
+          desc: 'In /app/batches, enter units, mix tonnage, and start the 24-hour pressurized CO₂ injection cycle.',
+          link: '/app/batches',
+          linkText: 'Open Batches Console'
+        },
+        {
+          num: '03',
+          title: 'Monitor Coriolis Sensor Telemetry',
+          desc: 'Stream 1-second Modbus TCP telemetry tracking mass injected (kg), pressure (1.25 bar), and chamber temperature (42°C).',
+          link: '/app/batches',
+          linkText: 'Inspect Telemetry'
+        },
+        {
+          num: '04',
+          title: 'Sign Off Review & Mint Live Passport',
+          desc: 'In /app/quality, review NABL break test data, sign off compliance, and trigger automatic SHA-256 passport publication.',
+          link: '/app/quality',
+          linkText: 'Open QA Review Desk'
+        }
+      ]
+    }
+  ];
+
+  modules = [
+    {
+      title: 'Home & Corporate Landing',
+      route: '/',
+      type: 'public' as const,
+      desc: 'Platform mission, live mineralized CO₂ counter, conventional vs SthiraX comparison, featured products, and live batch spotlight.',
+      audience: 'General Public, Buyers, Investors'
+    },
+    {
+      title: 'Precast Materials Catalogue',
+      route: '/materials',
+      type: 'public' as const,
+      desc: 'Browse certified low-carbon M-40 pavers, solid masonry blocks, and kerbstones with technical datasheets and carbon reduction metrics.',
+      audience: 'Civil Engineers, Contractors'
+    },
+    {
+      title: 'Manufacturer Retrofit Program',
+      route: '/solutions/manufacturers',
+      type: 'public' as const,
+      desc: 'Turnkey skid retrofits for existing precast factories with chamber silicone sealing, Coriolis flow meters, and onboarding forms.',
+      audience: 'Factory Owners, MDs'
+    },
+    {
+      title: 'Industrial CO₂ Offtake Intake',
+      route: '/solutions/co2-suppliers',
+      type: 'public' as const,
+      desc: 'Capture offtake for biogenic ethanol distilleries, chemical plants, and fertilizer flue gas with purity and logistics specs.',
+      audience: 'CO₂ Emitters, Refinery Leads'
+    },
+    {
+      title: 'Technology & Reaction Kinetics',
+      route: '/technology',
+      type: 'public' as const,
+      desc: 'Thermodynamics of exothermic mineralization (ΔH = -74.4 kJ/mol), pore densification, and accelerated 24-hour curing kinetics.',
+      audience: 'Chemical & Materials Engineers'
+    },
+    {
+      title: 'SthiraX Trace™ Passport Registry',
+      route: '/trace',
+      type: 'public' as const,
+      desc: 'Public verification registry, direct batch barcode search console, 9 verification pillars, and live certified batch highlights.',
+      audience: 'Auditors, Municipal Inspectors'
+    },
+    {
+      title: 'Verified Digital Product Passport',
+      route: '/passports/pass-7f9a2b4c',
+      type: 'public' as const,
+      desc: 'Live digital product passport showing SHA-256 seal, Coriolis flow telemetry, NABL laboratory break certificates, and zero-knowledge views.',
+      audience: 'Jobsite Foremen, Tender Reviewers'
+    },
+    {
+      title: 'Feasibility & ROI Calculators',
+      route: '/tools',
+      type: 'public' as const,
+      desc: 'Interactive financial and environmental calculators: plant CapEx payback in months, embodied carbon savings, and cement savings.',
+      audience: 'CFOs, Sustainability Officers'
+    },
+    {
+      title: 'Regulatory & Indian Standards',
+      route: '/regulatory',
+      type: 'public' as const,
+      desc: 'Comprehensive library of Bureau of Indian Standards (IS 15658, IS 2185), IRC:SP:63, and CPCB C&D Waste Management Rules 2025.',
+      audience: 'Compliance Leads, Legal Teams'
+    },
+    {
+      title: 'Plant Operations Dashboard',
+      route: '/app/dashboard',
+      type: 'admin' as const,
+      desc: 'High-level factory overview of active curing chambers, monthly sequestration totals, average 28-day strengths, and quick shortcuts.',
+      audience: 'Plant Managers, Executives'
+    },
+    {
+      title: 'Production Batches & Telemetry',
+      route: '/app/batches',
+      type: 'admin' as const,
+      desc: 'Live batch management, 1-second Modbus TCP Coriolis flow meter streaming, pressure curves, and lifecycle phase advancement.',
+      audience: 'Plant Curing Technicians'
+    },
+    {
+      title: 'Quality & NABL Reviews Desk',
+      route: '/app/quality',
+      type: 'admin' as const,
+      desc: 'Review mechanical core crush test reports, verify IS 15658 tolerances, and digitally sign off batches for public passport minting.',
+      audience: 'NABL Certified QA Leads'
+    },
+    {
+      title: 'Trace DPP Administration',
+      route: '/app/trace',
+      type: 'admin' as const,
+      desc: 'Configure public disclosure boundaries, audit SHA-256 cryptographic hashes, and generate jobsite QR tokens.',
+      audience: 'Traceability Administrators'
+    },
+    {
+      title: 'Cost Models & Payback Simulator',
+      route: '/app/costing',
+      type: 'admin' as const,
+      desc: 'Interactive plant margin simulator: delivered CO₂ cost vs selling price sensitivity grid, raw binder savings, and CapEx payback months.',
+      audience: 'Factory Owners, Commercial Directors'
+    },
+    {
+      title: 'Carbon Offtake Registry',
+      route: '/app/carbon-offtake',
+      type: 'admin' as const,
+      desc: 'Prospective corporate carbon removal pipeline (Puro.earth, CCTS) managed under strict non-guaranteed additionality governance.',
+      audience: 'Corporate Carbon Leads'
+    },
+    {
+      title: 'Governance Audit Trail Log',
+      route: '/app/audit-log',
+      type: 'admin' as const,
+      desc: 'Tamper-evident, append-only log recording every system action: operator submissions, approvals, and passport minting timestamps.',
+      audience: 'Third-Party Financial Auditors'
+    }
+  ];
+
+  get filteredModules() {
+    if (this.directoryFilter === 'all') return this.modules;
+    return this.modules.filter(m => m.type === this.directoryFilter);
+  }
+
+  get currentPersona() {
+    return this.personas.find(p => p.id === this.activePersona) || this.personas[0];
+  }
 }
